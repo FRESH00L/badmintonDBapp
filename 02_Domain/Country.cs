@@ -43,7 +43,12 @@ namespace BazyDanychBadminton._02_Domain
             return this.CountryDAO.Update(this);
         }
         public int DeleteCountry() {
-            return this.CountryDAO.Delete(this);
+            DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            if (dialogResult == DialogResult.Yes)
+            {
+                return this.CountryDAO.Delete(this);
+            }
+            return 0;
         }
         public void GenerateCountryCode()
         {

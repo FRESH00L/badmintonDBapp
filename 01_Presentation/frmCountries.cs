@@ -83,6 +83,8 @@ namespace BazyDanychBadminton
                     lbx_Countries.Items.Remove(country.CountryName);
                     tbx_CountryId.Text = "";
                     tbx_CountryName.Text = "";
+                    btn_Update.Enabled = false;
+                    btn_Delete.Enabled = false;
                 }
                 else
                 {
