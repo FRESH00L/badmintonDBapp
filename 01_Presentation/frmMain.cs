@@ -20,8 +20,6 @@ namespace BazyDanychBadminton._01_Presentation
         private void button1_Click(object sender, EventArgs e)
         {
             frmCountries window = new frmCountries();
-            this.Hide();
-            window.FormClosed += (s, args) => this.Show();
 
             window.ShowDialog();
         }
@@ -29,6 +27,12 @@ namespace BazyDanychBadminton._01_Presentation
         private void frmMain_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmPlayers window = new frmPlayers();
+            window.ShowDialog();
         }
     }
 }

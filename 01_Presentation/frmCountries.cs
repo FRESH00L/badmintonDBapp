@@ -50,7 +50,7 @@ namespace BazyDanychBadminton
                 }
                 else
                 {
-                    MessageBox.Show("An error happened ahile inserting a coutry.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("An error happened while inserting a coutry.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -114,6 +114,8 @@ namespace BazyDanychBadminton
                     lbx_Countries.Items.Add(newCountry.CountryName);
                     tbx_CountryId.Text = "";
                     tbx_CountryName.Text = "";
+                    btn_Delete.Enabled = false;
+                    btn_Update.Enabled = false;
                 }
                 else
                 {

@@ -40,11 +40,11 @@ namespace BazyDanychBadminton._02_Domain
             return this._playerDAO.RealAll();
         }
 
-        public void ReadPlayerById(int id)
+        public void ReadPlayerById()
         {
             this._playerDAO.ReadById(this);
         }
-        public void ReadPlayerByName(String name)
+        public void ReadPlayerByName()
         {
             this._playerDAO.ReadByName(this);
         }
@@ -61,8 +61,18 @@ namespace BazyDanychBadminton._02_Domain
 
         public int DeletePlayer()
         {
-            return this._playerDAO.Delete(this);
+            DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            if (dialogResult == DialogResult.Yes)
+            {
+                return this._playerDAO.Delete(this);
+            }
+            return 0;
+            
         }
-
+        public void GenerateCountryID()
+        {
+            string idCountry = this.PlayerCountry.CountryName.Substring(0, 3);
+            this.PlayerCountry.IdCountry = idCountry;
+        }
     }
 }

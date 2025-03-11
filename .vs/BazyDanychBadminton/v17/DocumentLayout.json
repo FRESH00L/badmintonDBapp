@@ -3,64 +3,36 @@
   "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_presentation\\frmtournaments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmtournaments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\01_presentation\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_presentation\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\countrydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\countrydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\playerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\playerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\tournamentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\tournamentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\01_presentation\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\tournament.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\tournament.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\countrydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\countrydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\01_presentation\\frmcountries.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmcountries.designer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\03_persistance\\dbbroker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:03_persistance\\dbbroker.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
   "DocumentGroupContainers": [
@@ -70,7 +42,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
@@ -80,59 +52,39 @@
               "RelativeDocumentMoniker": "01_Presentation\\frmMain.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmMain.cs",
               "RelativeToolTip": "01_Presentation\\frmMain.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAB4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAABoAAAAAAAAAAAAzwCIAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-06T21:45:09.283Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "frmCountries.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmCountries.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.cs [Projekt]",
-              "RelativeToolTip": "01_Presentation\\frmCountries.cs [Projekt]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-17T18:16:54.124Z",
-              "EditorCaption": " [Projekt]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "frmCountries.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmCountries.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.cs",
-              "RelativeToolTip": "01_Presentation\\frmCountries.cs",
-              "ViewState": "AgIAAEsAAAAAAAAAAAAowFYAAAAuAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T16:40:53.218Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "frmPlayers.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmPlayers.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs [Projekt]",
-              "RelativeToolTip": "01_Presentation\\frmPlayers.cs [Projekt]",
+              "Title": "frmCountries.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.cs",
+              "RelativeDocumentMoniker": "01_Presentation\\frmCountries.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.cs",
+              "RelativeToolTip": "01_Presentation\\frmCountries.cs",
+              "ViewState": "AgIAAFoAAAAAAAAAAAAowDQAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T21:42:47.751Z",
-              "EditorCaption": " [Projekt]"
+              "WhenOpened": "2025-03-11T16:51:01.858Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "frmTournaments.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmTournaments.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmTournaments.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmTournaments.cs [Projekt]",
-              "RelativeToolTip": "01_Presentation\\frmTournaments.cs [Projekt]",
+              "Title": "frmPlayers.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs",
+              "RelativeDocumentMoniker": "01_Presentation\\frmPlayers.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs",
+              "RelativeToolTip": "01_Presentation\\frmPlayers.cs",
+              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEIAAAAnAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T21:43:17.031Z",
-              "EditorCaption": " [Projekt]"
+              "WhenOpened": "2025-03-11T16:44:02.563Z",
+              "IsPinned": true,
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
@@ -142,122 +94,61 @@
               "RelativeDocumentMoniker": "02_Domain\\Country.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Country.cs",
               "RelativeToolTip": "02_Domain\\Country.cs",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAswDIAAAAUAAAAAAAAAA==",
+              "ViewState": "AgIAACAAAAAAAAAAAAAswDIAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-02-18T16:32:33.112Z",
+              "IsPinned": true,
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "frmMain.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmMain.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmMain.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmMain.cs [Projekt]",
-              "RelativeToolTip": "01_Presentation\\frmMain.cs [Projekt]",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T21:43:34.815Z",
-              "EditorCaption": " [Projekt]"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "CountryDAO.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\CountryDAO.cs",
-              "RelativeDocumentMoniker": "02_Domain\\CountryDAO.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\CountryDAO.cs",
-              "RelativeToolTip": "02_Domain\\CountryDAO.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAYwAoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T16:32:54.953Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "Tournament.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Tournament.cs",
-              "RelativeDocumentMoniker": "02_Domain\\Tournament.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Tournament.cs",
-              "RelativeToolTip": "02_Domain\\Tournament.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T21:41:24.333Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "PlayerDAO.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\PlayerDAO.cs",
-              "RelativeDocumentMoniker": "02_Domain\\PlayerDAO.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\PlayerDAO.cs",
-              "RelativeToolTip": "02_Domain\\PlayerDAO.cs",
-              "ViewState": "AgIAACYAAAAAAAAAAAAgwDEAAAAkAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T20:30:52.452Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 2,
               "Title": "Player.cs",
               "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Player.cs",
               "RelativeDocumentMoniker": "02_Domain\\Player.cs",
               "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Player.cs",
               "RelativeToolTip": "02_Domain\\Player.cs",
-              "ViewState": "AgIAAA4AAAAAAAAAAAAAwA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAQAAAAAAAAAAAD4vz8AAABEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-03-06T20:29:16.273Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "TournamentDAO.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\TournamentDAO.cs",
-              "RelativeDocumentMoniker": "02_Domain\\TournamentDAO.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\TournamentDAO.cs",
-              "RelativeToolTip": "02_Domain\\TournamentDAO.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 4,
+              "Title": "PlayerDAO.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\PlayerDAO.cs",
+              "RelativeDocumentMoniker": "02_Domain\\PlayerDAO.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\PlayerDAO.cs",
+              "RelativeToolTip": "02_Domain\\PlayerDAO.cs",
+              "ViewState": "AgIAADYAAAAAAAAAAAA0wDgAAADDAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T21:41:34.121Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\Program.cs",
-              "RelativeDocumentMoniker": "Program.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\Program.cs",
-              "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAAIAAAAAAAAAAAAIwBEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-25T16:08:57.964Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 14,
-              "Title": "DBBroker.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\03_Persistance\\DBBroker.cs",
-              "RelativeDocumentMoniker": "03_Persistance\\DBBroker.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\03_Persistance\\DBBroker.cs",
-              "RelativeToolTip": "03_Persistance\\DBBroker.cs",
-              "ViewState": "AgIAADcAAAAAAAAAAAAkwDgAAAAvAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T16:33:09.887Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 13,
-              "Title": "frmCountries.Designer.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.Designer.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmCountries.Designer.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.Designer.cs",
-              "RelativeToolTip": "01_Presentation\\frmCountries.Designer.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T20:22:48.884Z",
+              "WhenOpened": "2025-03-11T17:11:06.274Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CountryDAO.cs",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\CountryDAO.cs",
+              "RelativeDocumentMoniker": "02_Domain\\CountryDAO.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\CountryDAO.cs",
+              "RelativeToolTip": "02_Domain\\CountryDAO.cs",
+              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:11:41.594Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "frmPlayers.cs [Projekt]",
+              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs",
+              "RelativeDocumentMoniker": "01_Presentation\\frmPlayers.cs",
+              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs [Projekt]",
+              "RelativeToolTip": "01_Presentation\\frmPlayers.cs [Projekt]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-11T17:04:59.345Z"
             }
           ]
         }
