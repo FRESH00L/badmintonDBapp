@@ -111,6 +111,7 @@
             btn_Update.TabIndex = 8;
             btn_Update.Text = "Update";
             btn_Update.UseVisualStyleBackColor = true;
+            btn_Update.Click += btn_Update_Click;
             // 
             // btn_Delete
             // 
@@ -121,6 +122,7 @@
             btn_Delete.TabIndex = 9;
             btn_Delete.Text = "Delete";
             btn_Delete.UseVisualStyleBackColor = true;
+            btn_Delete.Click += btn_Delete_Click;
             // 
             // btn_Clear
             // 
@@ -130,6 +132,7 @@
             btn_Clear.TabIndex = 10;
             btn_Clear.Text = "Clear";
             btn_Clear.UseVisualStyleBackColor = true;
+            btn_Clear.Click += btn_Clear_Click;
             // 
             // frmCountries
             // 

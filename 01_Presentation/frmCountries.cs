@@ -1,4 +1,5 @@
 using BazyDanychBadminton._02_Domain;
+using System.Diagnostics;
 
 namespace BazyDanychBadminton
 {
@@ -9,18 +10,18 @@ namespace BazyDanychBadminton
         {
             InitializeComponent();
         }
-        private void FrmCountries_Load(object sender, EventArgs e)
-        {
-            
-        }
 
         private void lbx_Countries_SelectedIndexChanged(object sender, EventArgs e)
         {
+
             btn_Update.Enabled = true;
             btn_Delete.Enabled = true;
 
             country = new Country();
-            country.CountryName = lbx_Countries.SelectedItem.ToString();
+            if (lbx_Countries.SelectedItem != null)
+            {
+                country.CountryName = lbx_Countries.SelectedItem.ToString();
+            }
             try
             {
                 country.ReadCountryByName();
@@ -38,6 +39,7 @@ namespace BazyDanychBadminton
         {
             country = new Country(tbx_CountryId.Text);
             country.CountryName = tbx_CountryName.Text;
+            country.GenerateCountryCode();
             try
             {
                 if (country.InsertCountry() == 1)
@@ -68,6 +70,68 @@ namespace BazyDanychBadminton
             {
                 lbx_Countries.Items.Add(country.CountryName);
             }
+        }
+
+        private void btn_Delete_Click(object sender, EventArgs e)
+        {
+            country = new Country(tbx_CountryId.Text);
+            country.ReadCountryById();
+            try
+            {
+                if (country.DeleteCountry() == 1)
+                {
+                    lbx_Countries.Items.Remove(country.CountryName);
+                    tbx_CountryId.Text = "";
+                    tbx_CountryName.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("An error happened while deleting a country.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+        }
+
+        private void btn_Update_Click(object sender, EventArgs e)
+        {
+            country = new Country(tbx_CountryId.Text);
+            country.ReadCountryById();
+            Country newCountry = new Country(tbx_CountryId.Text);
+            newCountry.CountryName = tbx_CountryName.Text;
+            try
+            {
+                if (newCountry.UpdateCountry() == 1)
+                {
+                    lbx_Countries.Items.Remove(country.CountryName);
+                    lbx_Countries.Items.Add(newCountry.CountryName);
+                    tbx_CountryId.Text = "";
+                    tbx_CountryName.Text = "";
+                }
+                else
+                {
+                    MessageBox.Show("An error happened while updating a country.", "Error: UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+        }
+
+        private void btn_Clear_Click(object sender, EventArgs e)
+        {
+            tbx_CountryId.Text = "";
+            tbx_CountryName.Text = "";
+            btn_Delete.Enabled = false;
+            btn_Update.Enabled = false;     
         }
     }
 }

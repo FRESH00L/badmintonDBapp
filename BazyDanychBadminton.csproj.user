@@ -4,5 +4,14 @@
     <Compile Update="01_Presentation\frmCountries.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="01_Presentation\frmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="01_Presentation\frmPlayers.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="01_Presentation\frmTournaments.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

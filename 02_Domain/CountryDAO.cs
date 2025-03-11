@@ -39,7 +39,7 @@ namespace BazyDanychBadminton._02_Domain
             if (table.Count > 0)
             {
                 string[] row = table[0];
-                c.CountryName = row[0];
+                c.IdCountry = row[0];
             }
         }
         public int Insert(Country c)
@@ -49,13 +49,13 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int Update(Country c)
         {
-            string sql = "UPDATE Countries SET couName= '" + c.CountryName + "WHERE idCountry='" + c.IdCountry + "');";
+            string sql = "UPDATE Countries SET couName= '" + c.CountryName + "'WHERE idCountry='" + c.IdCountry + "';";
             return DBBroker.getInstance().Change(sql);
 
         }
         public int Delete(Country c)
         {
-            string sql = "DELETE FROM Countries WGERE idCountry='" + c.IdCountry + "');";
+            string sql = "DELETE FROM Countries WHERE idCountry='" + c.IdCountry + "';";
             return DBBroker.getInstance().Change(sql);
         }
     }

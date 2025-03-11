@@ -32,3 +32,7 @@ C:\Users\ASUS\Desktop\Przedmioty w hiszpanii\BazyDanych\BazyDanychBadminton\obj\
 C:\Users\ASUS\Desktop\Przedmioty w hiszpanii\BazyDanych\BazyDanychBadminton\obj\Debug\net8.0-windows\BazyDanychBadminton.genruntimeconfig.cache
 C:\Users\ASUS\Desktop\Przedmioty w hiszpanii\BazyDanych\BazyDanychBadminton\obj\Debug\net8.0-windows\ref\BazyDanychBadminton.dll
 C:\Users\ASUS\Desktop\Przedmioty w hiszpanii\BazyDanych\BazyDanychBadminton\obj\Debug\net8.0-windows\BazyDanychBadminton.frmCountries.resources
+C:\Users\ASUS\Desktop\Przedmioty w hiszpanii\BazyDanych\BazyDanychBadminton\obj\Debug\net8.0-windows\BazyDanychBadminton.sourcelink.json
+C:\Users\ASUS\Desktop\Przedmioty w hiszpanii\BazyDanych\BazyDanychBadminton\obj\Debug\net8.0-windows\BazyDanychBadminton._01_Presentation.frmMain.resources
+C:\Users\ASUS\Desktop\Przedmioty w hiszpanii\BazyDanych\BazyDanychBadminton\obj\Debug\net8.0-windows\BazyDanychBadminton._01_Presentation.frmPlayers.resources
+C:\Users\ASUS\Desktop\Przedmioty w hiszpanii\BazyDanych\BazyDanychBadminton\obj\Debug\net8.0-windows\BazyDanychBadminton._01_Presentation.frmTournaments.resources

@@ -1,6 +1,7 @@
-namespace BazyDanychBadminton
-{
-    internal static class Program
+
+using BazyDanychBadminton._01_Presentation;
+namespace BazyDanychBadminton;
+internal static class Program
     {
         /// <summary>
         ///  The main entry point for the application.
@@ -11,7 +12,6 @@ namespace BazyDanychBadminton
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
-            Application.Run(new frmCountries());
+            Application.Run(new frmMain());
         }
     }
-}

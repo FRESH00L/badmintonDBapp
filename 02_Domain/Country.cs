@@ -47,7 +47,15 @@ namespace BazyDanychBadminton._02_Domain
         }
         public void GenerateCountryCode()
         {
-
+            string idCountry = this.CountryName.Substring(0, 3);
+            Country countryInDB = new Country(idCountry);
+            this.CountryDAO.ReadById(countryInDB);
+            if (countryInDB.CountryName != "")
+            {
+                // if the country is found by that idCountry, get the next letter
+                idCountry = idCountry.Substring(0, 2) + this.CountryName.Substring(3, 1);
+            }
+            this.IdCountry = idCountry.ToUpper();
         }
     }
 }
