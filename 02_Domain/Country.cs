@@ -12,9 +12,21 @@ namespace BazyDanychBadminton._02_Domain
         private string _countryName;
         private CountryDAO _countryDAO;
 
-        public string IdCountry { get { return _idCountry; } set { _idCountry = value; } }
-        public string CountryName { get { return _countryName; } set { _countryName = value; } }
-        public CountryDAO CountryDAO { get { return _countryDAO; } set { _countryDAO = value; } }
+        public string IdCountry
+        {
+            get { return _idCountry; } 
+            set { _idCountry = value; } 
+        }
+        public string CountryName 
+        { 
+            get { return _countryName; } 
+            set { _countryName = value; } 
+        }
+        public CountryDAO CountryDAO 
+        { 
+            get { return _countryDAO; } 
+            set { _countryDAO = value; } 
+        }
         public Country() 
         {
             this._idCountry = "";

@@ -28,48 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
-            button1 = new Button();
-            button2 = new Button();
-            button3 = new Button();
+            btn_Countries = new Button();
+            btn_Players = new Button();
+            btn_Tournaments = new Button();
             SuspendLayout();
             // 
-            // button1
+            // btn_Countries
             // 
-            button1.Location = new Point(346, 35);
-            button1.Name = "button1";
-            button1.Size = new Size(205, 87);
-            button1.TabIndex = 0;
-            button1.Text = "Countries";
-            button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
+            btn_Countries.Location = new Point(388, 79);
+            btn_Countries.Margin = new Padding(2);
+            btn_Countries.Name = "btn_Countries";
+            btn_Countries.Size = new Size(164, 70);
+            btn_Countries.TabIndex = 0;
+            btn_Countries.Text = "Countries";
+            btn_Countries.UseVisualStyleBackColor = true;
+            btn_Countries.Click += button1_Click;
             // 
-            // button2
+            // btn_Players
             // 
-            button2.Location = new Point(346, 147);
-            button2.Name = "button2";
-            button2.Size = new Size(205, 87);
-            button2.TabIndex = 1;
-            button2.Text = "Players";
-            button2.UseVisualStyleBackColor = true;
-            button2.Click += button2_Click;
+            btn_Players.Location = new Point(388, 181);
+            btn_Players.Margin = new Padding(2);
+            btn_Players.Name = "btn_Players";
+            btn_Players.Size = new Size(164, 70);
+            btn_Players.TabIndex = 1;
+            btn_Players.Text = "Players";
+            btn_Players.UseVisualStyleBackColor = true;
+            btn_Players.Click += btn_Players_Click;
             // 
-            // button3
+            // btn_Tournaments
             // 
-            button3.Location = new Point(346, 260);
-            button3.Name = "button3";
-            button3.Size = new Size(205, 87);
-            button3.TabIndex = 2;
-            button3.Text = "Tournaments";
-            button3.UseVisualStyleBackColor = true;
+            btn_Tournaments.Location = new Point(388, 286);
+            btn_Tournaments.Margin = new Padding(2);
+            btn_Tournaments.Name = "btn_Tournaments";
+            btn_Tournaments.Size = new Size(164, 70);
+            btn_Tournaments.TabIndex = 2;
+            btn_Tournaments.Text = "Tournaments";
+            btn_Tournaments.UseVisualStyleBackColor = true;
+            btn_Tournaments.Click += btn_Tournaments_Click_1;
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(873, 450);
-            Controls.Add(button3);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            ClientSize = new Size(933, 451);
+            Controls.Add(btn_Tournaments);
+            Controls.Add(btn_Players);
+            Controls.Add(btn_Countries);
+            Margin = new Padding(2);
             Name = "frmMain";
             Text = "frmMain";
             Load += frmMain_Load;
@@ -78,8 +83,8 @@
 
         #endregion
 
-        private Button button1;
-        private Button button2;
-        private Button button3;
+        private Button btn_Countries;
+        private Button btn_Players;
+        private Button btn_Tournaments;
     }
 }

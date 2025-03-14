@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\BazyDanychBadminton.csproj": {}
+    "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\BazyDanychBadminton.csproj": {}
   },
   "projects": {
-    "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\BazyDanychBadminton.csproj": {
+    "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\BazyDanychBadminton.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\BazyDanychBadminton.csproj",
+        "projectUniqueName": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\BazyDanychBadminton.csproj",
         "projectName": "BazyDanychBadminton",
-        "projectPath": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\BazyDanychBadminton.csproj",
-        "packagesPath": "C:\\Users\\ASUS\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\obj\\",
+        "projectPath": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\BazyDanychBadminton.csproj",
+        "packagesPath": "C:\\Users\\Viict\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\ASUS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Viict\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],

@@ -1,37 +1,45 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\",
+  "WorkspaceRootPath": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\02_domain\\tournamentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\tournamentdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\02_domain\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\country.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\playerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\02_domain\\playerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\playerdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\01_presentation\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmmain.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\02_domain\\tournament.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\tournament.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\asus\\desktop\\przedmioty w hiszpanii\\bazydanych\\bazydanychbadminton\\02_domain\\countrydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\countrydao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\01_presentation\\frmtournaments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmtournaments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\01_presentation\\frmtournaments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmtournaments.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\02_domain\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:02_domain\\player.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|c:\\users\\viict\\onedrive - universidad de castilla-la mancha\\documentos\\github\\badmintondbapp\\01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmcountries.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
       "RelativeMoniker": "D:0:0:{962EB518-6E82-4E8D-A4C0-EBDD469A0F92}|BazyDanychBadminton.csproj|solutionrelative:01_presentation\\frmplayers.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     }
   ],
@@ -41,114 +49,141 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "DockedWidth": 253,
+          "SelectedChildIndex": 4,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "frmMain.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmMain.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmMain.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmMain.cs",
-              "RelativeToolTip": "01_Presentation\\frmMain.cs",
-              "ViewState": "AgIAABoAAAAAAAAAAAAzwCIAAAAMAAAAAAAAAA==",
+              "DocumentIndex": 6,
+              "Title": "Player.cs",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\Player.cs",
+              "RelativeDocumentMoniker": "02_Domain\\Player.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\Player.cs",
+              "RelativeToolTip": "02_Domain\\Player.cs",
+              "ViewState": "AgIAADoAAAAAAAAAAAAwwAoAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T21:45:09.283Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "frmCountries.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmCountries.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmCountries.cs",
-              "RelativeToolTip": "01_Presentation\\frmCountries.cs",
-              "ViewState": "AgIAAFoAAAAAAAAAAAAowDQAAAA4AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T16:51:01.858Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "frmPlayers.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmPlayers.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs",
-              "RelativeToolTip": "01_Presentation\\frmPlayers.cs",
-              "ViewState": "AgIAAC8AAAAAAAAAAAAwwEIAAAAnAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T16:44:02.563Z",
-              "IsPinned": true,
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Country.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Country.cs",
-              "RelativeDocumentMoniker": "02_Domain\\Country.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Country.cs",
-              "RelativeToolTip": "02_Domain\\Country.cs",
-              "ViewState": "AgIAACAAAAAAAAAAAAAswDIAAAAVAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-02-18T16:32:33.112Z",
-              "IsPinned": true,
+              "WhenOpened": "2025-03-14T15:14:26.167Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
-              "Title": "Player.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Player.cs",
-              "RelativeDocumentMoniker": "02_Domain\\Player.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\Player.cs",
-              "RelativeToolTip": "02_Domain\\Player.cs",
-              "ViewState": "AgIAAAQAAAAAAAAAAAD4vz8AAABEAAAAAAAAAA==",
+              "Title": "PlayerDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\PlayerDAO.cs",
+              "RelativeDocumentMoniker": "02_Domain\\PlayerDAO.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\PlayerDAO.cs",
+              "RelativeToolTip": "02_Domain\\PlayerDAO.cs",
+              "ViewState": "AgIAAAsAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-06T20:29:16.273Z",
+              "WhenOpened": "2025-03-14T15:14:14.946Z",
               "EditorCaption": ""
             },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "frmTournaments.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmTournaments.cs",
+              "RelativeDocumentMoniker": "01_Presentation\\frmTournaments.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmTournaments.cs [Dise\u00F1o]",
+              "RelativeToolTip": "01_Presentation\\frmTournaments.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T14:47:50.502Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Tournament.cs",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\Tournament.cs",
+              "RelativeDocumentMoniker": "02_Domain\\Tournament.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\Tournament.cs",
+              "RelativeToolTip": "02_Domain\\Tournament.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T14:19:43.929Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TournamentDAO.cs",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\TournamentDAO.cs",
+              "RelativeDocumentMoniker": "02_Domain\\TournamentDAO.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\TournamentDAO.cs",
+              "RelativeToolTip": "02_Domain\\TournamentDAO.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAuwAkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T14:19:45.74Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Country.cs",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\Country.cs",
+              "RelativeDocumentMoniker": "02_Domain\\Country.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\02_Domain\\Country.cs",
+              "RelativeToolTip": "02_Domain\\Country.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAaAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T14:20:08.113Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "frmCountries.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmCountries.cs",
+              "RelativeDocumentMoniker": "01_Presentation\\frmCountries.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmCountries.cs [Dise\u00F1o]",
+              "RelativeToolTip": "01_Presentation\\frmCountries.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T14:50:31.743Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "frmPlayers.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmPlayers.cs",
+              "RelativeDocumentMoniker": "01_Presentation\\frmPlayers.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmPlayers.cs [Dise\u00F1o]",
+              "RelativeToolTip": "01_Presentation\\frmPlayers.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-14T11:15:57.093Z",
+              "EditorCaption": " [Dise\u00F1o]"
+            }
+          ]
+        },
+        {
+          "DockedWidth": 167,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 4,
-              "Title": "PlayerDAO.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\PlayerDAO.cs",
-              "RelativeDocumentMoniker": "02_Domain\\PlayerDAO.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\PlayerDAO.cs",
-              "RelativeToolTip": "02_Domain\\PlayerDAO.cs",
-              "ViewState": "AgIAADYAAAAAAAAAAAA0wDgAAADDAAAAAAAAAA==",
+              "Title": "frmTournaments.cs",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmTournaments.cs",
+              "RelativeDocumentMoniker": "01_Presentation\\frmTournaments.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmTournaments.cs",
+              "RelativeToolTip": "01_Presentation\\frmTournaments.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:11:06.274Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "CountryDAO.cs",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\CountryDAO.cs",
-              "RelativeDocumentMoniker": "02_Domain\\CountryDAO.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\02_Domain\\CountryDAO.cs",
-              "RelativeToolTip": "02_Domain\\CountryDAO.cs",
-              "ViewState": "AgIAABMAAAAAAAAAAAAQwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:11:41.594Z",
+              "WhenOpened": "2025-03-14T11:17:39.789Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 7,
-              "Title": "frmPlayers.cs [Projekt]",
-              "DocumentMoniker": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs",
-              "RelativeDocumentMoniker": "01_Presentation\\frmPlayers.cs",
-              "ToolTip": "C:\\Users\\ASUS\\Desktop\\Przedmioty w hiszpanii\\BazyDanych\\BazyDanychBadminton\\01_Presentation\\frmPlayers.cs [Projekt]",
-              "RelativeToolTip": "01_Presentation\\frmPlayers.cs [Projekt]",
+              "Title": "frmCountries.cs",
+              "DocumentMoniker": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmCountries.cs",
+              "RelativeDocumentMoniker": "01_Presentation\\frmCountries.cs",
+              "ToolTip": "C:\\Users\\Viict\\OneDrive - Universidad de Castilla-La Mancha\\Documentos\\GitHub\\badmintonDBapp\\01_Presentation\\frmCountries.cs",
+              "RelativeToolTip": "01_Presentation\\frmCountries.cs",
+              "ViewState": "AgIAAG8AAAAAAAAAAAAIwGcAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-11T17:04:59.345Z"
+              "WhenOpened": "2025-03-14T14:10:34.986Z",
+              "EditorCaption": ""
             }
           ]
         }
