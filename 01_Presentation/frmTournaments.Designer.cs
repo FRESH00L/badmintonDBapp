@@ -40,6 +40,7 @@
             btn_Update = new Button();
             btn_Delete = new Button();
             btn_Clear = new Button();
+            lbl_TournamentId = new Label();
             SuspendLayout();
             // 
             // lbl_ListOfTournaments
@@ -81,7 +82,7 @@
             // lbl_TournamentCountry
             // 
             lbl_TournamentCountry.AutoSize = true;
-            lbl_TournamentCountry.Location = new Point(429, 197);
+            lbl_TournamentCountry.Location = new Point(429, 202);
             lbl_TournamentCountry.Name = "lbl_TournamentCountry";
             lbl_TournamentCountry.Size = new Size(146, 20);
             lbl_TournamentCountry.TabIndex = 4;
@@ -103,8 +104,9 @@
             // 
             // cmb_TournamentCountry
             // 
+            cmb_TournamentCountry.DropDownStyle = ComboBoxStyle.DropDownList;
             cmb_TournamentCountry.FormattingEnabled = true;
-            cmb_TournamentCountry.Location = new Point(581, 194);
+            cmb_TournamentCountry.Location = new Point(581, 199);
             cmb_TournamentCountry.Name = "cmb_TournamentCountry";
             cmb_TournamentCountry.Size = new Size(187, 28);
             cmb_TournamentCountry.TabIndex = 7;
@@ -121,6 +123,7 @@
             // 
             // btn_Update
             // 
+            btn_Update.Enabled = false;
             btn_Update.Location = new Point(493, 308);
             btn_Update.Name = "btn_Update";
             btn_Update.Size = new Size(94, 29);
@@ -131,6 +134,7 @@
             // 
             // btn_Delete
             // 
+            btn_Delete.Enabled = false;
             btn_Delete.Location = new Point(645, 308);
             btn_Delete.Name = "btn_Delete";
             btn_Delete.Size = new Size(94, 29);
@@ -150,11 +154,21 @@
             btn_Clear.UseVisualStyleBackColor = true;
             btn_Clear.Click += btn_Clear_Click;
             // 
+            // lbl_TournamentId
+            // 
+            lbl_TournamentId.AutoSize = true;
+            lbl_TournamentId.Location = new Point(429, 34);
+            lbl_TournamentId.Name = "lbl_TournamentId";
+            lbl_TournamentId.Size = new Size(0, 20);
+            lbl_TournamentId.TabIndex = 12;
+            lbl_TournamentId.Visible = false;
+            // 
             // frmTournaments
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(932, 450);
+            Controls.Add(lbl_TournamentId);
             Controls.Add(btn_Clear);
             Controls.Add(btn_Delete);
             Controls.Add(btn_Update);
@@ -188,5 +202,6 @@
         private Button btn_Update;
         private Button btn_Delete;
         private Button btn_Clear;
+        private Label lbl_TournamentId;
     }
 }

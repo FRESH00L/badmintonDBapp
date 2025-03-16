@@ -39,6 +39,7 @@ namespace BazyDanychBadminton._01_Presentation
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            lbl_TournamentId.Text = tournament.IdTournament.ToString();
             tbx_TournamentName.Text = tournament.TouName;
             tbx_TournamentCity.Text = tournament.TouCity;
             cmb_TournamentCountry.Text = tournament.TouCountry.CountryName;
@@ -66,7 +67,7 @@ namespace BazyDanychBadminton._01_Presentation
             tournament.TouName = tbx_TournamentName.Text;
             tournament.TouCity = tbx_TournamentCity.Text;
 
-          
+
             Country cou = new Country();
             cou.CountryName = cmb_TournamentCountry.Text;
             cou.ReadCountryByName();
@@ -96,26 +97,58 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
+            tournament = new Tournament(int.Parse(lbl_TournamentId.Text));
+            tournament.ReadTournamentById();
+            Tournament newTournament = new Tournament(tournament.IdTournament);
+            newTournament.TouName = tbx_TournamentName.Text;
+            newTournament.TouCity = tbx_TournamentCity.Text;
+            Country country = new Country();
+            country.CountryName = cmb_TournamentCountry.Text;
+            country.ReadCountryByName();
+            newTournament.TouCountry = country;
 
+            try
+            {
+                if (newTournament.UpdateTournament() == 1)
+                {
+                    lbx_Tournaments.Items.Remove(tournament.TouName);
+                    lbx_Tournaments.Items.Add(newTournament.TouName);
+                    lbl_TournamentId.Text = "";
+                    tbx_TournamentName.Text = "";
+                    tbx_TournamentCity.Text = "";
+                    cmb_TournamentCountry.SelectedIndex = -1;
+                }
+                else
+                {
+                    MessageBox.Show("An error happened while updating a tournament.", "Error: UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
         }
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            tournament = new Tournament();
+            tournament = new Tournament(int.Parse(lbl_TournamentId.Text));
             tournament.ReadTournamentById();
             try
             {
                 if (tournament.DeleteTournament() == 1)
                 {
                     lbx_Tournaments.Items.Remove(tournament.TouName);
+                    lbl_TournamentId.Text = "";
                     tbx_TournamentName.Text = "";
                     tbx_TournamentCity.Text = "";
-                    cmb_TournamentCountry.Text = "";
+                    cmb_TournamentCountry.SelectedIndex = -1;
                     btn_Update.Enabled = false;
                     btn_Delete.Enabled = false;
                 }
                 else
                 {
-                    MessageBox.Show("An error happened while deleting a country.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("An error happened while deleting the tournament.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -127,9 +160,10 @@ namespace BazyDanychBadminton._01_Presentation
         }
         private void btn_Clear_Click(object sender, EventArgs e)
         {
+            lbl_TournamentId.Text = "";
             tbx_TournamentName.Text = "";
             tbx_TournamentCity.Text = "";
-            cmb_TournamentCountry.Text = "";
+            cmb_TournamentCountry.SelectedIndex = -1;
             btn_Delete.Enabled = false;
             btn_Update.Enabled = false;
         }

@@ -57,6 +57,7 @@ namespace BazyDanychBadminton._02_Domain
             this._tournamentName = "";
             this._tournamentCity = "";
             this._tournamentCountry = new Country();
+            this._tournamentDAO = new TournamentDAO();
         }
 
         public List<Tournament> ReadAllTournaments()
