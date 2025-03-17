@@ -23,24 +23,18 @@ namespace BazyDanychBadminton._01_Presentation
         private void button1_Click(object sender, EventArgs e)
         {
             frmCountries window = new frmCountries();
-            this.Hide();
-            window.FormClosed += (s, args) => this.Show();
             window.ShowDialog();
         }
 
         private void btn_Players_Click(object sender, EventArgs e)
         {
             frmPlayers window = new frmPlayers();
-            this.Hide();
-            window.FormClosed += (s, args) => this.Show();
             window.ShowDialog();
         }
 
         private void btn_Tournaments_Click_1(object sender, EventArgs e)
         {
             frmTournaments window = new frmTournaments();
-            this.Hide();
-            window.FormClosed += (s, args) => this.Show();
             window.ShowDialog();
         }
     }
