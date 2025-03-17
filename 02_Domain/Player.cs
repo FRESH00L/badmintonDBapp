@@ -20,17 +20,17 @@ namespace BazyDanychBadminton._02_Domain
             get { return _idPlayer; } 
             set { _idPlayer = value; } 
         }
-        public string PlayerName 
+        public string PlaName 
         { 
             get { return _playerName; } 
             set { _playerName = value; } 
         }
-        public DateTime PlayerBirthDate 
+        public DateTime PlaBirthDate 
         {  
             get { return _playerBirthDate; } 
             set { _playerBirthDate = value; } 
         }
-        public Country PlayerCountry 
+        public Country PlaCountry 
         { 
             get { return _playerCountry; } 
             set { _playerCountry = value; } 
@@ -38,22 +38,22 @@ namespace BazyDanychBadminton._02_Domain
 
         public Player()
         {
-            this.PlayerName = "";
-            this.PlayerBirthDate = DateTime.Now;
-            this.PlayerCountry = new Country();
+            this._playerName = "";
+            this._playerBirthDate = DateTime.Now;
+            this._playerCountry = new Country();
             this._playerDAO = new PlayerDAO();
         }
-        public Player(int id)
+        public Player(int idPlayer)
         {
-            this.IdPlayer = id;
-            this.PlayerName = "";
-            this.PlayerBirthDate = DateTime.Now;
-            this.PlayerCountry = new Country();
+            this.IdPlayer = idPlayer;
+            this._playerName = "";
+            this._playerBirthDate = DateTime.Now;
+            this._playerCountry = new Country();
             this._playerDAO = new PlayerDAO();
         }
         public List<Player> ReadAllPlayers()
         {
-            return this._playerDAO.RealAll();
+            return this._playerDAO.ReadAll();
         }
 
         public void ReadPlayerById()
@@ -84,11 +84,6 @@ namespace BazyDanychBadminton._02_Domain
             }
             return 0;
             
-        }
-        public void GenerateCountryID() // TODO: revise what does this and check if we need one to generate the ID on oturnament and modify this one.
-        {
-            string idCountry = this.PlayerCountry.CountryName.Substring(0, 3);
-            this.PlayerCountry.IdCountry = idCountry;
         }
     }
 }
