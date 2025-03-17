@@ -39,71 +39,79 @@
             btn_Update = new Button();
             btn_Delete = new Button();
             btn_Clear = new Button();
+            lbl_ListOfPlayers = new Label();
             SuspendLayout();
             // 
             // lbx_ListOfPlayers
             // 
             lbx_ListOfPlayers.FormattingEnabled = true;
-            lbx_ListOfPlayers.ItemHeight = 25;
-            lbx_ListOfPlayers.Location = new Point(12, 12);
+            lbx_ListOfPlayers.Location = new Point(11, 34);
+            lbx_ListOfPlayers.Margin = new Padding(2, 2, 2, 2);
             lbx_ListOfPlayers.Name = "lbx_ListOfPlayers";
-            lbx_ListOfPlayers.Size = new Size(270, 529);
+            lbx_ListOfPlayers.Size = new Size(278, 404);
             lbx_ListOfPlayers.TabIndex = 0;
             lbx_ListOfPlayers.SelectedIndexChanged += lbx_ListOfPlayers_SelectedIndexChanged;
             // 
             // tbx_PlayerName
             // 
-            tbx_PlayerName.Location = new Point(514, 90);
+            tbx_PlayerName.Location = new Point(504, 101);
+            tbx_PlayerName.Margin = new Padding(2, 2, 2, 2);
             tbx_PlayerName.Name = "tbx_PlayerName";
-            tbx_PlayerName.Size = new Size(150, 31);
+            tbx_PlayerName.Size = new Size(294, 27);
             tbx_PlayerName.TabIndex = 1;
             // 
             // tbx_PlayerCountry
             // 
-            tbx_PlayerCountry.Location = new Point(514, 204);
+            tbx_PlayerCountry.Location = new Point(504, 188);
+            tbx_PlayerCountry.Margin = new Padding(2, 2, 2, 2);
             tbx_PlayerCountry.Name = "tbx_PlayerCountry";
-            tbx_PlayerCountry.Size = new Size(150, 31);
+            tbx_PlayerCountry.Size = new Size(294, 27);
             tbx_PlayerCountry.TabIndex = 3;
             // 
             // dbx_PlayerBirthDate
             // 
-            dbx_PlayerBirthDate.Location = new Point(514, 146);
+            dbx_PlayerBirthDate.Location = new Point(504, 143);
+            dbx_PlayerBirthDate.Margin = new Padding(2, 2, 2, 2);
             dbx_PlayerBirthDate.Name = "dbx_PlayerBirthDate";
-            dbx_PlayerBirthDate.Size = new Size(300, 31);
+            dbx_PlayerBirthDate.Size = new Size(294, 27);
             dbx_PlayerBirthDate.TabIndex = 4;
             // 
             // lbl_PlayerName
             // 
             lbl_PlayerName.AutoSize = true;
-            lbl_PlayerName.Location = new Point(414, 90);
+            lbl_PlayerName.Location = new Point(421, 104);
+            lbl_PlayerName.Margin = new Padding(2, 0, 2, 0);
             lbl_PlayerName.Name = "lbl_PlayerName";
-            lbl_PlayerName.Size = new Size(63, 25);
+            lbl_PlayerName.Size = new Size(52, 20);
             lbl_PlayerName.TabIndex = 5;
             lbl_PlayerName.Text = "Name:";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(414, 146);
+            label2.Location = new Point(421, 150);
+            label2.Margin = new Padding(2, 0, 2, 0);
             label2.Name = "label2";
-            label2.Size = new Size(94, 25);
+            label2.Size = new Size(79, 20);
             label2.TabIndex = 6;
             label2.Text = "Birth Date:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(414, 204);
+            label3.Location = new Point(421, 191);
+            label3.Margin = new Padding(2, 0, 2, 0);
             label3.Name = "label3";
-            label3.Size = new Size(79, 25);
+            label3.Size = new Size(63, 20);
             label3.TabIndex = 7;
             label3.Text = "Country:";
             // 
             // btn_Insert
             // 
-            btn_Insert.Location = new Point(414, 279);
+            btn_Insert.Location = new Point(331, 301);
+            btn_Insert.Margin = new Padding(2, 2, 2, 2);
             btn_Insert.Name = "btn_Insert";
-            btn_Insert.Size = new Size(112, 34);
+            btn_Insert.Size = new Size(90, 27);
             btn_Insert.TabIndex = 8;
             btn_Insert.Text = "Insert";
             btn_Insert.UseVisualStyleBackColor = true;
@@ -112,9 +120,10 @@
             // btn_Update
             // 
             btn_Update.Enabled = false;
-            btn_Update.Location = new Point(552, 279);
+            btn_Update.Location = new Point(472, 301);
+            btn_Update.Margin = new Padding(2, 2, 2, 2);
             btn_Update.Name = "btn_Update";
-            btn_Update.Size = new Size(112, 34);
+            btn_Update.Size = new Size(90, 27);
             btn_Update.TabIndex = 9;
             btn_Update.Text = "Update";
             btn_Update.UseVisualStyleBackColor = true;
@@ -123,9 +132,10 @@
             // btn_Delete
             // 
             btn_Delete.Enabled = false;
-            btn_Delete.Location = new Point(690, 279);
+            btn_Delete.Location = new Point(616, 301);
+            btn_Delete.Margin = new Padding(2, 2, 2, 2);
             btn_Delete.Name = "btn_Delete";
-            btn_Delete.Size = new Size(112, 34);
+            btn_Delete.Size = new Size(90, 27);
             btn_Delete.TabIndex = 10;
             btn_Delete.Text = "Delete";
             btn_Delete.UseVisualStyleBackColor = true;
@@ -133,19 +143,30 @@
             // 
             // btn_Clear
             // 
-            btn_Clear.Location = new Point(819, 279);
+            btn_Clear.Location = new Point(755, 301);
+            btn_Clear.Margin = new Padding(2, 2, 2, 2);
             btn_Clear.Name = "btn_Clear";
-            btn_Clear.Size = new Size(112, 34);
+            btn_Clear.Size = new Size(90, 27);
             btn_Clear.TabIndex = 11;
             btn_Clear.Text = "Clear";
             btn_Clear.UseVisualStyleBackColor = true;
             btn_Clear.Click += btn_Clear_Click;
             // 
+            // lbl_ListOfPlayers
+            // 
+            lbl_ListOfPlayers.AutoSize = true;
+            lbl_ListOfPlayers.Location = new Point(11, 9);
+            lbl_ListOfPlayers.Name = "lbl_ListOfPlayers";
+            lbl_ListOfPlayers.Size = new Size(100, 20);
+            lbl_ListOfPlayers.TabIndex = 12;
+            lbl_ListOfPlayers.Text = "List of players";
+            // 
             // frmPlayers
             // 
-            AutoScaleDimensions = new SizeF(10F, 25F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1092, 617);
+            ClientSize = new Size(931, 449);
+            Controls.Add(lbl_ListOfPlayers);
             Controls.Add(btn_Clear);
             Controls.Add(btn_Delete);
             Controls.Add(btn_Update);
@@ -157,6 +178,7 @@
             Controls.Add(tbx_PlayerCountry);
             Controls.Add(tbx_PlayerName);
             Controls.Add(lbx_ListOfPlayers);
+            Margin = new Padding(2, 2, 2, 2);
             Name = "frmPlayers";
             Text = "frmPlayers";
             Load += frmPlayers_Load;
@@ -177,5 +199,6 @@
         private Button btn_Update;
         private Button btn_Delete;
         private Button btn_Clear;
+        private Label lbl_ListOfPlayers;
     }
 }

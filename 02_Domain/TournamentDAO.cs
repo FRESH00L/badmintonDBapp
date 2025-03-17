@@ -3,10 +3,83 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using BazyDanychBadminton._02_Domain;
+using BazyDanychBadminton._03_Persistance;
 
 namespace BazyDanychBadminton._02_Domain
 {
-    internal class TournamentDAO
+    public class TournamentDAO
     {
+        public List<Tournament> ReadAll()
+        {
+            List<Tournament> result = new List<Tournament>();
+            string sql = "SELECT * FROM Tournaments ORDER BY idTournament;";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+            foreach (string[] row in table)
+            {
+                Tournament t = new Tournament();
+                t.IdTournament = int.Parse(row[0]);
+                t.TouName = row[1];
+                t.TouCity = row[2];
+                Country c = new Country(row[3]);
+                c.ReadCountryById();
+                t.TouCountry = c;
+                result.Add(t);
+            }
+            return result;
+        }
+
+        public void ReadById(Tournament t)
+        {
+            string sql = "SELECT * FROM Tournaments WHERE idTournament='" + t.IdTournament + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+            if (table.Count > 0)
+            {
+                string[] row = table[0];
+                t.IdTournament = int.Parse(row[0]);
+                t.TouName = row[1];
+                t.TouCity = row[2];
+                Country c = new Country(row[3]);
+                c.ReadCountryById();
+                t.TouCountry = c;
+            }
+        }
+
+        public void ReadByName(Tournament t)
+        {
+            string sql = "SELECT * FROM Tournaments WHERE touName='" + t.TouName + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+            if (table.Count > 0)
+            {
+                string[] row = table[0];
+                t.IdTournament = int.Parse(row[0]);
+                t.TouName = row[1];
+                t.TouCity = row[2];
+                Country c = new Country(row[3]);
+                c.ReadCountryById();
+                t.TouCountry = c;
+            }
+        }
+
+        public int Insert(Tournament t)
+        {
+            string sql = "INSERT INTO Tournaments(touName, touCity, touCountry) VALUES ('" + t.TouName + "', '" + t.TouCity + "', '" + t.TouCountry.IdCountry + "');";
+            return DBBroker.getInstance().Change(sql);
+        }
+        public int Update(Tournament t)
+        {
+            string sql = "UPDATE Tournaments SET touName= '" + t.TouName + "', touCity= '" + t.TouCity + "', touCountry= '" + t.TouCountry.IdCountry + "' WHERE idTournament='" + t.IdTournament + "';";
+            return DBBroker.getInstance().Change(sql);
+
+        }
+        public int Delete(Tournament t)
+        {
+            string sql = "DELETE FROM Tournaments WHERE idTournament='" + t.IdTournament + "';";
+            return DBBroker.getInstance().Change(sql);
+        }
+
+
+
     }
 }
+    

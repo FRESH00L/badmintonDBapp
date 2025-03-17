@@ -15,10 +15,26 @@ namespace BazyDanychBadminton._02_Domain
 
         private PlayerDAO _playerDAO;
 
-        public int IdPlayer { get { return _idPlayer; } set { _idPlayer = value; } }
-        public string PlayerName { get { return _playerName; } set { _playerName = value; } }
-        public DateTime PlayerBirthDate {  get { return _playerBirthDate; } set { _playerBirthDate = value; } }
-        public Country PlayerCountry { get { return _playerCountry; } set { _playerCountry = value; } }
+        public int IdPlayer 
+        { 
+            get { return _idPlayer; } 
+            set { _idPlayer = value; } 
+        }
+        public string PlayerName 
+        { 
+            get { return _playerName; } 
+            set { _playerName = value; } 
+        }
+        public DateTime PlayerBirthDate 
+        {  
+            get { return _playerBirthDate; } 
+            set { _playerBirthDate = value; } 
+        }
+        public Country PlayerCountry 
+        { 
+            get { return _playerCountry; } 
+            set { _playerCountry = value; } 
+        }
 
         public Player()
         {
@@ -69,7 +85,7 @@ namespace BazyDanychBadminton._02_Domain
             return 0;
             
         }
-        public void GenerateCountryID()
+        public void GenerateCountryID() // TODO: revise what does this and check if we need one to generate the ID on oturnament and modify this one.
         {
             string idCountry = this.PlayerCountry.CountryName.Substring(0, 3);
             this.PlayerCountry.IdCountry = idCountry;
