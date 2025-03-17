@@ -59,7 +59,7 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int Update(Player p)
         {
-            string sql = "UPDATE Players SET plaName='" + p.PlayerName + "' Where idPlayer='" + p.IdPlayer + "';";
+            string sql = "UPDATE Players SET plaName='" + p.PlayerName + "', plaBirthdate='" + p.PlayerBirthDate.ToString("yyyy-MM-dd") + "', plaCountry='"+ p.PlayerCountry.IdCountry +"' Where idPlayer='" + p.IdPlayer + "';";
             return DBBroker.getInstance().Change(sql);
         }
         public int Delete(Player p)

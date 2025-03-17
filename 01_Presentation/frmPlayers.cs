@@ -39,7 +39,7 @@ namespace BazyDanychBadminton._01_Presentation
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            dbx_PlayerBirthDate.DataContext = player.PlayerBirthDate;
+            dbx_PlayerBirthDate.Value = player.PlayerBirthDate;
             tbx_PlayerName.Text = player.PlayerName.ToString();
             tbx_PlayerCountry.Text = player.PlayerCountry.IdCountry;
         }
@@ -65,8 +65,6 @@ namespace BazyDanychBadminton._01_Presentation
             player.PlayerName = tbx_PlayerName.Text;
             player.PlayerCountry.CountryName = tbx_PlayerCountry.Text;
             player.GenerateCountryID();
-            
-            player.PlayerBirthDate = dbx_PlayerBirthDate.Value;
 
             try
             {
@@ -92,11 +90,30 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
+            DateTime selectedDate = dbx_PlayerBirthDate.Value;
+            DateTime today = DateTime.Today;
+            int age = today.Year - selectedDate.Year;
+            if (selectedDate.Date > today.AddYears(-age))
+            {
+                age--;
+            }
+            if (age >= 18)
+            {
+                player.PlayerBirthDate = dbx_PlayerBirthDate.Value;
+            }
+            else
+            {
+                MessageBox.Show("Not adult player!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
             player = new Player();
             player.PlayerName = lbx_ListOfPlayers.SelectedItem.ToString();
             player.ReadPlayerByName();
             Player newPlayer = new Player(player.IdPlayer);
             newPlayer.PlayerName = tbx_PlayerName.Text;
+            newPlayer.PlayerCountry.CountryName = tbx_PlayerCountry.Text;
+            newPlayer.PlayerBirthDate = dbx_PlayerBirthDate.Value;
+            newPlayer.GenerateCountryID();
 
             try
             {
