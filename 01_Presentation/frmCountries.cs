@@ -48,9 +48,13 @@ namespace BazyDanychBadminton
         {
             country = new Country(tbx_CountryId.Text);
             country.CountryName = tbx_CountryName.Text;
-            country.GenerateCountryCode();
             try
             {
+                if(country.GenerateCountryCode() == -1)
+                {
+                    MessageBox.Show("The lenght of country name is not acceptable.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
                 if (country.InsertCountry() == 1)
                 {
                     lbx_Countries.Items.Add(country.CountryName);
@@ -59,7 +63,7 @@ namespace BazyDanychBadminton
                 }
                 else
                 {
-                    MessageBox.Show("An error happened ahile inserting a country.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("An error happened while inserting a country.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -70,8 +74,9 @@ namespace BazyDanychBadminton
             }
 
         }
+        
 
-         private void btn_Update_Click(object sender, EventArgs e)
+        private void btn_Update_Click(object sender, EventArgs e)
         {
             country = new Country(tbx_CountryId.Text);
             country.ReadCountryById();

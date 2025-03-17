@@ -14,47 +14,53 @@ namespace BazyDanychBadminton._02_Domain
 
         public string IdCountry
         {
-            get { return _idCountry; } 
-            set { _idCountry = value; } 
+            get { return _idCountry; }
+            set { _idCountry = value; }
         }
-        public string CountryName 
-        { 
-            get { return _countryName; } 
-            set { _countryName = value; } 
+        public string CountryName
+        {
+            get { return _countryName; }
+            set { _countryName = value; }
         }
-        public CountryDAO CountryDAO 
-        { 
-            get { return _countryDAO; } 
-            set { _countryDAO = value; } 
+        public CountryDAO CountryDAO
+        {
+            get { return _countryDAO; }
+            set { _countryDAO = value; }
         }
-        public Country() 
+        public Country()
         {
             this._idCountry = "";
             this._countryName = "";
             this._countryDAO = new CountryDAO();
         }
-        public Country(string idCountry) 
+        public Country(string idCountry)
         {
             this._idCountry = idCountry;
             this._countryName = "";
             this._countryDAO = new CountryDAO();
         }
-        public List<Country> ReadAllCountries() {
+        public List<Country> ReadAllCountries()
+        {
             return this.CountryDAO.ReadAll();
         }
-        public void ReadCountryByName() {
+        public void ReadCountryByName()
+        {
             this.CountryDAO.ReadByName(this);
         }
-        public void ReadCountryById() {
+        public void ReadCountryById()
+        {
             this.CountryDAO.ReadById(this);
         }
-        public int InsertCountry() {
+        public int InsertCountry()
+        {
             return this.CountryDAO.Insert(this);
         }
-        public int UpdateCountry() { 
+        public int UpdateCountry()
+        {
             return this.CountryDAO.Update(this);
         }
-        public int DeleteCountry() {
+        public int DeleteCountry()
+        {
             DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (dialogResult == DialogResult.Yes)
             {
@@ -62,17 +68,29 @@ namespace BazyDanychBadminton._02_Domain
             }
             return 0;
         }
-        public void GenerateCountryCode()
+        public int GenerateCountryCode()
         {
-            string idCountry = this.CountryName.Substring(0, 3);
-            Country countryInDB = new Country(idCountry);
-            this.CountryDAO.ReadById(countryInDB);
-            if (countryInDB.CountryName != "")
+            if (CountryName.Length >= 3)
             {
-                // if the country is found by that idCountry, get the next letter
-                idCountry = idCountry.Substring(0, 2) + this.CountryName.Substring(3, 1);
+                string idCountry = this.CountryName.Substring(0, 3);
+                Country countryInDB = new Country(idCountry);
+                this.CountryDAO.ReadById(countryInDB);
+                if (countryInDB.CountryName != "")
+                {
+                    if (CountryName.Length > countryInDB.IdCountry.Length)
+                    {
+                        // if the country is found by that idCountry, get the next letter
+                        idCountry = idCountry.Substring(0, 2) + this.CountryName.Substring(3, 1);
+                    }
+                    else
+                    {
+                        return -1;
+                    }
+                }                
+                this.IdCountry = idCountry.ToUpper();
+                return 1;
             }
-            this.IdCountry = idCountry.ToUpper();
+            return -1;
         }
     }
 }
