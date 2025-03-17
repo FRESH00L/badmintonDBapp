@@ -40,7 +40,7 @@ namespace BazyDanychBadminton._02_Domain
             this._countryDAO = new CountryDAO();
         }
         public List<Country> ReadAllCountries() {
-            return this.CountryDAO.RealAll();
+            return this.CountryDAO.ReadAll();
         }
         public void ReadCountryByName() {
             this.CountryDAO.ReadByName(this);

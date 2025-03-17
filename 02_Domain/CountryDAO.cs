@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace BazyDanychBadminton._02_Domain
 {
     public class CountryDAO {
-        public List<Country> RealAll()
+        public List<Country> ReadAll()
         {
             List<Country> result = new List<Country>();
             string sql = "SELECT * FROM Countries ORDER BY idCountry;";

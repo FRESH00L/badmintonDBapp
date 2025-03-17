@@ -28,7 +28,7 @@ namespace BazyDanychBadminton._01_Presentation
             player = new Player();
             if (lbx_ListOfPlayers.SelectedItem != null)
             {
-                player.PlayerName = lbx_ListOfPlayers.SelectedItem.ToString();
+                player.PlaName = lbx_ListOfPlayers.SelectedItem.ToString();
             }
             try
             {
@@ -39,9 +39,10 @@ namespace BazyDanychBadminton._01_Presentation
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            dbx_PlayerBirthDate.Value = player.PlayerBirthDate;
-            tbx_PlayerName.Text = player.PlayerName.ToString();
-            tbx_PlayerCountry.Text = player.PlayerCountry.IdCountry;
+            lbl_PlayerId.Text = player.IdPlayer.ToString();
+            dbx_PlayerBirthDate.Value = player.PlaBirthDate;
+            tbx_PlayerName.Text = player.PlaName;
+            cmb_PlayerCountry.Text = player.PlaCountry.CountryName;
         }
         private void btn_Insert_Click(object sender, EventArgs e)
         {
@@ -52,9 +53,9 @@ namespace BazyDanychBadminton._01_Presentation
             {
                 age--;
             }
-            if(age >= 18) 
-            { 
-                player.PlayerBirthDate = dbx_PlayerBirthDate.Value;
+            if (age >= 18)
+            {
+                player.PlaBirthDate = dbx_PlayerBirthDate.Value;
             }
             else
             {
@@ -62,34 +63,50 @@ namespace BazyDanychBadminton._01_Presentation
                 return;
             }
             player = new Player();
-            player.PlayerName = tbx_PlayerName.Text;
-            player.PlayerCountry.CountryName = tbx_PlayerCountry.Text;
-            player.GenerateCountryID();
+            player.PlaName = tbx_PlayerName.Text;
+            player.PlaBirthDate = dbx_PlayerBirthDate.Value;
+
+
+            Country cou = new Country();
+            cou.CountryName = cmb_PlayerCountry.Text;
+            cou.ReadCountryByName();
+            player.PlaCountry = cou;
 
             try
             {
-                if(player.InsertPlayer() == 1)
+                if (player.InsertPlayer() == 1)
                 {
-                    lbx_ListOfPlayers.Items.Add(player.PlayerName);
-                    tbx_PlayerCountry.Text = "";
+                    lbx_ListOfPlayers.Items.Add(player.PlaName);
                     tbx_PlayerName.Text = "";
                     dbx_PlayerBirthDate.Text = "";
+                    cmb_PlayerCountry.SelectedIndex = -1;
+                    btn_Update.Enabled = false;
+                    btn_Delete.Enabled = false;
                 }
                 else
                 {
                     MessageBox.Show("An error happened while inserting a player.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
-            }catch (Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                return;
             }
-
         }
 
         private void btn_Update_Click(object sender, EventArgs e)
         {
+            player = new Player(int.Parse(lbl_PlayerId.Text));
+            player.ReadPlayerById();
+            Player newPlayer = new Player (player.IdPlayer);
+            newPlayer.PlaName = tbx_PlayerName.Text;
+            newPlayer.PlaBirthDate = dbx_PlayerBirthDate.Value;
+            Country country = new Country();
+            country.CountryName = cmb_PlayerCountry.Text;
+            country.ReadCountryByName();
+            newPlayer.PlaCountry = country;
+
             DateTime selectedDate = dbx_PlayerBirthDate.Value;
             DateTime today = DateTime.Today;
             int age = today.Year - selectedDate.Year;
@@ -99,33 +116,24 @@ namespace BazyDanychBadminton._01_Presentation
             }
             if (age >= 18)
             {
-                player.PlayerBirthDate = dbx_PlayerBirthDate.Value;
+                player.PlaBirthDate = dbx_PlayerBirthDate.Value;
             }
             else
             {
                 MessageBox.Show("Not adult player!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
-            player = new Player();
-            player.PlayerName = lbx_ListOfPlayers.SelectedItem.ToString();
-            player.ReadPlayerByName();
-            Player newPlayer = new Player(player.IdPlayer);
-            newPlayer.PlayerName = tbx_PlayerName.Text;
-            newPlayer.PlayerCountry.CountryName = tbx_PlayerCountry.Text;
-            newPlayer.PlayerBirthDate = dbx_PlayerBirthDate.Value;
-            newPlayer.GenerateCountryID();
 
             try
             {
-                if(newPlayer.UpdatePlayer() == 1)
+                if (newPlayer.UpdatePlayer() == 1)
                 {
-                    lbx_ListOfPlayers.Items.Remove(player.PlayerName);
-                    lbx_ListOfPlayers.Items.Add(newPlayer.PlayerName);
-                    tbx_PlayerCountry.Text = "";
+                    lbx_ListOfPlayers.Items.Remove(player.PlaName);
+                    lbx_ListOfPlayers.Items.Add(newPlayer.PlaName);
+                    lbl_PlayerId.Text = "";
                     tbx_PlayerName.Text = "";
-                    btn_Delete.Enabled = false;
-                    btn_Update.Enabled = false;
-                    lbx_ListOfPlayers.ClearSelected();
+                    dbx_PlayerBirthDate.Text = "";
+                    cmb_PlayerCountry.SelectedIndex = -1;
                 }
                 else
                 {
@@ -138,29 +146,25 @@ namespace BazyDanychBadminton._01_Presentation
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-        
+
         }
 
         private void btn_Delete_Click(object sender, EventArgs e)
         {
-            player = new Player();
-            player.PlayerName = tbx_PlayerName.Text;
-            player.ReadPlayerByName();
+            player = new Player(int.Parse(lbl_PlayerId.Text));
+            player.PlaName = tbx_PlayerName.Text;
+            player.ReadPlayerById();
             try
             {
-                if(player.IdPlayer == 0)
-                {
-                    MessageBox.Show("Theres no player with this id.", "Error: ID", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-                    return;
-                }
                 if (player.DeletePlayer() == 1)
                 {
-                    lbx_ListOfPlayers.Items.Remove(player.PlayerName);
-                    tbx_PlayerCountry.Text = "";
+                    lbx_ListOfPlayers.Items.Remove(player.PlaName);
+                    lbl_PlayerId.Text = "";
                     tbx_PlayerName.Text = "";
+                    dbx_PlayerBirthDate.Text = "";
+                    cmb_PlayerCountry.SelectedIndex = -1;
                     btn_Delete.Enabled = false;
                     btn_Update.Enabled = false;
-                    lbx_ListOfPlayers.ClearSelected();
                 }
                 else
                 {
@@ -179,8 +183,8 @@ namespace BazyDanychBadminton._01_Presentation
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             tbx_PlayerName.Text = "";
-            tbx_PlayerCountry.Text = "";
-            dbx_PlayerBirthDate.Text = "";
+            dbx_PlayerBirthDate.Value = DateTime.Now;
+            cmb_PlayerCountry.SelectedIndex = -1;
             btn_Delete.Enabled = false;
             btn_Update.Enabled = false;
         }
@@ -191,9 +195,15 @@ namespace BazyDanychBadminton._01_Presentation
             List<Player> list_players = player.ReadAllPlayers();
             foreach (Player player in list_players)
             {
-                lbx_ListOfPlayers.Items.Add(player.PlayerName);
+                lbx_ListOfPlayers.Items.Add(player.PlaName);
+            }
+
+            Country country = new Country();
+            List<Country> list_countries = country.ReadAllCountries();
+            foreach (Country cou in list_countries)
+            {
+                cmb_PlayerCountry.Items.Add(cou.CountryName);
             }
         }
-       
     }
 }
