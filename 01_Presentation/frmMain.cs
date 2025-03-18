@@ -16,11 +16,8 @@ namespace BazyDanychBadminton._01_Presentation
         {
             InitializeComponent();
         }
-        private void frmMain_Load(object sender, EventArgs e)
-        {
 
-        }
-        private void button1_Click(object sender, EventArgs e)
+        private void btn_Countries_Click(object sender, EventArgs e)
         {
             frmCountries window = new frmCountries();
             window.ShowDialog();
@@ -32,10 +29,15 @@ namespace BazyDanychBadminton._01_Presentation
             window.ShowDialog();
         }
 
-        private void btn_Tournaments_Click_1(object sender, EventArgs e)
+        private void btn_Tournaments_Click(object sender, EventArgs e)
         {
             frmTournaments window = new frmTournaments();
             window.ShowDialog();
+        }
+
+        private void btn_Seasons_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
