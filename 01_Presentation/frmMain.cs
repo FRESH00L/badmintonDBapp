@@ -37,7 +37,8 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void btn_Seasons_Click(object sender, EventArgs e)
         {
-
+            frmSeason window = new frmSeason();
+            window.ShowDialog();
         }
     }
 }

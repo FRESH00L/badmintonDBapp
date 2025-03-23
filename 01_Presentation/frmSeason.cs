@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace BazyDanychBadminton._01_Presentation
 {
-    public partial class Form1 : Form
+    public partial class frmSeason : Form
     {
-        public Form1()
+        public frmSeason()
         {
             InitializeComponent();
         }
+
     }
 }
