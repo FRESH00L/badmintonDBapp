@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BazyDanychBadminton._03_Persistance;
+using MySql.Data.MySqlClient;
 
 namespace BazyDanychBadminton._02_Domain
 {
@@ -21,6 +22,9 @@ namespace BazyDanychBadminton._02_Domain
             {
                 Match m = new Match();
                 m.IdMatch = int.Parse(row[0]);
+                m.Season = row[1];
+                m.Tournament = row[2];
+                m.Round = int.Parse(row[4]);
 
                 Edition e = new Edition(int.Parse(row[1]));
                 e.ReadEditionById();
@@ -55,6 +59,9 @@ namespace BazyDanychBadminton._02_Domain
             {
                 string[] row = table[0];
                 m.IdMatch = int.Parse(row[0]);
+                m.Season = row[1];
+                m.Tournament = row[2];
+                m.Round = int.Parse(row[4]);
 
                 Edition e = new Edition(int.Parse(row[1]));
                 e.ReadEditionById();
@@ -79,21 +86,21 @@ namespace BazyDanychBadminton._02_Domain
 
         public int Insert(Match m)
         {
-            string sql = "INSERT INTO Matches (idEdition, idPlayer1, idPlayer2, idWinner) VALUES ('"
-                         + m.MatchEdition.IdEdition + "', '"
-                         + m.Player1.IdPlayer + "', '"
-                         + m.Player2.IdPlayer + "', "
-                         + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") + ");";
+            string sql = "INSERT INTO Matches (season, tournament, winner, round) VALUES ('"
+                         + m.Season + "', '"
+                         + m.Tournament + "', "
+                         + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") + ", '"
+                         + m.Round + "');";
             return DBBroker.getInstance().Change(sql);
         }
 
         public int Update(Match m)
         {
-            string sql = "UPDATE Matches SET idEdition='" + m.MatchEdition.IdEdition +
-                         "', idPlayer1='" + m.Player1.IdPlayer +
-                         "', idPlayer2='" + m.Player2.IdPlayer +
-                         "', idWinner=" + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") +
-                         " WHERE idMatch='" + m.IdMatch + "';";
+            string sql = "UPDATE Matches SET season='" + m.Season +
+                         "', tournament='" + m.Tournament +
+                         "', winner=" + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") +
+                         ", round='" + m.Round +
+                         "' WHERE idMatch='" + m.IdMatch + "';";
             return DBBroker.getInstance().Change(sql);
         }
 
