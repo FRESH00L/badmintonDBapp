@@ -31,10 +31,10 @@ namespace BazyDanychBadminton._02_Domain
             this.listOfMatches.Add(match);
         }
 
-        public List<Edition> ReadAllEditions()
-        {
-            return this.editionSeason.ReadAllEditions();
-        }
+        //public List<Edition> ReadAllEditions()
+        //{
+        //    return this.editionSeason.ReadAllEditions();
+        //}
         public void InsertEdition()
         {
             

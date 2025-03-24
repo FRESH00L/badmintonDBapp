@@ -37,8 +37,8 @@
             lbx_ListOfAllTournaments = new ListBox();
             chbx_GenerateRandomly = new CheckBox();
             chbx_ChoseRandomly = new CheckBox();
-            button1 = new Button();
-            button2 = new Button();
+            btn_Add = new Button();
+            btn_Clear = new Button();
             lbl_Year = new Label();
             lbl_NumberOfTournaments = new Label();
             lbl_SelectedTournaments = new Label();
@@ -65,6 +65,7 @@
             btn_GenerateSeason.TabIndex = 1;
             btn_GenerateSeason.Text = "Generate";
             btn_GenerateSeason.UseVisualStyleBackColor = true;
+            btn_GenerateSeason.Click += btn_GenerateSeason_Click;
             // 
             // btn_DeleteSeason
             // 
@@ -74,6 +75,7 @@
             btn_DeleteSeason.TabIndex = 2;
             btn_DeleteSeason.Text = "Delete";
             btn_DeleteSeason.UseVisualStyleBackColor = true;
+            btn_DeleteSeason.Click += btn_DeleteSeason_Click;
             // 
             // nud_SeasonYear
             // 
@@ -122,6 +124,7 @@
             chbx_GenerateRandomly.TabIndex = 7;
             chbx_GenerateRandomly.Text = "Generate Randomly";
             chbx_GenerateRandomly.UseVisualStyleBackColor = true;
+            chbx_GenerateRandomly.CheckedChanged += chbx_GenerateRandomly_CheckedChanged;
             // 
             // chbx_ChoseRandomly
             // 
@@ -132,24 +135,27 @@
             chbx_ChoseRandomly.TabIndex = 8;
             chbx_ChoseRandomly.Text = "Chose Randomly";
             chbx_ChoseRandomly.UseVisualStyleBackColor = true;
+            chbx_ChoseRandomly.CheckedChanged += chbx_ChoseRandomly_CheckedChanged;
             // 
-            // button1
+            // btn_Add
             // 
-            button1.Location = new Point(280, 430);
-            button1.Name = "button1";
-            button1.Size = new Size(112, 34);
-            button1.TabIndex = 9;
-            button1.Text = "Add";
-            button1.UseVisualStyleBackColor = true;
+            btn_Add.Location = new Point(280, 430);
+            btn_Add.Name = "btn_Add";
+            btn_Add.Size = new Size(112, 34);
+            btn_Add.TabIndex = 9;
+            btn_Add.Text = "Add";
+            btn_Add.UseVisualStyleBackColor = true;
+            btn_Add.Click += btn_Add_Click;
             // 
-            // button2
+            // btn_Clear
             // 
-            button2.Location = new Point(398, 430);
-            button2.Name = "button2";
-            button2.Size = new Size(112, 34);
-            button2.TabIndex = 10;
-            button2.Text = "Clear";
-            button2.UseVisualStyleBackColor = true;
+            btn_Clear.Location = new Point(398, 430);
+            btn_Clear.Name = "btn_Clear";
+            btn_Clear.Size = new Size(112, 34);
+            btn_Clear.TabIndex = 10;
+            btn_Clear.Text = "Clear";
+            btn_Clear.UseVisualStyleBackColor = true;
+            btn_Clear.Click += btn_Clear_Click;
             // 
             // lbl_Year
             // 
@@ -206,8 +212,8 @@
             Controls.Add(lbl_SelectedTournaments);
             Controls.Add(lbl_NumberOfTournaments);
             Controls.Add(lbl_Year);
-            Controls.Add(button2);
-            Controls.Add(button1);
+            Controls.Add(btn_Clear);
+            Controls.Add(btn_Add);
             Controls.Add(chbx_ChoseRandomly);
             Controls.Add(chbx_GenerateRandomly);
             Controls.Add(lbx_ListOfAllTournaments);
@@ -219,6 +225,7 @@
             Controls.Add(lbx_ListOfSeasons);
             Name = "frmSeason";
             Text = "Form1";
+            Load += frmSeason_Load;
             ((System.ComponentModel.ISupportInitialize)nud_SeasonYear).EndInit();
             ((System.ComponentModel.ISupportInitialize)nud_NumberOfTournament).EndInit();
             ResumeLayout(false);
@@ -236,8 +243,8 @@
         private ListBox lbx_ListOfAllTournaments;
         private CheckBox chbx_GenerateRandomly;
         private CheckBox chbx_ChoseRandomly;
-        private Button button1;
-        private Button button2;
+        private Button btn_Add;
+        private Button btn_Clear;
         private Label lbl_Year;
         private Label lbl_NumberOfTournaments;
         private Label lbl_SelectedTournaments;
