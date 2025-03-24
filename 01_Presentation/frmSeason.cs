@@ -19,6 +19,7 @@ namespace BazyDanychBadminton._01_Presentation
         {
             InitializeComponent();
         }
+<<<<<<< HEAD
 
         private void frmSeason_Load(object sender, EventArgs e)
         {
@@ -124,5 +125,7 @@ namespace BazyDanychBadminton._01_Presentation
         }
 
         
+=======
+>>>>>>> ee3f4febb1813044380a4c2f826246ced474d8f0
     }
 }
