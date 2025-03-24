@@ -16,6 +16,5 @@ namespace BazyDanychBadminton._01_Presentation
         {
             InitializeComponent();
         }
-
     }
 }
