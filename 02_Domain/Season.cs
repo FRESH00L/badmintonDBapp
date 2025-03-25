@@ -10,10 +10,10 @@ namespace BazyDanychBadminton._02_Domain
     {
         private int season_year;
         private Tournament sea_tournament;
-        int MAX_TOURNAMENTS = 10;
+        private int n_tournaments;
+        int MAX_TOURNAMENTS = 7;
         int MIN_TOURNAMENTS = 4;
-        int MAX_TOURNAMENTS_PER_SEASON = 7;
-
+        //
         private SeasonDAO seasonDAO;
 
         public int Season_year
@@ -28,6 +28,12 @@ namespace BazyDanychBadminton._02_Domain
             set { sea_tournament = value; }
         }
 
+        public int N_tournaments
+        {
+            get { return n_tournaments; }
+            set { n_tournaments = value; }
+        }
+
         public int max_tournaments
         {
             get { return MAX_TOURNAMENTS; }
@@ -39,15 +45,12 @@ namespace BazyDanychBadminton._02_Domain
             get { return MIN_TOURNAMENTS; }
             set { MIN_TOURNAMENTS = value; }
         }
-
-        public int max_tournaments_per_season
-        {
-            get { return MAX_TOURNAMENTS_PER_SEASON; }
-            set { MAX_TOURNAMENTS_PER_SEASON = value; }
-        }
+        //
         public Season()
         {
             this.season_year = 2020;
+            this.MIN_TOURNAMENTS = 4;
+            this.MAX_TOURNAMENTS = 7;
             this.sea_tournament = new Tournament();
             this.seasonDAO = new SeasonDAO();
         }
@@ -55,11 +58,44 @@ namespace BazyDanychBadminton._02_Domain
         public Season(int season_year)
         {
             this.season_year = season_year;
+            this.MIN_TOURNAMENTS = MIN_TOURNAMENTS;
+            this.MAX_TOURNAMENTS = MAX_TOURNAMENTS;
             this.sea_tournament = new Tournament();
             this.seasonDAO = new SeasonDAO();
         }
-        public void generate_season()/////////////////////////////////////////////
+        public int generate_season()
         {
+            Random random = new Random();
+            //n_tournaments = n_tournaments.
+            if (n_tournaments > MIN_TOURNAMENTS && n_tournaments < MAX_TOURNAMENTS)
+            {
+                if (season_year != 0)
+                {
+                    for (int i = 0; i < n_tournaments; i++)
+                    {
+                        Tournament tournament = new Tournament();
+                        if (tournament.TouName != "")
+                        {
+                            tournament.InsertTournament();
+                        }
+                        else
+                        {
+                            return -1;
+                        }
+                    }
+                }
+                return 1;
+            }
+            else
+            {
+                return -1;
+            }
+            //if(random == 1) //generar numero de torneos random
+            // {
+            //  n_tournaments = random.Next(MIN_TOURNAMENTS, MAX_TOURNAMENTS);
+
+            //  return n_tournaments;
+            // }
 
         }
 
@@ -87,6 +123,24 @@ namespace BazyDanychBadminton._02_Domain
         public override string ToString()
         {
             return Season_year.ToString();
+        }
+
+        /////////////////////////////////
+        public List<Edition> ReadAllEditions()
+        {
+            return this.seasonDAO.ReadAllEditions();
+        }
+        public Edition ReadEditionByOrder(Edition e)
+        {
+            return this.seasonDAO.ReadByOrder(e);
+        }
+        public int InsertEdition(Edition e)
+        {
+            return this.seasonDAO.InsertEdition(e);
+        }
+        public int DeleteEdition(Edition e)
+        {
+            return this.seasonDAO.DeleteEdition(e);
         }
     }
 }

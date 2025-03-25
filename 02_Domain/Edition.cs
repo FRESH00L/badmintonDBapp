@@ -11,7 +11,7 @@ namespace BazyDanychBadminton._02_Domain
     {
         Season editionSeason;
         Tournament editionTournament;
-        static int orderInSeason = 0;
+        int orderInSeason = 0;
         List<Match> listOfMatches;
 
         public Season EditionSeason { get { return editionSeason; } set { editionSeason = value; } }
@@ -23,32 +23,50 @@ namespace BazyDanychBadminton._02_Domain
         {
             editionSeason = new Season();
             editionTournament = new Tournament();
-            orderInSeason++;
+            orderInSeason = 0;
+            for(int i = 1; i<=8; i++)
+            {
+                Match m = new Match(i);
+                AddMatch(m);
+            }
         }
-
+        public Edition(int order)
+        {
+            editionSeason = new Season();
+            editionTournament = new Tournament();
+            orderInSeason = order;
+            for (int i = 1; i < 8; i++)
+            {
+                Match m = new Match(i);
+                AddMatch(m);
+            }
+        }
         public void AddMatch(Match match)
         {
             this.listOfMatches.Add(match);
         }
 
-        //public List<Edition> ReadAllEditions()
-        //{
-        //    return this.editionSeason.ReadAllEditions();
-        //}
+        public List<Edition> ReadAllEditions()
+        {
+            return this.editionSeason.ReadAllEditions();
+        }
+
+        public Edition ReadEditionByOrder()
+        {
+            Edition e = this.editionSeason.ReadEditionByOrder(this);
+            return e;
+        }
+
         public void InsertEdition()
         {
-            
-        }
-        public void UpdateEdition()
-        {
-
+            this.editionSeason.InsertEdition(this);
         }
         public int DeleteEdition() 
         {
             DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (dialogResult == DialogResult.Yes)
             {
-                return 1;
+                this.editionSeason.DeleteEdition(this);
             }
             return 0;
         }

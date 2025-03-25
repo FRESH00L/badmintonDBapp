@@ -23,7 +23,7 @@ namespace BazyDanychBadminton._02_Domain
                 m.IdMatch = int.Parse(row[0]);
 
                 Edition e = new Edition(int.Parse(row[1]));
-                e.ReadEditionById();
+                e.ReadEditionByOrder();
                 m.MatchEdition = e;
 
                 Player p1 = new Player(int.Parse(row[2]));
@@ -57,7 +57,7 @@ namespace BazyDanychBadminton._02_Domain
                 m.IdMatch = int.Parse(row[0]);
 
                 Edition e = new Edition(int.Parse(row[1]));
-                e.ReadEditionById();
+                e.ReadEditionByOrder();
                 m.MatchEdition = e;
 
                 Player p1 = new Player(int.Parse(row[2]));
@@ -80,7 +80,7 @@ namespace BazyDanychBadminton._02_Domain
         public int Insert(Match m)
         {
             string sql = "INSERT INTO Matches (idEdition, idPlayer1, idPlayer2, idWinner) VALUES ('"
-                         + m.MatchEdition.IdEdition + "', '"
+                         + m.MatchEdition.OrderInSeason + "', '"
                          + m.Player1.IdPlayer + "', '"
                          + m.Player2.IdPlayer + "', "
                          + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") + ");";
@@ -89,7 +89,7 @@ namespace BazyDanychBadminton._02_Domain
 
         public int Update(Match m)
         {
-            string sql = "UPDATE Matches SET idEdition='" + m.MatchEdition.IdEdition +
+            string sql = "UPDATE Matches SET idEdition='" + m.MatchEdition.OrderInSeason +
                          "', idPlayer1='" + m.Player1.IdPlayer +
                          "', idPlayer2='" + m.Player2.IdPlayer +
                          "', idWinner=" + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") +
