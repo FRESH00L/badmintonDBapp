@@ -75,4 +75,3 @@ namespace BazyDanychBadminton._02_Domain
         }
     }
 }
-
