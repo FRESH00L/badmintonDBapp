@@ -85,11 +85,11 @@ namespace BazyDanychBadminton._01_Presentation
         }
         private void btn_GenerateSeason_Click(object sender, EventArgs e)
         {
-            season = new Season();
+            season = new Season(Convert.ToInt16(nud_SeasonYear.Value));
+            int nTou = Convert.ToInt16(nud_NumberOfTournament.Value);
             try
             {
-                season.generate_season();
-                season.InsertSeason();
+                season.GenerateSeason(nTou);
             }
             catch (Exception ex)
             {

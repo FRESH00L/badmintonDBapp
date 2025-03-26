@@ -28,7 +28,7 @@ namespace BazyDanychBadminton._02_Domain
             return result;
         }
 
-        public void ReadByYear(Season s)
+        public int ReadByYear(Season s)
         {
             string sql = "SELECT * FROM Season WHERE season_year='" + s.Season_year + "';";
             List<string[]> table = DBBroker.getInstance().Read(sql);

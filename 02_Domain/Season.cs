@@ -63,49 +63,93 @@ namespace BazyDanychBadminton._02_Domain
             this.sea_tournament = new Tournament();
             this.seasonDAO = new SeasonDAO();
         }
-        public int generate_season()
+        public int GenerateSeason(int nTou)
         {
-            Random random = new Random();
-            //n_tournaments = n_tournaments.
-            if (n_tournaments > MIN_TOURNAMENTS && n_tournaments < MAX_TOURNAMENTS)
+            if (ReadSeasonsByYear() <=0)
             {
-                if (season_year != 0)
-                {
-                    for (int i = 0; i < n_tournaments; i++)
-                    {
-                        Tournament tournament = new Tournament();
-                        if (tournament.TouName != "")
-                        {
-                            tournament.InsertTournament();
-                        }
-                        else
-                        {
-                            return -1;
-                        }
-                    }
-                }
-                return 1;
-            }
-            else
-            {
+                MessageBox.Show("There's already a season in this year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return -1;
             }
-            //if(random == 1) //generar numero de torneos random
-            // {
-            //  n_tournaments = random.Next(MIN_TOURNAMENTS, MAX_TOURNAMENTS);
 
-            //  return n_tournaments;
-            // }
+            Random random = new Random();
+            List<Player> players = new Player().ReadAllPlayers();
+            if (players.Count < 8)
+            {
+                MessageBox.Show("There's not enough players", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return -1;
+            }
 
+            int numberOfTournaments = nTou;
+            for (int t = 0; t < numberOfTournaments; t++)
+            {
+                Tournament tournament = new Tournament() { TouName = this.Season_year + " Tournament " + (t + 1) };
+                tournament.InsertTournament();
+
+                List<Player> tournamentPlayers = players.OrderBy(x => random.Next()).Take(8).ToList();
+                List<Match> matches = new List<Match>();
+                List<Player> winners = new List<Player>();
+
+                for (int i = 0; i < 4; i++)
+                {
+                    Match match = new Match()
+                    {
+                        Player1 = tournamentPlayers[i * 2],
+                        Player2 = tournamentPlayers[i * 2 + 1],
+                        Round = 1
+                    };
+                    match.SimulateMatch();
+                    matches.Add(match);
+                    winners.Add(match.Winner);
+                }
+
+                List<Player> semiFinalWinners = new List<Player>();
+                for (int i = 0; i < 2; i++)
+                {
+                    Match semiFinal = new Match()
+                    {
+                        Player1 = winners[i * 2],
+                        Player2 = winners[i * 2 + 1],
+                        Round = 2
+                    };
+                    semiFinal.SimulateMatch();
+                    matches.Add(semiFinal);
+                    semiFinalWinners.Add(semiFinal.Winner);
+                }
+
+                Match finalMatch = new Match()
+                {
+                    Player1 = semiFinalWinners[0],
+                    Player2 = semiFinalWinners[1],
+                    Round = 3
+                };
+                finalMatch.SimulateMatch();
+                matches.Add(finalMatch);
+
+                Edition edition = new Edition()
+                {
+                    EditionSeason = this,
+                    EditionTournament = tournament,
+                    OrderInSeason = t + 1
+                };
+                foreach (var match in matches)
+                {
+                    edition.AddMatch(match);
+                }
+                edition.InsertEdition();
+            }
+
+            InsertSeason();
+            return 1;
         }
+
 
         public List<Season> ReadAllSeasons()
         {
             return this.seasonDAO.ReadAll();
         }
-        public void ReadSeasonsByYear()
+        public int ReadSeasonsByYear()
         {
-            this.seasonDAO.ReadByYear(this);
+            return this.seasonDAO.ReadByYear(this);
         }
         public int InsertSeason()
         {
