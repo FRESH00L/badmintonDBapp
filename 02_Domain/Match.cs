@@ -10,8 +10,8 @@ namespace BazyDanychBadminton._02_Domain
         {
             private int _idMatch;
             private Edition _matchEdition;
-            private string _season;
-            private string _tournament;
+            private Season _season;
+            private Tournament _tournament;
             private Player _winner;
             private int _round;
             private Player _player1;
@@ -29,12 +29,12 @@ namespace BazyDanychBadminton._02_Domain
                 get { return _matchEdition; }
                 set { _matchEdition = value; }
             }
-            public string Season
+            public Season Season
             {
                 get { return _season; }
                 set { _season = value; }
             }
-            public string Tournament
+            public Tournament Tournament
             {
                 get { return _tournament; }
                 set { _tournament = value; }
@@ -49,7 +49,7 @@ namespace BazyDanychBadminton._02_Domain
                 get { return _round; }
                 set { _round = value; }
             }
-            public Player Player1
+            public Player Player1 
             {
                 get { return _player1; }
                 set { _player1 = value; }
@@ -68,8 +68,8 @@ namespace BazyDanychBadminton._02_Domain
             public Match()
             {
                 this._matchEdition = new Edition();
-                this._season = "";
-                this._tournament = "";
+                this._season = new Season;
+                this._tournament = new Tournament;
                 this._winner = null;
                 this._round = 0;
                 this._player1 = new Player();
@@ -82,8 +82,8 @@ namespace BazyDanychBadminton._02_Domain
             {
                 this.IdMatch = idMatch;
                 this._matchEdition = new Edition();
-                this._season = "";
-                this._tournament = "";
+                this._season = Season;
+                this._tournament = Tournament;
                 this._winner = null;
                 this._round = 0;
                 this._player1 = new Player();
