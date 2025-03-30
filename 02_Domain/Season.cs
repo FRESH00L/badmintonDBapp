@@ -13,7 +13,7 @@ namespace BazyDanychBadminton._02_Domain
         private int n_tournaments;
         int MAX_TOURNAMENTS = 7;
         int MIN_TOURNAMENTS = 4;
-        //
+        
         private SeasonDAO seasonDAO;
 
         public int Season_year
@@ -45,7 +45,7 @@ namespace BazyDanychBadminton._02_Domain
             get { return MIN_TOURNAMENTS; }
             set { MIN_TOURNAMENTS = value; }
         }
-        //
+        
         public Season()
         {
             this.season_year = 2020;
@@ -169,7 +169,7 @@ namespace BazyDanychBadminton._02_Domain
             return Season_year.ToString();
         }
 
-        /////////////////////////////////
+
         public List<Edition> ReadAllEditions()
         {
             return this.seasonDAO.ReadAllEditions();
