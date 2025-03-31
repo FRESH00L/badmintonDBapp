@@ -94,6 +94,7 @@ namespace BazyDanychBadminton._02_Domain
 
                 tournament.InsertTournament();
                 tournament.ReadTournamentByName();
+                this.Sea_tournament = tournament;
 
                 List<Player> tournamentPlayers = players.OrderBy(x => random.Next()).Take(8).ToList();
                 List<Match> matches = new List<Match>();
@@ -153,9 +154,9 @@ namespace BazyDanychBadminton._02_Domain
         }
 
 
-        public List<Season> ReadAllSeasons()
+        public List<int> ReadAllSeasons()
         {
-            return this.seasonDAO.ReadAll();
+            return this.seasonDAO.ReadAllSeasons();
         }
         public int ReadSeasonsByYear()
         {

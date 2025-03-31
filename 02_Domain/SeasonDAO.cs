@@ -12,19 +12,17 @@ namespace BazyDanychBadminton._02_Domain
     {
         public SeasonDAO() { }
 
-        public List<Season> ReadAll()
+        public List<int> ReadAllSeasons()
         {
-            List<Season> result = new List<Season>();
-            string sql = "SELECT * FROM Seasons ORDER BY season_year;";
+            List<int> result = new List<int>();
+            string sql = "SELECT DISTINCT season FROM Editions ORDER BY season;";
             List<string[]> table = DBBroker.getInstance().Read(sql);
+
             foreach (string[] row in table)
             {
-                Season s = new Season();
-                s.Season_year = int.Parse(row[0]);
-                //Tournament t = new Tournament(row[1]);
-                //t.TouCountry = c;
-                result.Add(s);
+                result.Add(int.Parse(row[0]));
             }
+
             return result;
         }
 

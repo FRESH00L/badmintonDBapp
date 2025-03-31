@@ -22,12 +22,12 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void frmSeason_Load(object sender, EventArgs e)
         {
-            //season = new Season();
-            //List<Season> list_seasons = season.ReadAll();
-            //foreach (Season season in list_seasons)
-            //{
-            //    lbx_ListOfSeasons.Items.Add(season.Season_year);
-            //}
+            season = new Season();
+            List<int> list_seasons = season.ReadAllSeasons();
+            foreach (int i in list_seasons)
+            {
+                lbx_ListOfSeasons.Items.Add(season.Season_year);
+            }
 
             tournament = new Tournament();
             List<Tournament> list_tournament = tournament.ReadAllTournaments();
