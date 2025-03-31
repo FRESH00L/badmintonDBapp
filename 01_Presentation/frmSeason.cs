@@ -23,7 +23,7 @@ namespace BazyDanychBadminton._01_Presentation
         private void frmSeason_Load(object sender, EventArgs e)
         {
             //season = new Season();
-            //List<Season> list_seasons = season.ReadAllSeasons();
+            //List<Season> list_seasons = season.ReadAll();
             //foreach (Season season in list_seasons)
             //{
             //    lbx_ListOfSeasons.Items.Add(season.Season_year);
@@ -95,12 +95,22 @@ namespace BazyDanychBadminton._01_Presentation
             {
                 MessageBox.Show("Error while generating season:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
             }
+            MessageBox.Show("Correctly Generated Season");
+
+            lbx_ListOfAllTournaments.Items.Clear();
+            tournament = new Tournament();
+            List<Tournament> list_tournament = tournament.ReadAllTournaments();
+            foreach (Tournament tournamnet in list_tournament)
+            {
+                lbx_ListOfAllTournaments.Items.Add(tournamnet.TouName);
+            }
+
             lbx_ListOfSeasons.Items.Add(season);
 
         }
         private void btn_DeleteSeason_Click(object sender, EventArgs e)
         {
-            if(lbx_ListOfSeasons.SelectedItem != null && lbx_ListOfSeasons.SelectedItem is Season selectedSeason)
+            if (lbx_ListOfSeasons.SelectedItem != null && lbx_ListOfSeasons.SelectedItem is Season selectedSeason)
             {
                 try
                 {
@@ -116,14 +126,27 @@ namespace BazyDanychBadminton._01_Presentation
                         return;
                     }
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show("Error while deleting season:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
 
-        
+        private void lbx_ListOfSeasons_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(lbx_ListOfSeasons.SelectedItem != null)
+            {
+                season.Season_year = int.Parse(lbx_ListOfSeasons.SelectedItem.ToString());
+                if(season.ReadSeasonsByYear() <= 0)
+                {
+                    MessageBox.Show("Error while reading seasons", "Error");
+                    return;
+                }
+                nud_SeasonYear.Value = season.Season_year;
+                lbx_ListSelectedTournament.Items.Clear();
 
+            }
+        }
     }
 }

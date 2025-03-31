@@ -12,7 +12,7 @@ namespace BazyDanychBadminton._02_Domain
         Season editionSeason;
         Tournament editionTournament;
         int orderInSeason = 0;
-        List<Match> listOfMatches;
+        List<Match> listOfMatches = new List<Match>();
 
         public Season EditionSeason { get { return editionSeason; } set { editionSeason = value; } }
         public Tournament EditionTournament { get { return editionTournament; } set { editionTournament = value;  } }
@@ -24,22 +24,12 @@ namespace BazyDanychBadminton._02_Domain
             editionSeason = new Season();
             editionTournament = new Tournament();
             orderInSeason = 0;
-            for(int i = 1; i<=8; i++)
-            {
-                Match m = new Match(i);
-                AddMatch(m);
-            }
         }
         public Edition(int order)
         {
             editionSeason = new Season();
             editionTournament = new Tournament();
             orderInSeason = order;
-            for (int i = 1; i < 8; i++)
-            {
-                Match m = new Match(i);
-                AddMatch(m);
-            }
         }
         public void AddMatch(Match match)
         {
