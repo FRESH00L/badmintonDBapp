@@ -10,7 +10,7 @@ namespace BazyDanychBadminton._02_Domain
     {
         private int season_year;
         private Tournament sea_tournament;
-        private int n_tournaments = 0;
+        private int n_tournaments;
         int MAX_TOURNAMENTS = 7;
         int MIN_TOURNAMENTS = 4;
         
@@ -79,22 +79,11 @@ namespace BazyDanychBadminton._02_Domain
                 return -1;
             }
 
-            this.n_tournaments = nTou;
-            for (int t = 0; t < n_tournaments; t++)
+            int numberOfTournaments = nTou;
+            for (int t = 0; t < numberOfTournaments; t++)
             {
                 Tournament tournament = new Tournament() { TouName = this.Season_year + " Tournament " + (t + 1) };
-                this.sea_tournament = tournament;
-
-                Random rnd = new Random();
-                Country country = new Country();
-                List<Country> couList = new List<Country>();
-                couList = country.ReadAllCountries();
-                country = couList[rnd.Next(couList.Count)];
-
-                tournament.TouCountry = country;
-
                 tournament.InsertTournament();
-                tournament.ReadTournamentByName();
 
                 List<Player> tournamentPlayers = players.OrderBy(x => random.Next()).Take(8).ToList();
                 List<Match> matches = new List<Match>();
@@ -142,14 +131,14 @@ namespace BazyDanychBadminton._02_Domain
                     EditionTournament = tournament,
                     OrderInSeason = t + 1
                 };
-                foreach (Match match in matches)
+                foreach (var match in matches)
                 {
                     edition.AddMatch(match);
                 }
-                InsertSeason();
+                edition.InsertEdition();
             }
 
-            
+            InsertSeason();
             return 1;
         }
 
@@ -162,7 +151,7 @@ namespace BazyDanychBadminton._02_Domain
         {
             return this.seasonDAO.ReadByYear(this);
         }
-        public int InsertSeason()
+        public int InsertSeason(Season season)
         {
             return this.seasonDAO.InsertSeason(this);
         }

@@ -19,7 +19,7 @@ namespace BazyDanychBadminton._02_Domain
             string sql = "SELECT * FROM Edition ORDER BY season;";
             List<string[]> table = DBBroker.getInstance().Read(sql);
             foreach (string[] row in table)
-            {
+            { 
 
                 s.Season_year = int.Parse(row[0]);
                 Tournament t = new Tournament();
