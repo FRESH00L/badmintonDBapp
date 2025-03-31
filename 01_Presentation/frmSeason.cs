@@ -68,7 +68,7 @@ namespace BazyDanychBadminton._01_Presentation
                                   .ToList();
                 foreach (int index in indexes)
                 {
-                    lbx_ListSelectedTournament.Items.Add(lbx_ListOfAllTournaments.Items[index].ToString()); // Rzutowanie na Tournament
+                    lbx_ListSelectedTournament.Items.Add(lbx_ListOfAllTournaments.Items[index].ToString());
                 }
             }
         }
@@ -97,6 +97,7 @@ namespace BazyDanychBadminton._01_Presentation
             catch (Exception ex)
             {
                 MessageBox.Show("Error while generating season:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
             }
             MessageBox.Show("Correctly Generated Season");
 
@@ -122,7 +123,12 @@ namespace BazyDanychBadminton._01_Presentation
                     season.ReadSeasonsByYear();
                     if (season.DeleteSeason() > 0)
                     {
-                        lbx_ListOfSeasons.Items.Remove(season.Season_year);
+                        lbx_ListOfSeasons.Items.Clear();
+                        List<int> list_seasons = season.ReadAllSeasons();
+                        foreach (int i in list_seasons)
+                        {
+                            lbx_ListOfSeasons.Items.Add(i);
+                        }
                         lbx_ListSelectedTournament.Items.Clear();
                     }
                     else

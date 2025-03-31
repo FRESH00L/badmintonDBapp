@@ -79,8 +79,8 @@ namespace BazyDanychBadminton._02_Domain
                 return -1;
             }
 
-            this.n_tournaments = nTou;
-            for (int t = 0; t < n_tournaments; t++)
+            int numberOfTournaments = nTou;
+            for (int t = 0; t < numberOfTournaments; t++)
             {
                 Tournament tournament = new Tournament() { TouName = this.Season_year + " Tournament " + (t + 1) };
 
@@ -141,14 +141,13 @@ namespace BazyDanychBadminton._02_Domain
                     EditionTournament = tournament,
                     OrderInSeason = t + 1
                 };
-                foreach (Match match in matches)
+                foreach (var match in matches)
                 {
                     edition.AddMatch(match);
                 }
                 this.season_editions.Add(edition);
             }
-            InsertSeason();
-
+            InsertSeason(this);
             return 1;
         }
 
@@ -161,16 +160,16 @@ namespace BazyDanychBadminton._02_Domain
         {
             return this.seasonDAO.ReadByYear(this);
         }
-        public int InsertSeason()
+        public int InsertSeason(Season season)
         {
-            return this.seasonDAO.Insert(this);
+            return this.seasonDAO.InsertSeason(this);
         }
         public int DeleteSeason()
         {
             DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (dialogResult == DialogResult.Yes)
             {
-                return this.seasonDAO.Delete(this);
+                return this.seasonDAO.DeleteSeason(this);
             }
             return 0;
         }
