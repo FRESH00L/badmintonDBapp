@@ -89,7 +89,10 @@ namespace BazyDanychBadminton._01_Presentation
             int nTou = Convert.ToInt16(nud_NumberOfTournament.Value);
             try
             {
-                season.GenerateSeason(nTou);
+                if (season.GenerateSeason(nTou) <=0)
+                {
+                    return;
+                }
             }
             catch (Exception ex)
             {

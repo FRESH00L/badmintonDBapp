@@ -9,7 +9,7 @@ namespace BazyDanychBadminton._02_Domain
     public class Season
     {
         private int season_year;
-        private Tournament sea_tournament;
+        private Tournament season_tournament;
         private int n_tournaments = 0;
         int MAX_TOURNAMENTS = 7;
         int MIN_TOURNAMENTS = 4;
@@ -24,8 +24,8 @@ namespace BazyDanychBadminton._02_Domain
 
         public Tournament Sea_tournament
         {
-            get { return sea_tournament; }
-            set { sea_tournament = value; }
+            get { return season_tournament; }
+            set { season_tournament = value; }
         }
 
         public int N_tournaments
@@ -51,7 +51,7 @@ namespace BazyDanychBadminton._02_Domain
             this.season_year = 2020;
             this.MIN_TOURNAMENTS = 4;
             this.MAX_TOURNAMENTS = 7;
-            this.sea_tournament = new Tournament();
+            this.season_tournament = new Tournament();
             this.seasonDAO = new SeasonDAO();
         }
 
@@ -60,12 +60,12 @@ namespace BazyDanychBadminton._02_Domain
             this.season_year = season_year;
             this.MIN_TOURNAMENTS = MIN_TOURNAMENTS;
             this.MAX_TOURNAMENTS = MAX_TOURNAMENTS;
-            this.sea_tournament = new Tournament();
+            this.season_tournament = new Tournament();
             this.seasonDAO = new SeasonDAO();
         }
         public int GenerateSeason(int nTou)
         {
-            if (ReadSeasonsByYear() <=0)
+            if (ReadSeasonsByYear()>0)
             {
                 MessageBox.Show("There's already a season in this year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return -1;
@@ -83,7 +83,6 @@ namespace BazyDanychBadminton._02_Domain
             for (int t = 0; t < n_tournaments; t++)
             {
                 Tournament tournament = new Tournament() { TouName = this.Season_year + " Tournament " + (t + 1) };
-                this.sea_tournament = tournament;
 
                 Random rnd = new Random();
                 Country country = new Country();
