@@ -26,7 +26,7 @@ namespace BazyDanychBadminton._01_Presentation
             List<int> list_seasons = season.ReadAllSeasons();
             foreach (int i in list_seasons)
             {
-                lbx_ListOfSeasons.Items.Add(season.Season_year);
+                lbx_ListOfSeasons.Items.Add(i);
             }
 
             tournament = new Tournament();
@@ -113,15 +113,17 @@ namespace BazyDanychBadminton._01_Presentation
         }
         private void btn_DeleteSeason_Click(object sender, EventArgs e)
         {
-            if (lbx_ListOfSeasons.SelectedItem != null && lbx_ListOfSeasons.SelectedItem is Season selectedSeason)
+            if (lbx_ListOfSeasons.SelectedItem != null)
             {
+
                 try
                 {
-                    season = new Season(selectedSeason.Season_year);
+                    season = new Season(int.Parse(lbx_ListOfSeasons.SelectedItem.ToString()));
                     season.ReadSeasonsByYear();
                     if (season.DeleteSeason() > 0)
                     {
-                        lbx_ListOfSeasons.Items.Remove(selectedSeason);
+                        lbx_ListOfSeasons.Items.Remove(season.Season_year);
+                        lbx_ListSelectedTournament.Items.Clear();
                     }
                     else
                     {
@@ -148,6 +150,11 @@ namespace BazyDanychBadminton._01_Presentation
                 }
                 nud_SeasonYear.Value = season.Season_year;
                 lbx_ListSelectedTournament.Items.Clear();
+                foreach(Edition ed in season.Sea_editions)
+                {
+                    ed.EditionTournament.ReadTournamentById();
+                    lbx_ListSelectedTournament.Items.Add(ed.EditionTournament.TouName);
+                }
 
             }
         }

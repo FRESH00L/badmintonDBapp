@@ -9,7 +9,7 @@ namespace BazyDanychBadminton._02_Domain
     public class Season
     {
         private int season_year;
-        private Tournament season_tournament;
+        private List<Edition> season_editions;
         private int n_tournaments = 0;
         int MAX_TOURNAMENTS = 7;
         int MIN_TOURNAMENTS = 4;
@@ -22,10 +22,10 @@ namespace BazyDanychBadminton._02_Domain
             set { season_year = value; }
         }
 
-        public Tournament Sea_tournament
+        public List<Edition> Sea_editions
         {
-            get { return season_tournament; }
-            set { season_tournament = value; }
+            get { return season_editions; }
+            set { season_editions = value; }
         }
 
         public int N_tournaments
@@ -51,7 +51,7 @@ namespace BazyDanychBadminton._02_Domain
             this.season_year = 2020;
             this.MIN_TOURNAMENTS = 4;
             this.MAX_TOURNAMENTS = 7;
-            this.season_tournament = new Tournament();
+            this.season_editions = new List<Edition>();
             this.seasonDAO = new SeasonDAO();
         }
 
@@ -60,7 +60,7 @@ namespace BazyDanychBadminton._02_Domain
             this.season_year = season_year;
             this.MIN_TOURNAMENTS = MIN_TOURNAMENTS;
             this.MAX_TOURNAMENTS = MAX_TOURNAMENTS;
-            this.season_tournament = new Tournament();
+            this.season_editions = new List<Edition>();
             this.seasonDAO = new SeasonDAO();
         }
         public int GenerateSeason(int nTou)
@@ -94,7 +94,6 @@ namespace BazyDanychBadminton._02_Domain
 
                 tournament.InsertTournament();
                 tournament.ReadTournamentByName();
-                this.Sea_tournament = tournament;
 
                 List<Player> tournamentPlayers = players.OrderBy(x => random.Next()).Take(8).ToList();
                 List<Match> matches = new List<Match>();
@@ -146,10 +145,10 @@ namespace BazyDanychBadminton._02_Domain
                 {
                     edition.AddMatch(match);
                 }
-                InsertSeason();
+                this.season_editions.Add(edition);
             }
+            InsertSeason();
 
-            
             return 1;
         }
 
