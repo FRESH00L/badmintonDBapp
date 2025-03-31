@@ -68,8 +68,8 @@ namespace BazyDanychBadminton._02_Domain
             public Match()
             {
                 this._matchEdition = new Edition();
-                this._season = new Season;
-                this._tournament = new Tournament;
+                this._season = new Season();
+                this._tournament = new Tournament();
                 this._winner = null;
                 this._round = 0;
                 this._player1 = new Player();

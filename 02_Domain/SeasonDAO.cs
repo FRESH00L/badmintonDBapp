@@ -30,7 +30,7 @@ namespace BazyDanychBadminton._02_Domain
 
         public int ReadByYear(Season s)
         {
-            string sql = "SELECT * FROM Edition WHERE season='" + s.Season_year + "';";
+            string sql = "SELECT * FROM Editions WHERE season='" + s.Season_year + "';";
             List<string[]> table = DBBroker.getInstance().Read(sql);
             if (table.Count > 0)
             {
@@ -40,24 +40,24 @@ namespace BazyDanychBadminton._02_Domain
                 t.IdTournament = int.Parse(row[1]);
                 Edition e = new Edition();
                 e.OrderInSeason = int.Parse(row[2]);
-
+                return 1;
             }
-            return s.Season_year;
+            return 0;
         }
 
         public int Insert(Season s)
         {
             Match match = new Match();
             Player player = new Player();
-            string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + s.Season_year + "'" + s.Sea_tournament + "'" + s.N_tournaments + "');";
+            string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + s.Season_year + "', '" + s.Sea_tournament.IdTournament + "', '" + s.N_tournaments + "');";
             DBBroker.getInstance().Change(sql);
             for (int i = 0; i < match.Round; i++) 
             {
-                string sql2 = "INSERT INTO Matches(idMatch, season, tournament, winner, round) VALUES ('" + match.IdMatch + "'" + s.Season_year + "'" + s.Sea_tournament + "'" + match.Winner + "'" + match.Round + "');"; 
+                string sql2 = "INSERT INTO Matches(idMatch, season, tournament, winner, round) VALUES ('" + match.IdMatch + "', '" + s.Season_year + "', '" + s.Sea_tournament + "', '" + match.Winner + "', '" + match.Round + "');"; 
                 DBBroker.getInstance().Change(sql2);
                 for (int j = 0; j < 7; j++)
                 {
-                    string sql3 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + player.PlaName + "'" + match.IdMatch + "'" + match.Sets[j] + "');";
+                    string sql3 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + player.PlaName + "', '" + match.IdMatch + "', '" + match.Sets[j] + "');";
                     return DBBroker.getInstance().Change(sql3);
                 }
             }
@@ -114,7 +114,7 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int InsertEdition(Edition e)
         {
-            string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + e.EditionSeason + "', '" + e.EditionTournament + "', '" + e.OrderInSeason + "');";
+            string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + e.EditionSeason + "', '" + e.EditionTournament.IdTournament + "', '" + e.OrderInSeason + "');";
             return DBBroker.getInstance().Change(sql);
         }
 

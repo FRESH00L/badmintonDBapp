@@ -57,6 +57,7 @@
             lbx_ListOfSeasons.Name = "lbx_ListOfSeasons";
             lbx_ListOfSeasons.Size = new Size(208, 804);
             lbx_ListOfSeasons.TabIndex = 0;
+            lbx_ListOfSeasons.SelectedIndexChanged += lbx_ListOfSeasons_SelectedIndexChanged;
             // 
             // btn_GenerateSeason
             // 
@@ -149,7 +150,7 @@
             // btn_Add
             // 
             btn_Add.Location = new Point(260, 422);
-            btn_Add.Margin = new Padding(4, 4, 4, 4);
+            btn_Add.Margin = new Padding(4);
             btn_Add.Name = "btn_Add";
             btn_Add.Size = new Size(140, 42);
             btn_Add.TabIndex = 9;
@@ -160,7 +161,7 @@
             // btn_Clear
             // 
             btn_Clear.Location = new Point(408, 422);
-            btn_Clear.Margin = new Padding(4, 4, 4, 4);
+            btn_Clear.Margin = new Padding(4);
             btn_Clear.Name = "btn_Clear";
             btn_Clear.Size = new Size(140, 42);
             btn_Clear.TabIndex = 10;
