@@ -12,33 +12,42 @@ namespace BazyDanychBadminton._02_Domain
     {
         public SeasonDAO() { }
 
-        public List<Season> ReadAllSeasons()
+        public int ReadAllSeasons()
         {
-            List<Season> result = new List<Season>();
-            string sql = "SELECT * FROM Seasons ORDER BY season_year;";
+            Season s = new Season();
+            Season [] sea_list = new Season[s.max_tournaments];
+            string sql = "SELECT * FROM Edition ORDER BY season;";
             List<string[]> table = DBBroker.getInstance().Read(sql);
             foreach (string[] row in table)
             {
-                Season s = new Season();
+
                 s.Season_year = int.Parse(row[0]);
-                //Tournament t = new Tournament(row[1]);
-                //t.TouCountry = c;
-                result.Add(s);
+                Tournament t = new Tournament();
+                t.IdTournament = int.Parse(row[1]);
+                Edition e = new Edition();
+                e.OrderInSeason = int.Parse(row[2]);
+                for(int i = 0; i<s.max_tournaments && i>s.min_tournaments; i++)
+                {
+                    do
+                    {
+                        sea_list[i] = s.InsertSeason(new Season());
+                    } while (sea_list[i] == null);
+                }
             }
-            return result;
+            return 1;
         }
 
-        public int ReadByYear(Season s)
+        public int ReadByYear(Season s, Tournament t, Edition e)
         {
-            string sql = "SELECT * FROM Edition WHERE season='" + s.Season_year + "';";
+            string sql = "SELECT * FROM Edition WHERE season, tournament, orderInSeason='" + s.Season_year + "'" + t.IdTournament + "'" + e.OrderInSeason + "';";
             List<string[]> table = DBBroker.getInstance().Read(sql);
             if (table.Count > 0)
             {
                 string[] row = table[0];
                 s.Season_year = int.Parse(row[0]);
-                Tournament t = new Tournament();
+                //Tournament t = new Tournament();
                 t.IdTournament = int.Parse(row[1]);
-                Edition e = new Edition();
+                //Edition e = new Edition();
                 e.OrderInSeason = int.Parse(row[2]);
 
             }
