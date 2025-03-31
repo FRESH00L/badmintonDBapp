@@ -12,7 +12,7 @@ namespace BazyDanychBadminton._02_Domain
     {
         public SeasonDAO() { }
 
-        public List<Season> ReadAll()
+        public List<Season> ReadAllSeasons()
         {
             List<Season> result = new List<Season>();
             string sql = "SELECT * FROM Seasons ORDER BY season_year;";
@@ -45,7 +45,7 @@ namespace BazyDanychBadminton._02_Domain
             return s.Season_year;
         }
 
-        public int Insert(Season s)
+        public int InsertSeason(Season s)
         {
             Match match = new Match();
             Player player = new Player();
@@ -64,7 +64,7 @@ namespace BazyDanychBadminton._02_Domain
             return 0;
         }
 
-        public int Delete(Season s)
+        public int DeleteSeason(Season s)
         {
             Match match = new Match();
             Player player = new Player();
@@ -121,6 +121,121 @@ namespace BazyDanychBadminton._02_Domain
         public int DeleteEdition(Edition e)
         {
             string sql = "DELETE FROM Editions WHERE orderInSeason='" + e.OrderInSeason + "';";
+            return DBBroker.getInstance().Change(sql);
+        }
+
+        //////////////////////////////
+        public List<Match> ReadAllMatches()
+        {
+            List<Match> result = new List<Match>();
+            string sql = "SELECT * FROM Matches ORDER BY idMatch;";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+
+            foreach (string[] row in table)
+            {
+                Match m = new Match();
+                m.IdMatch = int.Parse(row[0]);
+                m.Season = row[1];
+                m.Tournament = row[2];
+                m.Round = int.Parse(row[4]);
+
+                Edition e = new Edition(int.Parse(row[1]));
+                e.ReadEditionByOrder();
+                m.MatchEdition = e;
+
+                Player p1 = new Player(int.Parse(row[2]));
+                p1.ReadPlayerById();
+                m.Player1 = p1;
+
+                Player p2 = new Player(int.Parse(row[3]));
+                p2.ReadPlayerById();
+                m.Player2 = p2;
+
+                if (!string.IsNullOrEmpty(row[4]))
+                {
+                    Player winner = new Player(int.Parse(row[4]));
+                    winner.ReadPlayerById();
+                    m.Winner = winner;
+                }
+
+                result.Add(m);
+            }
+            return result;
+        }
+
+        public void ReadById(Match m)
+        {
+            string sql = "SELECT * FROM Matches WHERE idMatch='" + m.IdMatch + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+
+            if (table.Count > 0)
+            {
+                string[] row = table[0];
+                m.IdMatch = int.Parse(row[0]);
+                m.Season = row[1];
+                m.Tournament = row[2];
+                m.Round = int.Parse(row[4]);
+
+                Edition e = new Edition(int.Parse(row[1]));
+                e.ReadEditionByOrder();
+                m.MatchEdition = e;
+
+                Player p1 = new Player(int.Parse(row[2]));
+                p1.ReadPlayerById();
+                m.Player1 = p1;
+
+                Player p2 = new Player(int.Parse(row[3]));
+                p2.ReadPlayerById();
+                m.Player2 = p2;
+
+                if (!string.IsNullOrEmpty(row[4]))
+                {
+                    Player winner = new Player(int.Parse(row[4]));
+                    winner.ReadPlayerById();
+                    m.Winner = winner;
+                }
+            }
+        }
+
+        public int InsertMatch(Match m)
+        {
+<<<<<<< HEAD
+            string sql = "INSERT INTO Matches (idEdition, idPlayer1, idPlayer2, idWinner) VALUES ('"
+                         + m.MatchEdition.OrderInSeason + "', '"
+                         + m.Player1.IdPlayer + "', '"
+                         + m.Player2.IdPlayer + "', "
+                         + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") + ");";
+=======
+            string sql = "INSERT INTO Matches (season, tournament, winner, round) VALUES ('"
+                         + m.Season + "', '"
+                         + m.Tournament + "', "
+                         + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") + ", '"
+                         + m.Round + "');";
+>>>>>>> 2bc359f2cd20170dfd4a1b096ce4ac8a60cf56b1
+            return DBBroker.getInstance().Change(sql);
+        }
+
+        public int UpdateMatch(Match m)
+        {
+<<<<<<< HEAD
+            string sql = "UPDATE Matches SET idEdition='" + m.MatchEdition.OrderInSeason +
+                         "', idPlayer1='" + m.Player1.IdPlayer +
+                         "', idPlayer2='" + m.Player2.IdPlayer +
+                         "', idWinner=" + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") +
+                         " WHERE idMatch='" + m.IdMatch + "';";
+=======
+            string sql = "UPDATE Matches SET season='" + m.Season +
+                         "', tournament='" + m.Tournament +
+                         "', winner=" + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") +
+                         ", round='" + m.Round +
+                         "' WHERE idMatch='" + m.IdMatch + "';";
+>>>>>>> 2bc359f2cd20170dfd4a1b096ce4ac8a60cf56b1
+            return DBBroker.getInstance().Change(sql);
+        }
+
+        public int DeleteMatch(Match m)
+        {
+            string sql = "DELETE FROM Matches WHERE idMatch='" + m.IdMatch + "';";
             return DBBroker.getInstance().Change(sql);
         }
     }

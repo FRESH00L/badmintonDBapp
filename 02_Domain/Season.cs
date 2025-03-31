@@ -145,7 +145,7 @@ namespace BazyDanychBadminton._02_Domain
 
         public List<Season> ReadAllSeasons()
         {
-            return this.seasonDAO.ReadAll();
+            return this.seasonDAO.ReadAllSeasons();
         }
         public int ReadSeasonsByYear()
         {
@@ -153,14 +153,14 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int InsertSeason()
         {
-            return this.seasonDAO.Insert(this);
+            return this.seasonDAO.InsertSeason(this);
         }
         public int DeleteSeason()
         {
             DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (dialogResult == DialogResult.Yes)
             {
-                return this.seasonDAO.Delete(this);
+                return this.seasonDAO.DeleteSeason(this);
             }
             return 0;
         }
