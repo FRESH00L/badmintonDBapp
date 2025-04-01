@@ -102,31 +102,28 @@ namespace BazyDanychBadminton._02_Domain
         }
 
         public int DeleteSeason(Season s)
+{
+    foreach (Edition edition in s.Sea_editions)
+    {
+        List<Match> matches = edition.ListOfMatches;
+
+        foreach (Match m in matches)
         {
-            foreach (Edition edition in s.Sea_editions)
-            {
-                List<Match> matches = edition.ListOfMatches;
-
-                // Primero, eliminar las jugadas asociadas a los partidos
-                foreach (Match m in matches)
-                {
-                    string sql3 = "DELETE FROM Plays WHERE idMatch = '" + m.IdMatch + "';";
-                    DBBroker.getInstance().Change(sql3);
-                }
-
-                // Luego, eliminar los partidos (Matches)
-                foreach (Match m in matches)
-                {
-                    string sql2 = "DELETE FROM Matches WHERE idMatch = '" + m.IdMatch + "';";
-                    DBBroker.getInstance().Change(sql2);
-                }
-
-                // Ahora, eliminar las ediciones (Editions)
-                string sql = "DELETE FROM Editions WHERE season = '" + edition.EditionSeason.Season_year + "' AND orderInSeason = '" + edition.OrderInSeason + "';";
-                DBBroker.getInstance().Change(sql);
-            }
-            return 1;
+            string sql3 = "DELETE FROM Plays WHERE idMatch = '" + m.IdMatch + "';";
+            DBBroker.getInstance().Change(sql3);
         }
+
+        foreach (Match m in matches)
+        {
+            string sql2 = "DELETE FROM Matches WHERE season = '" + edition.EditionSeason.Season_year + "' AND tournament = '" + edition.EditionTournament.IdTournament + "';";
+            DBBroker.getInstance().Change(sql2);
+        }
+
+        string sql = "DELETE FROM Editions WHERE season = '" + edition.EditionSeason.Season_year + "' AND tournament = '" + edition.EditionTournament.IdTournament + "';";
+        DBBroker.getInstance().Change(sql);
+    }
+    return 1;
+}
 
 
 
