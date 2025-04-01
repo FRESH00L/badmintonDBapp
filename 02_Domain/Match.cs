@@ -122,30 +122,31 @@ namespace BazyDanychBadminton._02_Domain
                 return 0;
             }
 
-            public void SimulateMatch()
+        public void SimulateMatch()
+        {
+            Random random = new Random();
+            int winsPlayer1 = 0, winsPlayer2 = 0;
+
+            for (int i = 0; i < 3; i++)
             {
-                Random random = new Random();
-                int winsPlayer1 = 0, winsPlayer2 = 0;
+                _round = i; // updates round on each iteration
+                Set set = new Set(this, _player1, _player2, random);
+                _sets.Add(set);
 
-                for (int i = 0; i < 3; i++)
+                if (set.Winner == _player1) winsPlayer1++;
+                else winsPlayer2++;
+
+                if (winsPlayer1 == 2)
                 {
-                    Set set = new Set(this, _player1, _player2, random);
-                    _sets.Add(set);
-
-                    if (set.Winner == _player1) winsPlayer1++;
-                    else winsPlayer2++;
-
-                    if (winsPlayer1 == 2)
-                    {
-                        _winner = _player1;
-                        return;
-                    }
-                    if (winsPlayer2 == 2)
-                    {
-                        _winner = _player2;
-                        return;
-                    }
+                    _winner = _player1;
+                    return;
+                }
+                if (winsPlayer2 == 2)
+                {
+                    _winner = _player2;
+                    return;
                 }
             }
         }
+    }
     }

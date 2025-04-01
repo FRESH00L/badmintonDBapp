@@ -84,7 +84,7 @@ namespace BazyDanychBadminton._02_Domain
                 }
             }
            
-            return 0;
+            return 1;
         }
 
         public int DeleteSeason(Season s)
