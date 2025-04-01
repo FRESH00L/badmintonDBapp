@@ -167,6 +167,11 @@ namespace BazyDanychBadminton._01_Presentation
             btn_Delete.Enabled = false;
             btn_Update.Enabled = false;
         }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

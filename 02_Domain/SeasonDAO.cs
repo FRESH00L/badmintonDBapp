@@ -176,7 +176,7 @@ namespace BazyDanychBadminton._02_Domain
             return DBBroker.getInstance().Change(sql);
         }
 
-        //////////////////////////////
+        
         public List<Match> ReadAllMatches()
         {
             List<Match> result = new List<Match>();
