@@ -59,21 +59,6 @@ namespace BazyDanychBadminton._02_Domain
             return 0;
         }
 
-        public int ReadByYear(Season s, Tournament t, Edition e)
-        {
-            string sql = "SELECT * FROM Edition WHERE season, tournament, orderInSeason='" + s.Season_year + "'" + t.IdTournament + "'" + e.OrderInSeason + "';";
-            List<string[]> table = DBBroker.getInstance().Read(sql);
-            if (table.Count > 0)
-            {
-                string[] row = table[0];
-                s.Season_year = int.Parse(row[0]);
-                t.IdTournament = int.Parse(row[1]);
-                e.OrderInSeason = int.Parse(row[2]);
-
-            }
-            return s.Season_year;
-        }
-
         public int InsertSeason(Season s)
         {
             foreach (Edition edition in s.Sea_editions)
@@ -103,7 +88,6 @@ namespace BazyDanychBadminton._02_Domain
                         sql3 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + m.Player1.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].IdSet + "', '" + m.Sets[1].IdSet + "', '" + m.Sets[2].IdSet + "');";
                     }
                 
-                        
                         DBBroker.getInstance().Change(sql3);
                     
                 }
@@ -131,9 +115,12 @@ namespace BazyDanychBadminton._02_Domain
 
                 string sql = "DELETE FROM Editions WHERE season = '" + edition.EditionSeason.Season_year + "' AND tournament = '" + edition.EditionTournament.IdTournament + "';";
                 DBBroker.getInstance().Change(sql);
+                string sql4 = "DELETE FROM tournaments WHERE idTournament = '" + edition.EditionTournament.IdTournament + "';";
+                DBBroker.getInstance().Change(sql4);
             }
             return 1;
         }
+<<<<<<< HEAD
 
 
 
@@ -274,5 +261,7 @@ namespace BazyDanychBadminton._02_Domain
             string sql = "DELETE FROM Matches WHERE idMatch='" + m.IdMatch + "';";
             return DBBroker.getInstance().Change(sql);
         }
+=======
+>>>>>>> 408e5a813ef9b602eb1cd81909b63337bc738693
     }
 }

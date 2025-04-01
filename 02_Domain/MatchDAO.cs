@@ -24,7 +24,8 @@ namespace BazyDanychBadminton._02_Domain
                 m.IdMatch = int.Parse(row[0]);
                 m.Season = new Season(int.Parse(row[1]));
                 m.Tournament = new Tournament(int.Parse(row[2]));
-                m.Round = int.Parse(row[4]);
+                m.Winner = new Player(int.Parse(row[3]));
+                m.Round = row[4];
 
                 Edition e = new Edition(int.Parse(row[1]));
                 e.ReadEditionByOrder();
@@ -44,7 +45,6 @@ namespace BazyDanychBadminton._02_Domain
                     winner.ReadPlayerById();
                     m.Winner = winner;
                 }
-
                 result.Add(m);
             }
             return result;
@@ -61,7 +61,7 @@ namespace BazyDanychBadminton._02_Domain
                 m.IdMatch = int.Parse(row[0]);
                 m.Season = new Season(int.Parse(row[1]));
                 m.Tournament = new Tournament(int.Parse(row[2]));
-                m.Round = int.Parse(row[4]);
+                m.Round = row[4];
 
                 Edition e = new Edition(int.Parse(row[1]));
                 e.ReadEditionByOrder();
@@ -89,7 +89,7 @@ namespace BazyDanychBadminton._02_Domain
             string sql = "INSERT INTO Matches (season, tournament, winner, round) VALUES ('"
                          + m.Season + "', '"
                          + m.Tournament + "', "
-                         + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") + ", '"
+                         + m.Winner + ", '"
                          + m.Round + "');";
             return DBBroker.getInstance().Change(sql);
         }
@@ -98,7 +98,7 @@ namespace BazyDanychBadminton._02_Domain
         {
             string sql = "UPDATE Matches SET season='" + m.Season +
                          "', tournament='" + m.Tournament +
-                         "', winner=" + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") +
+                         "', winner=" + m.Winner +
                          ", round='" + m.Round +
                          "' WHERE idMatch='" + m.IdMatch + "';";
             return DBBroker.getInstance().Change(sql);
