@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BazyDanychBadminton._02_Domain;
 using BazyDanychBadminton._03_Persistance;
+using Google.Protobuf.Reflection;
 
 namespace BazyDanychBadminton._02_Domain
 {
@@ -102,27 +103,41 @@ namespace BazyDanychBadminton._02_Domain
 
         public int DeleteSeason(Season s)
         {
-            Match match = new Match();
-            Player player = new Player();
-            string sql = "DELETE FROM Editions WHERE season = '" + s.Season_year +"';";
-            DBBroker.getInstance().Change(sql);
-            for (int i = 0; i < match.Round; i++) 
+            foreach (Edition edition in s.Sea_editions)
             {
-                string sql2 = "DELETE FROM Matches WHERE season = '" + s.Season_year +  "';"; 
-                DBBroker.getInstance().Change(sql2);
-                for (int j = 0; j < 7; j++)
+                List<Match> matches = edition.ListOfMatches;
+
+                // 1️⃣ Eliminar primero los registros de Plays (que dependen de Matches)
+                foreach (Match m in matches)
                 {
-                    /*string sql3 = "DELETE FROM Plays(player, idMatch, set1, set2, set3) VALUES ('" + player.PlaName + "'" + match.IdMatch + "'" + match.Sets[j] + "');";
-                    */
-                    string sql3 = "DELETE FROM Plays WHERE player='" + player.PlaName + "' AND idMatch='" + match.IdMatch + "';";
+                    string sql3 = "DELETE FROM Plays WHERE idMatch='" + m.IdMatch + "';";
                     DBBroker.getInstance().Change(sql3);
                 }
+
+                // 2️⃣ Luego, eliminar los registros de Matches (que dependen de Editions)
+                foreach (Match m in matches)
+                {
+                    string sql2 = "DELETE FROM Matches WHERE season='" + edition.EditionSeason + "' AND tournament='" + edition.EditionTournament + "';";
+                    DBBroker.getInstance().Change(sql2);
+                }
+
+                // 3️⃣ Ahora que no hay partidos, podemos eliminar la edición
+                string sql = "DELETE FROM Editions WHERE season=" + edition.EditionSeason + " AND tournament=" + edition.EditionTournament + ";";
+                DBBroker.getInstance().Change(sql);
             }
+
+            // 4️⃣ Finalmente, eliminar la temporada si ya no tiene ediciones asociadas
+            string sqlFinal = "DELETE FROM Seasons WHERE season_year='" + s.Season_year + "';";
+            DBBroker.getInstance().Change(sqlFinal);
+
             return 1;
         }
 
-        ///////////////////////
-        
+
+
+
+
+
         public List<Edition> ReadAllEditions()
         {
             List<Edition> result = new List<Edition>();
