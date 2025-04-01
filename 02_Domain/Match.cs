@@ -13,7 +13,7 @@ namespace BazyDanychBadminton._02_Domain
             private Season _season;
             private Tournament _tournament;
             private Player _winner;
-            private int _round;
+            private String _round;
             private Player _player1;
             private Player _player2;
             private List<Set> _sets;
@@ -44,7 +44,7 @@ namespace BazyDanychBadminton._02_Domain
                 get { return _winner; }
                 set { _winner = value; }
             }
-            public int Round
+            public String Round
             {
                 get { return _round; }
                 set { _round = value; }
@@ -71,7 +71,7 @@ namespace BazyDanychBadminton._02_Domain
                 this._season = new Season();
                 this._tournament = new Tournament();
                 this._winner = null;
-                this._round = 0;
+                this._round = " ";
                 this._player1 = new Player();
                 this._player2 = new Player();
                 this._sets = new List<Set>();
@@ -85,7 +85,7 @@ namespace BazyDanychBadminton._02_Domain
                 this._season = Season;
                 this._tournament = Tournament;
                 this._winner = null;
-                this._round = 0;
+                this._round = " ";
                 this._player1 = new Player();
                 this._player2 = new Player();
                 this._sets = new List<Set>();
@@ -128,8 +128,7 @@ namespace BazyDanychBadminton._02_Domain
             int winsPlayer1 = 0, winsPlayer2 = 0;
 
             for (int i = 0; i < 3; i++)
-            {
-                _round = i; // updates round on each iteration
+            { 
                 Set set = new Set(this, _player1, _player2, random);
                 _sets.Add(set);
 
