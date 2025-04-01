@@ -107,33 +107,26 @@ namespace BazyDanychBadminton._02_Domain
             {
                 List<Match> matches = edition.ListOfMatches;
 
-                // 1️⃣ Eliminar primero los registros de Plays (que dependen de Matches)
+                // Primero, eliminar las jugadas asociadas a los partidos
                 foreach (Match m in matches)
                 {
-                    string sql3 = "DELETE FROM Plays WHERE idMatch='" + m.IdMatch + "';";
+                    string sql3 = "DELETE FROM Plays WHERE idMatch = '" + m.IdMatch + "';";
                     DBBroker.getInstance().Change(sql3);
                 }
 
-                // 2️⃣ Luego, eliminar los registros de Matches (que dependen de Editions)
+                // Luego, eliminar los partidos (Matches)
                 foreach (Match m in matches)
                 {
-                    string sql2 = "DELETE FROM Matches WHERE season='" + edition.EditionSeason + "' AND tournament='" + edition.EditionTournament + "';";
+                    string sql2 = "DELETE FROM Matches WHERE idMatch = '" + m.IdMatch + "';";
                     DBBroker.getInstance().Change(sql2);
                 }
 
-                // 3️⃣ Ahora que no hay partidos, podemos eliminar la edición
-                string sql = "DELETE FROM Editions WHERE season=" + edition.EditionSeason + " AND tournament=" + edition.EditionTournament + ";";
+                // Ahora, eliminar las ediciones (Editions)
+                string sql = "DELETE FROM Editions WHERE season = '" + edition.EditionSeason.Season_year + "' AND orderInSeason = '" + edition.OrderInSeason + "';";
                 DBBroker.getInstance().Change(sql);
             }
-
-            // 4️⃣ Finalmente, eliminar la temporada si ya no tiene ediciones asociadas
-            string sqlFinal = "DELETE FROM Seasons WHERE season_year='" + s.Season_year + "';";
-            DBBroker.getInstance().Change(sqlFinal);
-
             return 1;
         }
-
-
 
 
 
