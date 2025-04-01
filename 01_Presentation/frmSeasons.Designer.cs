@@ -87,6 +87,7 @@
             nud_SeasonYear.Maximum = new decimal(new int[] { 2050, 0, 0, 0 });
             nud_SeasonYear.Minimum = new decimal(new int[] { 2020, 0, 0, 0 });
             nud_SeasonYear.Name = "nud_SeasonYear";
+            nud_SeasonYear.ReadOnly = true;
             nud_SeasonYear.Size = new Size(182, 27);
             nud_SeasonYear.TabIndex = 3;
             nud_SeasonYear.Value = new decimal(new int[] { 2020, 0, 0, 0 });
@@ -98,6 +99,7 @@
             nud_NumberOfTournament.Maximum = new decimal(new int[] { 7, 0, 0, 0 });
             nud_NumberOfTournament.Minimum = new decimal(new int[] { 4, 0, 0, 0 });
             nud_NumberOfTournament.Name = "nud_NumberOfTournament";
+            nud_NumberOfTournament.ReadOnly = true;
             nud_NumberOfTournament.Size = new Size(182, 27);
             nud_NumberOfTournament.TabIndex = 4;
             nud_NumberOfTournament.Value = new decimal(new int[] { 4, 0, 0, 0 });
@@ -214,7 +216,7 @@
             lbl_ListOfSeasons.TabIndex = 15;
             lbl_ListOfSeasons.Text = "List of Seasons";
             // 
-            // frmSeason
+            // frmSeasons
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -236,7 +238,7 @@
             Controls.Add(btn_GenerateSeason);
             Controls.Add(lbx_ListOfSeasons);
             Margin = new Padding(2);
-            Name = "frmSeason";
+            Name = "frmSeasons";
             Text = "frmSeasons";
             Load += frmSeason_Load;
             ((System.ComponentModel.ISupportInitialize)nud_SeasonYear).EndInit();

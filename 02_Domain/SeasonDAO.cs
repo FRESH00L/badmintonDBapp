@@ -8,7 +8,7 @@ using BazyDanychBadminton._03_Persistance;
 
 namespace BazyDanychBadminton._02_Domain
 {
-    internal class SeasonDAO
+    public class SeasonDAO
     {
         public SeasonDAO() { }
 
@@ -40,6 +40,7 @@ namespace BazyDanychBadminton._02_Domain
                     Edition e = new Edition();
                     e.EditionTournament = t;
                     e.EditionSeason = s;
+                    e.OrderInSeason = int.Parse(row[2]);
                     s.Sea_editions.Add(e);
                 }
                 return 1;
@@ -55,9 +56,7 @@ namespace BazyDanychBadminton._02_Domain
             {
                 string[] row = table[0];
                 s.Season_year = int.Parse(row[0]);
-                //Tournament t = new Tournament();
                 t.IdTournament = int.Parse(row[1]);
-                //Edition e = new Edition();
                 e.OrderInSeason = int.Parse(row[2]);
 
             }
@@ -79,11 +78,10 @@ namespace BazyDanychBadminton._02_Domain
                     for (int j = 0; j < 7; j++)
                     {
                         string sql3 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + player.PlaName + "', '" + match.IdMatch + "', '" + match.Sets[j] + "');";
-                        return DBBroker.getInstance().Change(sql3);
+                        DBBroker.getInstance().Change(sql3);
                     }
                 }
             }
-           
             return 1;
         }
 
@@ -99,8 +97,10 @@ namespace BazyDanychBadminton._02_Domain
                 DBBroker.getInstance().Change(sql2);
                 for (int j = 0; j < 7; j++)
                 {
-                    string sql3 = "DELETE FROM Plays(player, idMatch, set1, set2, set3) VALUES ('" + player.PlaName + "'" + match.IdMatch + "'" + match.Sets[j] + "');";
-                    return DBBroker.getInstance().Change(sql3);
+                    /*string sql3 = "DELETE FROM Plays(player, idMatch, set1, set2, set3) VALUES ('" + player.PlaName + "'" + match.IdMatch + "'" + match.Sets[j] + "');";
+                    */
+                    string sql3 = "DELETE FROM Plays WHERE player='" + player.PlaName + "' AND idMatch='" + match.IdMatch + "';";
+                    DBBroker.getInstance().Change(sql3);
                 }
             }
             return 1;
@@ -225,7 +225,7 @@ namespace BazyDanychBadminton._02_Domain
             string sql = "INSERT INTO Matches (season, tournament, winner, round) VALUES ('"
                          + m.Season.Season_year + "', '"
                          + m.Tournament.IdTournament + "', "
-                         + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") + ", '"
+                         + m.Winner + ", '"
                          + m.Round + "');";
             return DBBroker.getInstance().Change(sql);
         }
@@ -234,7 +234,7 @@ namespace BazyDanychBadminton._02_Domain
         {
             string sql = "UPDATE Matches SET season='" + m.Season.Season_year +
                          "', tournament='" + m.Tournament.IdTournament +
-                         "', winner=" + (m.Winner != null ? "'" + m.Winner.IdPlayer + "'" : "NULL") +
+                         "', winner=" + m.Winner +
                          ", round='" + m.Round +
                          "' WHERE idMatch='" + m.IdMatch + "';";
             return DBBroker.getInstance().Change(sql);
