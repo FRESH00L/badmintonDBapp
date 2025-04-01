@@ -31,6 +31,7 @@ namespace BazyDanychBadminton._02_Domain
             editionTournament = new Tournament();
             orderInSeason = order;
         }
+        public List<Match> ListOfMatches { get { return listOfMatches; } }
         public void AddMatch(Match match)
         {
             this.listOfMatches.Add(match);

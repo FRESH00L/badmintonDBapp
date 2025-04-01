@@ -65,21 +65,36 @@ namespace BazyDanychBadminton._02_Domain
 
         public int InsertSeason(Season s)
         {
-            Match match = new Match();
-            Player player = new Player();
             foreach (Edition edition in s.Sea_editions)
             {
+                List<Match> matches = edition.ListOfMatches;
                 string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + s.Season_year + "', '" + edition.EditionTournament.IdTournament + "', '" + edition.OrderInSeason + "');";
                 DBBroker.getInstance().Change(sql);
-                for (int i = 0; i < match.Round; i++)
+                foreach(Match m in matches)
                 {
-                    string sql2 = "INSERT INTO Matches(idMatch, season, tournament, winner, round) VALUES ('" + match.IdMatch + "', '" + s.Season_year + "', '" + edition.EditionTournament.IdTournament + "', '" + match.Winner + "', '" + match.Round + "');";
+                    string sql2 = "INSERT INTO Matches(idMatch, season, tournament, winner, round) VALUES ('" + m.IdMatch + "', '" + edition.EditionSeason.Season_year + "', '" + edition.EditionTournament.IdTournament + "', '" + m.Winner.IdPlayer + "', '" + m.Round + "');";
                     DBBroker.getInstance().Change(sql2);
-                    for (int j = 0; j < 7; j++)
+                    string sqlLastId = "SELECT LAST_INSERT_ID();";
+                    List<string[]> table = DBBroker.getInstance().Read(sqlLastId);
+
+                    if (table.Count > 0)
                     {
-                        string sql3 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + player.PlaName + "', '" + match.IdMatch + "', '" + match.Sets[j] + "');";
-                        DBBroker.getInstance().Change(sql3);
+                        m.IdMatch = int.Parse(table[0][0]);
                     }
+
+                    string sql3;
+                    if (m.Sets.Count < 3)
+                    {
+                        sql3 = "INSERT INTO Plays(player, idMatch, set1, set2) VALUES ('" + m.Player1.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].IdSet + "', '" + m.Sets[1].IdSet + "');";
+                    }
+                    else
+                    {
+                        sql3 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + m.Player1.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].IdSet + "', '" + m.Sets[1].IdSet + "', '" + m.Sets[2].IdSet + "');";
+                    }
+                
+                        
+                        DBBroker.getInstance().Change(sql3);
+                    
                 }
             }
             return 1;
