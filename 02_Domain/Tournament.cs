@@ -13,37 +13,31 @@ namespace BazyDanychBadminton._02_Domain
         private string _tournamentCity;
         private Country _tournamentCountry;
         private TournamentDAO _tournamentDAO;
-
         public int IdTournament
         {
             get { return _idTournament; }
             set { _idTournament = value; }
         }
-
         public string TouName
         {
             get { return _tournamentName; }
             set { _tournamentName = value; }
         }
-
         public string TouCity
         {
             get { return _tournamentCity; }
             set { _tournamentCity = value; }
         }
-
         public Country TouCountry
         {
             get { return _tournamentCountry; }
             set { _tournamentCountry = value; }
         }
-
         public TournamentDAO TournamentDAO
         {
             get { return _tournamentDAO; }
             set { _tournamentDAO = value; }
         }
-
         public Tournament()
         {
             this._tournamentName = "";
@@ -59,12 +53,10 @@ namespace BazyDanychBadminton._02_Domain
             this._tournamentCountry = new Country();
             this._tournamentDAO = new TournamentDAO();
         }
-
         public List<Tournament> ReadAllTournaments()
         {
             return this.TournamentDAO.ReadAll();
         }
-
         public void ReadTournamentByName()
         {
             this.TournamentDAO.ReadByName(this);

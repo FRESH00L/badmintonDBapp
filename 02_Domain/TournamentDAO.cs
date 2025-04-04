@@ -28,7 +28,6 @@ namespace BazyDanychBadminton._02_Domain
             }
             return result;
         }
-
         public void ReadById(Tournament t)
         {
             string sql = "SELECT * FROM Tournaments WHERE idTournament='" + t.IdTournament + "';";
@@ -44,7 +43,6 @@ namespace BazyDanychBadminton._02_Domain
                 t.TouCountry = c;
             }
         }
-
         public void ReadByName(Tournament t)
         {
             string sql = "SELECT * FROM Tournaments WHERE touName='" + t.TouName + "';";
@@ -60,7 +58,6 @@ namespace BazyDanychBadminton._02_Domain
                 t.TouCountry = c;
             }
         }
-
         public int Insert(Tournament t)
         {
             string sql = "INSERT INTO Tournaments(touName, touCity, touCountry) VALUES ('" + t.TouName + "', '" + t.TouCity + "', '" + t.TouCountry.IdCountry + "');";
@@ -70,16 +67,12 @@ namespace BazyDanychBadminton._02_Domain
         {
             string sql = "UPDATE Tournaments SET touName= '" + t.TouName + "', touCity= '" + t.TouCity + "', touCountry= '" + t.TouCountry.IdCountry + "' WHERE idTournament='" + t.IdTournament + "';";
             return DBBroker.getInstance().Change(sql);
-
         }
         public int Delete(Tournament t)
         {
             string sql = "DELETE FROM Tournaments WHERE idTournament='" + t.IdTournament + "';";
             return DBBroker.getInstance().Change(sql);
         }
-
-
-
     }
 }
     

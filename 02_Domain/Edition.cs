@@ -33,12 +33,14 @@ namespace BazyDanychBadminton._02_Domain
         
         public Edition() 
         {
+            _editionDAO = new EditionDAO();
             _editionSeason = new Season();
             _editionTournament = new Tournament();
             _orderInSeason = 0;
         }
         public Edition(int order)
         {
+            _editionDAO = new EditionDAO();
             _editionSeason = new Season();
             _editionTournament = new Tournament();
             _orderInSeason = order;
@@ -51,25 +53,25 @@ namespace BazyDanychBadminton._02_Domain
 
         public List<Edition> ReadAllEditions()
         {
-            return this._editionSeason.ReadAllEditions();
+            return this._editionDAO.ReadAllEditions();
         }
 
         public Edition ReadEditionByOrder()
         {
-            Edition e = this._editionSeason.ReadEditionByOrder(this);
+            Edition e = this._editionDAO.ReadByOrder(this);
             return e;
         }
 
         public void InsertEdition()
         {
-            this._editionSeason.InsertEdition(this);
+            this._editionDAO.InsertEdition(this);
         }
         public int DeleteEdition() 
         {
             DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
             if (dialogResult == DialogResult.Yes)
             {
-                this._editionSeason.DeleteEdition(this);
+                this._editionDAO.DeleteEdition(this);
             }
             return 0;
         }

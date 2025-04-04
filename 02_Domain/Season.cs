@@ -63,15 +63,13 @@ namespace BazyDanychBadminton._02_Domain
             this.season_editions = new List<Edition>();
             this.seasonDAO = new SeasonDAO();
         }
-        public int GenerateSeason(int nTou)
+        public int GenerateSeason(List<Tournament> listT)
         {
             if (ReadSeasonsByYear()>0)
             {
                 MessageBox.Show("There's already a season in this year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return -1;
             }
-
-            Random random = new Random();
             List<Player> players = new Player().ReadAllPlayers();
             if (players.Count < 8)
             {
@@ -79,21 +77,12 @@ namespace BazyDanychBadminton._02_Domain
                 return -1;
             }
 
-            int numberOfTournaments = nTou;
-            for (int t = 0; t < numberOfTournaments; t++)
+            Random random = new Random();
+            int order = 1;
+            foreach (Tournament t in listT)
             {
-                Tournament tournament = new Tournament() { TouName = this.Season_year + " Tournament " + (t + 1) };
 
-                Random rnd = new Random();
-                Country country = new Country();
-                List<Country> couList = new List<Country>();
-                couList = country.ReadAllCountries();
-                country = couList[rnd.Next(couList.Count)];
-
-                tournament.TouCountry = country;
-
-                tournament.InsertTournament();
-                tournament.ReadTournamentByName();
+                t.ReadTournamentByName();
 
                 List<Player> tournamentPlayers = players.OrderBy(x => random.Next()).Take(8).ToList();
                 List<Match> matches = new List<Match>();
@@ -105,7 +94,7 @@ namespace BazyDanychBadminton._02_Domain
                     {
                         Player1 = tournamentPlayers[i * 2],
                         Player2 = tournamentPlayers[i * 2 + 1],
-                        Round = 1
+                        Round = "Q"
                     };
                     match.SimulateMatch();
                     matches.Add(match);
@@ -119,7 +108,7 @@ namespace BazyDanychBadminton._02_Domain
                     {
                         Player1 = winners[i * 2],
                         Player2 = winners[i * 2 + 1],
-                        Round = 2
+                        Round = "S"
                     };
                     semiFinal.SimulateMatch();
                     matches.Add(semiFinal);
@@ -130,7 +119,7 @@ namespace BazyDanychBadminton._02_Domain
                 {
                     Player1 = semiFinalWinners[0],
                     Player2 = semiFinalWinners[1],
-                    Round = 3
+                    Round = "F"
                 };
                 finalMatch.SimulateMatch();
                 matches.Add(finalMatch);
@@ -138,8 +127,8 @@ namespace BazyDanychBadminton._02_Domain
                 Edition edition = new Edition()
                 {
                     EditionSeason = this,
-                    EditionTournament = tournament,
-                    OrderInSeason = t + 1
+                    EditionTournament = t,
+                    OrderInSeason = order++
                 };
                 foreach (var match in matches)
                 {
@@ -176,24 +165,6 @@ namespace BazyDanychBadminton._02_Domain
         public override string ToString()
         {
             return Season_year.ToString();
-        }
-
-
-        public List<Edition> ReadAllEditions()
-        {
-            return this.seasonDAO.ReadAllEditions();
-        }
-        public Edition ReadEditionByOrder(Edition e)
-        {
-            return this.seasonDAO.ReadByOrder(e);
-        }
-        public int InsertEdition(Edition e)
-        {
-            return this.seasonDAO.InsertEdition(e);
-        }
-        public int DeleteEdition(Edition e)
-        {
-            return this.seasonDAO.DeleteEdition(e);
         }
     }
 }

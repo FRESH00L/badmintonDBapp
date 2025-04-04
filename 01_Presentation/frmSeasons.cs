@@ -19,7 +19,6 @@ namespace BazyDanychBadminton._01_Presentation
         {
             InitializeComponent();
         }
-
         private void frmSeason_Load(object sender, EventArgs e)
         {
             season = new Season();
@@ -28,7 +27,6 @@ namespace BazyDanychBadminton._01_Presentation
             {
                 lbx_ListOfSeasons.Items.Add(i);
             }
-
             tournament = new Tournament();
             List<Tournament> list_tournament = tournament.ReadAllTournaments();
             foreach (Tournament tournamnet in list_tournament)
@@ -36,20 +34,25 @@ namespace BazyDanychBadminton._01_Presentation
                 lbx_ListOfAllTournaments.Items.Add(tournamnet.TouName);
             }
         }
-
         private void btn_Add_Click(object sender, EventArgs e)
         {
             if (lbx_ListOfAllTournaments.SelectedItem != null)
             {
+                foreach(Object o in lbx_ListSelectedTournament.Items)
+                {
+                    if (o.ToString().Equals(lbx_ListOfAllTournaments.SelectedItem.ToString()))
+                    {
+                        MessageBox.Show("This tournament is already selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        return;
+                    }
+                }
                 lbx_ListSelectedTournament.Items.Add(lbx_ListOfAllTournaments.SelectedItem.ToString());
             }
         }
-
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             lbx_ListSelectedTournament.Items.Clear();
         }
-
         private void chbx_ChoseRandomly_CheckedChanged(object sender, EventArgs e)
         {
             lbx_ListSelectedTournament.Items.Clear();
@@ -72,7 +75,6 @@ namespace BazyDanychBadminton._01_Presentation
                 }
             }
         }
-
         private void chbx_GenerateRandomly_CheckedChanged(object sender, EventArgs e)
         {
             if (chbx_GenerateRandomly.Checked)
@@ -80,16 +82,28 @@ namespace BazyDanychBadminton._01_Presentation
                 Random rnd = new Random();
                 int nTou = rnd.Next(4, 8);
                 nud_NumberOfTournament.Value = nTou;
-
             }
         }
         private void btn_GenerateSeason_Click(object sender, EventArgs e)
         {
             season = new Season(Convert.ToInt16(nud_SeasonYear.Value));
             int nTou = Convert.ToInt16(nud_NumberOfTournament.Value);
+            List<Tournament> listOfTournaments = new List<Tournament>();
+            foreach(Object o in lbx_ListSelectedTournament.Items)
+            {
+                Tournament t = new Tournament();
+                t.TouName = o.ToString();
+                t.ReadTournamentByName();
+                listOfTournaments.Add(t);
+            }
+            if(!(listOfTournaments.Count == nTou))
+            {
+                MessageBox.Show("Number of tournaments must cover selected tournaments", "Error", MessageBoxButtons.OK);
+                return;
+            }
             try
             {
-                if (season.GenerateSeason(nTou) <=0)
+                if (season.GenerateSeason(listOfTournaments) <=0)
                 {
                     return;
                 }
@@ -108,15 +122,12 @@ namespace BazyDanychBadminton._01_Presentation
             {
                 lbx_ListOfAllTournaments.Items.Add(tournamnet.TouName);
             }
-
             lbx_ListOfSeasons.Items.Add(season);
-
         }
         private void btn_DeleteSeason_Click(object sender, EventArgs e)
         {
             if (lbx_ListOfSeasons.SelectedItem != null)
             {
-
                 try
                 {
                     season = new Season(int.Parse(lbx_ListOfSeasons.SelectedItem.ToString()));
@@ -143,7 +154,6 @@ namespace BazyDanychBadminton._01_Presentation
                 }
             }
         }
-
         private void lbx_ListOfSeasons_SelectedIndexChanged(object sender, EventArgs e)
         {
             if(lbx_ListOfSeasons.SelectedItem != null)
@@ -161,7 +171,6 @@ namespace BazyDanychBadminton._01_Presentation
                     ed.EditionTournament.ReadTournamentById();
                     lbx_ListSelectedTournament.Items.Add(ed.EditionTournament.TouName);
                 }
-
             }
         }
     }
