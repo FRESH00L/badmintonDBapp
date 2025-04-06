@@ -49,6 +49,12 @@
             year_elector = new ComboBox();
             button1 = new Button();
             textBox1 = new TextBox();
+            dataGridView1 = new DataGridView();
+            tournaments_column = new DataGridViewTextBoxColumn();
+            result_column = new DataGridViewTextBoxColumn();
+            rounds_column = new DataGridViewTextBoxColumn();
+            rival_column = new DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lbx_ListOfPlayers
@@ -66,7 +72,7 @@
             tbx_PlayerName.Location = new Point(412, 34);
             tbx_PlayerName.Margin = new Padding(2);
             tbx_PlayerName.Name = "tbx_PlayerName";
-            tbx_PlayerName.Size = new Size(462, 27);
+            tbx_PlayerName.Size = new Size(483, 27);
             tbx_PlayerName.TabIndex = 1;
             // 
             // dbx_PlayerBirthDate
@@ -74,7 +80,7 @@
             dbx_PlayerBirthDate.Location = new Point(412, 76);
             dbx_PlayerBirthDate.Margin = new Padding(2);
             dbx_PlayerBirthDate.Name = "dbx_PlayerBirthDate";
-            dbx_PlayerBirthDate.Size = new Size(462, 27);
+            dbx_PlayerBirthDate.Size = new Size(483, 27);
             dbx_PlayerBirthDate.TabIndex = 4;
             // 
             // lbl_PlayerName
@@ -109,7 +115,7 @@
             // 
             // btn_Insert
             // 
-            btn_Insert.Location = new Point(331, 171);
+            btn_Insert.Location = new Point(350, 173);
             btn_Insert.Margin = new Padding(2);
             btn_Insert.Name = "btn_Insert";
             btn_Insert.Size = new Size(90, 27);
@@ -121,7 +127,7 @@
             // btn_Update
             // 
             btn_Update.Enabled = false;
-            btn_Update.Location = new Point(472, 171);
+            btn_Update.Location = new Point(491, 173);
             btn_Update.Margin = new Padding(2);
             btn_Update.Name = "btn_Update";
             btn_Update.Size = new Size(90, 27);
@@ -133,7 +139,7 @@
             // btn_Delete
             // 
             btn_Delete.Enabled = false;
-            btn_Delete.Location = new Point(616, 171);
+            btn_Delete.Location = new Point(635, 173);
             btn_Delete.Margin = new Padding(2);
             btn_Delete.Name = "btn_Delete";
             btn_Delete.Size = new Size(90, 27);
@@ -144,7 +150,7 @@
             // 
             // btn_Clear
             // 
-            btn_Clear.Location = new Point(755, 171);
+            btn_Clear.Location = new Point(774, 173);
             btn_Clear.Margin = new Padding(2);
             btn_Clear.Name = "btn_Clear";
             btn_Clear.Size = new Size(90, 27);
@@ -168,7 +174,7 @@
             cmb_PlayerCountry.FormattingEnabled = true;
             cmb_PlayerCountry.Location = new Point(412, 121);
             cmb_PlayerCountry.Name = "cmb_PlayerCountry";
-            cmb_PlayerCountry.Size = new Size(462, 28);
+            cmb_PlayerCountry.Size = new Size(483, 28);
             cmb_PlayerCountry.TabIndex = 13;
             // 
             // lbl_PlayerId
@@ -239,6 +245,7 @@
             button1.TabIndex = 21;
             button1.Text = "Show Season Results";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += season_results_button;
             // 
             // textBox1
             // 
@@ -248,11 +255,54 @@
             textBox1.TabIndex = 22;
             textBox1.TextChanged += player_result;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { tournaments_column, result_column, rounds_column, rival_column });
+            dataGridView1.Location = new Point(936, 9);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(660, 262);
+            dataGridView1.TabIndex = 23;
+            // 
+            // tournaments_column
+            // 
+            tournaments_column.HeaderText = "Tournaments";
+            tournaments_column.MinimumWidth = 6;
+            tournaments_column.Name = "tournaments_column";
+            tournaments_column.ReadOnly = true;
+            tournaments_column.Width = 125;
+            // 
+            // result_column
+            // 
+            result_column.HeaderText = "Result";
+            result_column.MinimumWidth = 6;
+            result_column.Name = "result_column";
+            result_column.ReadOnly = true;
+            result_column.Width = 125;
+            // 
+            // rounds_column
+            // 
+            rounds_column.HeaderText = "Round";
+            rounds_column.MinimumWidth = 6;
+            rounds_column.Name = "rounds_column";
+            rounds_column.ReadOnly = true;
+            rounds_column.Width = 125;
+            // 
+            // rival_column
+            // 
+            rival_column.HeaderText = "Rival";
+            rival_column.MinimumWidth = 6;
+            rival_column.Name = "rival_column";
+            rival_column.ReadOnly = true;
+            rival_column.Width = 125;
+            // 
             // frmPlayers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(931, 449);
+            ClientSize = new Size(1608, 449);
+            Controls.Add(dataGridView1);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(year_elector);
@@ -278,6 +328,7 @@
             Name = "frmPlayers";
             Text = "frmPlayers";
             Load += frmPlayers_Load;
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -305,5 +356,10 @@
         private ComboBox year_elector;
         private Button button1;
         private TextBox textBox1;
+        private DataGridView dataGridView1;
+        private DataGridViewTextBoxColumn tournaments_column;
+        private DataGridViewTextBoxColumn result_column;
+        private DataGridViewTextBoxColumn rounds_column;
+        private DataGridViewTextBoxColumn rival_column;
     }
 }

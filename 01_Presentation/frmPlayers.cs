@@ -210,5 +210,16 @@ namespace BazyDanychBadminton._01_Presentation
         {
             Player p = new Player();
         }
+
+        private void season_results_button(object sender, EventArgs e)
+        {
+            Player p = new Player();
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
