@@ -246,6 +246,7 @@
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(238, 27);
             textBox1.TabIndex = 22;
+            textBox1.TextChanged += player_result;
             // 
             // frmPlayers
             // 

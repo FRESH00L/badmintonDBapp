@@ -172,6 +172,16 @@ namespace BazyDanychBadminton._01_Presentation
         {
 
         }
+
+        private void winner_name_TextChanged(object sender, EventArgs e)
+        {
+            Edition ed = new Edition();
+        }
+
+        private void show_edition_matches(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

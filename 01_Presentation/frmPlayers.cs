@@ -99,7 +99,7 @@ namespace BazyDanychBadminton._01_Presentation
         {
             player = new Player(int.Parse(lbl_PlayerId.Text));
             player.ReadPlayerById();
-            Player newPlayer = new Player (player.IdPlayer);
+            Player newPlayer = new Player(player.IdPlayer);
             newPlayer.PlaName = tbx_PlayerName.Text;
             newPlayer.PlaBirthDate = dbx_PlayerBirthDate.Value;
             Country country = new Country();
@@ -204,6 +204,11 @@ namespace BazyDanychBadminton._01_Presentation
             {
                 cmb_PlayerCountry.Items.Add(cou.CountryName);
             }
+        }
+
+        private void player_result(object sender, EventArgs e)
+        {
+            Player p = new Player();
         }
     }
 }

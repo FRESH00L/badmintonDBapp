@@ -203,6 +203,7 @@
             button1.TabIndex = 16;
             button1.Text = "Show Edition Matches";
             button1.UseVisualStyleBackColor = true;
+            button1.Click += show_edition_matches;
             // 
             // winner_name
             // 
@@ -211,6 +212,7 @@
             winner_name.ReadOnly = true;
             winner_name.Size = new Size(221, 27);
             winner_name.TabIndex = 17;
+            winner_name.TextChanged += winner_name_TextChanged;
             // 
             // frmTournaments
             // 
