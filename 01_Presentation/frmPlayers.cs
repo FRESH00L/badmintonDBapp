@@ -213,7 +213,8 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void season_results_button(object sender, EventArgs e)
         {
-            Player p = new Player();
+            playersGrid pg = new playersGrid();
+            pg.Show();
 
         }
 

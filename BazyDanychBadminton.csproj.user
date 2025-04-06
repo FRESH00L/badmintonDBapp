@@ -19,5 +19,8 @@
     <Compile Update="01_Presentation\frmTournaments.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="01_Presentation\playersGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
   </ItemGroup>
 </Project>

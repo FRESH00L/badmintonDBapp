@@ -72,7 +72,7 @@
             queartefinals_label.Size = new Size(120, 20);
             queartefinals_label.TabIndex = 0;
             queartefinals_label.Text = "QUARTERFINALS";
-            queartefinals_label.Click += this.label1_Click;
+
             // 
             // semifinals_label
             // 

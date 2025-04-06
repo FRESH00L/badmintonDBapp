@@ -49,12 +49,6 @@
             year_elector = new ComboBox();
             button1 = new Button();
             textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
-            tournaments_column = new DataGridViewTextBoxColumn();
-            result_column = new DataGridViewTextBoxColumn();
-            rounds_column = new DataGridViewTextBoxColumn();
-            rival_column = new DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // lbx_ListOfPlayers
@@ -255,54 +249,11 @@
             textBox1.TabIndex = 22;
             textBox1.TextChanged += player_result;
             // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { tournaments_column, result_column, rounds_column, rival_column });
-            dataGridView1.Location = new Point(936, 9);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(660, 262);
-            dataGridView1.TabIndex = 23;
-            // 
-            // tournaments_column
-            // 
-            tournaments_column.HeaderText = "Tournaments";
-            tournaments_column.MinimumWidth = 6;
-            tournaments_column.Name = "tournaments_column";
-            tournaments_column.ReadOnly = true;
-            tournaments_column.Width = 125;
-            // 
-            // result_column
-            // 
-            result_column.HeaderText = "Result";
-            result_column.MinimumWidth = 6;
-            result_column.Name = "result_column";
-            result_column.ReadOnly = true;
-            result_column.Width = 125;
-            // 
-            // rounds_column
-            // 
-            rounds_column.HeaderText = "Round";
-            rounds_column.MinimumWidth = 6;
-            rounds_column.Name = "rounds_column";
-            rounds_column.ReadOnly = true;
-            rounds_column.Width = 125;
-            // 
-            // rival_column
-            // 
-            rival_column.HeaderText = "Rival";
-            rival_column.MinimumWidth = 6;
-            rival_column.Name = "rival_column";
-            rival_column.ReadOnly = true;
-            rival_column.Width = 125;
-            // 
             // frmPlayers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1608, 449);
-            Controls.Add(dataGridView1);
+            ClientSize = new Size(927, 449);
             Controls.Add(textBox1);
             Controls.Add(button1);
             Controls.Add(year_elector);
@@ -328,7 +279,6 @@
             Name = "frmPlayers";
             Text = "frmPlayers";
             Load += frmPlayers_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -356,10 +306,5 @@
         private ComboBox year_elector;
         private Button button1;
         private TextBox textBox1;
-        private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn tournaments_column;
-        private DataGridViewTextBoxColumn result_column;
-        private DataGridViewTextBoxColumn rounds_column;
-        private DataGridViewTextBoxColumn rival_column;
     }
 }

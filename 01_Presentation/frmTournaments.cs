@@ -180,7 +180,8 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void show_edition_matches(object sender, EventArgs e)
         {
-
+            frmMatches fm = new frmMatches();
+            fm.Show();
         }
     }
 }
