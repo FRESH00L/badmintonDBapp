@@ -75,16 +75,19 @@ namespace BazyDanychBadminton._02_Domain
                     {
                         m.IdMatch = int.Parse(table[0][0]);
                     }
-                    string sql3;
+                    string sql3, sql4;
                     if (m.Sets.Count < 3)
                     {
-                        sql3 = "INSERT INTO Plays(player, idMatch, set1, set2) VALUES ('" + m.Player1.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].IdSet + "', '" + m.Sets[1].IdSet + "');";
+                        sql3 = "INSERT INTO Plays(player, idMatch, set1, set2) VALUES ('" + m.Player1.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].Player1Points + "', '" + m.Sets[1].Player1Points + "');";
+                        sql4 = "INSERT INTO Plays(player, idMatch, set1, set2) VALUES ('" + m.Player2.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].Player2Points + "', '" + m.Sets[1].Player2Points + "');";
                     }
                     else
                     {
-                        sql3 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + m.Player1.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].IdSet + "', '" + m.Sets[1].IdSet + "', '" + m.Sets[2].IdSet + "');";
+                        sql3 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + m.Player1.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].Player1Points + "', '" + m.Sets[1].Player1Points + "', '" + m.Sets[2].Player1Points + "');";
+                        sql4 = "INSERT INTO Plays(player, idMatch, set1, set2, set3) VALUES ('" + m.Player2.IdPlayer + "', '" + m.IdMatch + "', '" + m.Sets[0].Player2Points + "', '" + m.Sets[1].Player2Points + "', '" + m.Sets[2].Player2Points + "');";
                     }
                     DBBroker.getInstance().Change(sql3);
+                    DBBroker.getInstance().Change(sql4);
                 }
             }
             return 1;
