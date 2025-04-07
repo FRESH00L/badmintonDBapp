@@ -64,6 +64,7 @@ namespace BazyDanychBadminton._02_Domain
                 List<Match> matches = edition.ListOfMatches;
                 string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + s.Season_year + "', '" + edition.EditionTournament.IdTournament + "', '" + edition.OrderInSeason + "');";
                 DBBroker.getInstance().Change(sql);
+
                 foreach(Match m in matches)
                 {
                     string sql2 = "INSERT INTO Matches(idMatch, season, tournament, winner, round) VALUES ('" + m.IdMatch + "', '" + edition.EditionSeason.Season_year + "', '" + edition.EditionTournament.IdTournament + "', '" + m.Winner.IdPlayer + "', '" + m.Round + "');";

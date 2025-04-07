@@ -38,14 +38,18 @@ namespace BazyDanychBadminton._02_Domain
             _editionTournament = new Tournament();
             _orderInSeason = 0;
         }
-        public Edition(int order)
+        public Edition(int orderInSeason)
         {
             _editionDAO = new EditionDAO();
             _editionSeason = new Season();
             _editionTournament = new Tournament();
-            _orderInSeason = order;
+            _orderInSeason = orderInSeason;
         }
-        public List<Match> ListOfMatches { get { return listOfMatches; } }
+        public List<Match> ListOfMatches 
+        { 
+            get { return listOfMatches; } 
+            set { listOfMatches = value; }
+        }
         public void AddMatch(Match match)
         {
             this.listOfMatches.Add(match);
