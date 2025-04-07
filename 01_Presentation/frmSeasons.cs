@@ -37,25 +37,27 @@ namespace BazyDanychBadminton._01_Presentation
         private void btn_Add_Click(object sender, EventArgs e)
         {
             if (lbx_ListOfAllTournaments.SelectedItem != null)
-            {
-                foreach(Object o in lbx_ListSelectedTournament.Items)
-                {
-                    if (o.ToString().Equals(lbx_ListOfAllTournaments.SelectedItem.ToString()))
-                    {
-                        MessageBox.Show("This tournament is already selected.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
-                        return;
-                    }
-                }
+            {          
                 lbx_ListSelectedTournament.Items.Add(lbx_ListOfAllTournaments.SelectedItem.ToString());
+                lbx_ListOfAllTournaments.Items.RemoveAt(lbx_ListOfAllTournaments.SelectedIndex);
             }
         }
         private void btn_Clear_Click(object sender, EventArgs e)
         {
+            ClearSelectedList();
+        }
+        private void ClearSelectedList()
+        {
+            foreach (object o in lbx_ListSelectedTournament.Items)
+            {
+                if(!lbx_ListOfAllTournaments.Items.Contains(o))
+                    lbx_ListOfAllTournaments.Items.Add(o);
+            }
             lbx_ListSelectedTournament.Items.Clear();
         }
         private void chbx_ChoseRandomly_CheckedChanged(object sender, EventArgs e)
         {
-            lbx_ListSelectedTournament.Items.Clear();
+            ClearSelectedList();
             if (lbx_ListOfAllTournaments.Items.Count == 0)
             {
                 MessageBox.Show("Theres no elements to choose");
@@ -63,15 +65,28 @@ namespace BazyDanychBadminton._01_Presentation
             }
             if (chbx_ChoseRandomly.Checked)
             {
+                if (lbx_ListOfAllTournaments.Items.Count < 4)
+                {
+                    MessageBox.Show("Not enough tournaments"); 
+                    return;
+                }
+                int n = Convert.ToInt16(nud_NumberOfTournament.Value);
                 Random rnd = new Random();
-                int nTou = rnd.Next(1, lbx_ListOfAllTournaments.Items.Count + 1);
                 List<int> indexes = Enumerable.Range(0, lbx_ListOfAllTournaments.Items.Count)
                                   .OrderBy(x => rnd.Next())
-                                  .Take(nTou)
+                                  .Take(n)
                                   .ToList();
+                List<object> selectedItems = new List<object>();
+
                 foreach (int index in indexes)
                 {
-                    lbx_ListSelectedTournament.Items.Add(lbx_ListOfAllTournaments.Items[index].ToString());
+                    selectedItems.Add(lbx_ListOfAllTournaments.Items[index]);
+                }
+
+                foreach (var item in selectedItems)
+                {
+                    lbx_ListSelectedTournament.Items.Add(item.ToString());
+                    lbx_ListOfAllTournaments.Items.Remove(item);
                 }
             }
         }
@@ -79,9 +94,18 @@ namespace BazyDanychBadminton._01_Presentation
         {
             if (chbx_GenerateRandomly.Checked)
             {
-                Random rnd = new Random();
-                int nTou = rnd.Next(4, 8);
-                nud_NumberOfTournament.Value = nTou;
+                int n = lbx_ListOfAllTournaments.Items.Count;
+                if (n > 3)
+                {
+                    if (n > 7) n = 7;
+                    Random rnd = new Random();
+                    int nTou = rnd.Next(4, n+1);
+                    nud_NumberOfTournament.Value = nTou;
+                }
+                else
+                {
+                    MessageBox.Show("Not enough tournaments in db");
+                }
             }
         }
         private void btn_GenerateSeason_Click(object sender, EventArgs e)
