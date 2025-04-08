@@ -72,7 +72,6 @@
             queartefinals_label.Size = new Size(120, 20);
             queartefinals_label.TabIndex = 0;
             queartefinals_label.Text = "QUARTERFINALS";
-
             // 
             // semifinals_label
             // 
@@ -116,6 +115,7 @@
             q_first_player_name.ReadOnly = true;
             q_first_player_name.Size = new Size(234, 27);
             q_first_player_name.TabIndex = 5;
+            q_first_player_name.TextChanged += q_first_player_name_TextChanged;
             // 
             // q_second_player_name
             // 

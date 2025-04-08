@@ -77,65 +77,70 @@ namespace BazyDanychBadminton._02_Domain
                 return -1;
             }
 
-            Random random = new Random();
-            int order = 1;
-            foreach (Tournament t in listT)
+            List<Tournament> tournaments = new Tournament().ReadAllTournaments();
+            if(tournaments.Count <= 7 && tournaments.Count >= 4)
             {
-
-                t.ReadTournamentByName();
-
-                List<Player> tournamentPlayers = players.OrderBy(x => random.Next()).Take(8).ToList();
-                List<Match> matches = new List<Match>();
-                List<Player> winners = new List<Player>();
-
-                for (int i = 0; i < 4; i++)
+                Random random = new Random();
+                int order = 1;
+                foreach (Tournament t in listT)
                 {
-                    Match match = new Match()
+
+                    t.ReadTournamentByName();
+
+                    List<Player> tournamentPlayers = players.OrderBy(x => random.Next()).Take(8).ToList();
+                    List<Match> matches = new List<Match>();
+                    List<Player> winners = new List<Player>();
+
+                    for (int i = 0; i < 4; i++)
                     {
-                        Player1 = tournamentPlayers[i * 2],
-                        Player2 = tournamentPlayers[i * 2 + 1],
-                        Round = "Q"
-                    };
-                    match.SimulateMatch();
-                    matches.Add(match);
-                    winners.Add(match.Winner);
-                }
+                        Match match = new Match()
+                        {
+                            Player1 = tournamentPlayers[i * 2],
+                            Player2 = tournamentPlayers[i * 2 + 1],
+                            Round = "Q"
+                        };
+                        match.SimulateMatch();
+                        matches.Add(match);
+                        winners.Add(match.Winner);
+                    }
 
-                List<Player> semiFinalWinners = new List<Player>();
-                for (int i = 0; i < 2; i++)
-                {
-                    Match semiFinal = new Match()
+                    List<Player> semiFinalWinners = new List<Player>();
+                    for (int i = 0; i < 2; i++)
                     {
-                        Player1 = winners[i * 2],
-                        Player2 = winners[i * 2 + 1],
-                        Round = "S"
+                        Match semiFinal = new Match()
+                        {
+                            Player1 = winners[i * 2],
+                            Player2 = winners[i * 2 + 1],
+                            Round = "S"
+                        };
+                        semiFinal.SimulateMatch();
+                        matches.Add(semiFinal);
+                        semiFinalWinners.Add(semiFinal.Winner);
+                    }
+
+                    Match finalMatch = new Match()
+                    {
+                        Player1 = semiFinalWinners[0],
+                        Player2 = semiFinalWinners[1],
+                        Round = "F"
                     };
-                    semiFinal.SimulateMatch();
-                    matches.Add(semiFinal);
-                    semiFinalWinners.Add(semiFinal.Winner);
+                    finalMatch.SimulateMatch();
+                    matches.Add(finalMatch);
+
+                    Edition edition = new Edition()
+                    {
+                        EditionSeason = this,
+                        EditionTournament = t,
+                        OrderInSeason = order++
+                    };
+                    foreach (var match in matches)
+                    {
+                        edition.AddMatch(match);
+                    }
+                    this.season_editions.Add(edition);
                 }
 
-                Match finalMatch = new Match()
-                {
-                    Player1 = semiFinalWinners[0],
-                    Player2 = semiFinalWinners[1],
-                    Round = "F"
-                };
-                finalMatch.SimulateMatch();
-                matches.Add(finalMatch);
-
-                Edition edition = new Edition()
-                {
-                    EditionSeason = this,
-                    EditionTournament = t,
-                    OrderInSeason = order++
-                };
-                foreach (var match in matches)
-                {
-                    edition.AddMatch(match);
-                }
-                this.season_editions.Add(edition);
-            }
+            }            
             InsertSeason(this);
             return 1;
         }

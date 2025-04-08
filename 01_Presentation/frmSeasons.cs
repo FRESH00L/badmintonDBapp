@@ -37,7 +37,7 @@ namespace BazyDanychBadminton._01_Presentation
         private void btn_Add_Click(object sender, EventArgs e)
         {
             if (lbx_ListOfAllTournaments.SelectedItem != null)
-            {          
+            {
                 lbx_ListSelectedTournament.Items.Add(lbx_ListOfAllTournaments.SelectedItem.ToString());
                 lbx_ListOfAllTournaments.Items.RemoveAt(lbx_ListOfAllTournaments.SelectedIndex);
             }
@@ -50,7 +50,7 @@ namespace BazyDanychBadminton._01_Presentation
         {
             foreach (object o in lbx_ListSelectedTournament.Items)
             {
-                if(!lbx_ListOfAllTournaments.Items.Contains(o))
+                if (!lbx_ListOfAllTournaments.Items.Contains(o))
                     lbx_ListOfAllTournaments.Items.Add(o);
             }
             lbx_ListSelectedTournament.Items.Clear();
@@ -67,7 +67,7 @@ namespace BazyDanychBadminton._01_Presentation
             {
                 if (lbx_ListOfAllTournaments.Items.Count < 4)
                 {
-                    MessageBox.Show("Not enough tournaments"); 
+                    MessageBox.Show("Not enough tournaments");
                     return;
                 }
                 int n = Convert.ToInt16(nud_NumberOfTournament.Value);
@@ -99,7 +99,7 @@ namespace BazyDanychBadminton._01_Presentation
                 {
                     if (n > 7) n = 7;
                     Random rnd = new Random();
-                    int nTou = rnd.Next(4, n+1);
+                    int nTou = rnd.Next(4, n + 1);
                     nud_NumberOfTournament.Value = nTou;
                 }
                 else
@@ -113,21 +113,21 @@ namespace BazyDanychBadminton._01_Presentation
             season = new Season(Convert.ToInt16(nud_SeasonYear.Value));
             int nTou = Convert.ToInt16(nud_NumberOfTournament.Value);
             List<Tournament> listOfTournaments = new List<Tournament>();
-            foreach(Object o in lbx_ListSelectedTournament.Items)
+            foreach (Object o in lbx_ListSelectedTournament.Items)
             {
                 Tournament t = new Tournament();
                 t.TouName = o.ToString();
                 t.ReadTournamentByName();
                 listOfTournaments.Add(t);
             }
-            if(!(listOfTournaments.Count == nTou))
+            if (!(listOfTournaments.Count == nTou))
             {
                 MessageBox.Show("Number of tournaments must cover selected tournaments", "Error", MessageBoxButtons.OK);
                 return;
             }
             try
             {
-                if (season.GenerateSeason(listOfTournaments) <=0)
+                if (season.GenerateSeason(listOfTournaments) <= 0)
                 {
                     return;
                 }
@@ -180,22 +180,27 @@ namespace BazyDanychBadminton._01_Presentation
         }
         private void lbx_ListOfSeasons_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(lbx_ListOfSeasons.SelectedItem != null)
+            if (lbx_ListOfSeasons.SelectedItem != null)
             {
                 season.Season_year = int.Parse(lbx_ListOfSeasons.SelectedItem.ToString());
-                if(season.ReadSeasonsByYear() <= 0)
+                if (season.ReadSeasonsByYear() <= 0)
                 {
                     MessageBox.Show("Error while reading seasons", "Error");
                     return;
                 }
                 nud_SeasonYear.Value = season.Season_year;
                 lbx_ListSelectedTournament.Items.Clear();
-                foreach(Edition ed in season.Sea_editions)
+                foreach (Edition ed in season.Sea_editions)
                 {
                     ed.EditionTournament.ReadTournamentById();
                     lbx_ListSelectedTournament.Items.Add(ed.EditionTournament.TouName);
                 }
             }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -44,6 +44,25 @@
             lbl_SelectedTournaments = new Label();
             lbl_AllTournaments = new Label();
             lbl_ListOfSeasons = new Label();
+            quarterfinals_label = new Label();
+            q_first_player = new Label();
+            q_second_player = new Label();
+            q_third_player = new Label();
+            q_fourth_player = new Label();
+            q_fifth_player = new Label();
+            q_sixth_player = new Label();
+            q_seventh_player = new Label();
+            q_eighth_player = new Label();
+            semifinals_label = new Label();
+            s_first_player = new Label();
+            s_second_player = new Label();
+            s_third_player = new Label();
+            s_fourth_player = new Label();
+            finals_label = new Label();
+            f_first_player = new Label();
+            f_second_player = new Label();
+            label1 = new Label();
+            winner_player = new Label();
             ((System.ComponentModel.ISupportInitialize)nud_SeasonYear).BeginInit();
             ((System.ComponentModel.ISupportInitialize)nud_NumberOfTournament).BeginInit();
             SuspendLayout();
@@ -216,11 +235,206 @@
             lbl_ListOfSeasons.TabIndex = 15;
             lbl_ListOfSeasons.Text = "List of Seasons";
             // 
+            // quarterfinals_label
+            // 
+            quarterfinals_label.AutoSize = true;
+            quarterfinals_label.BorderStyle = BorderStyle.FixedSingle;
+            quarterfinals_label.Location = new Point(490, 105);
+            quarterfinals_label.Name = "quarterfinals_label";
+            quarterfinals_label.Size = new Size(96, 22);
+            quarterfinals_label.TabIndex = 16;
+            quarterfinals_label.Text = "Quarterfinals";
+            // 
+            // q_first_player
+            // 
+            q_first_player.AutoSize = true;
+            q_first_player.Location = new Point(536, 151);
+            q_first_player.Name = "q_first_player";
+            q_first_player.Size = new Size(50, 20);
+            q_first_player.TabIndex = 17;
+            q_first_player.Text = "label2";
+            // 
+            // q_second_player
+            // 
+            q_second_player.AutoSize = true;
+            q_second_player.Location = new Point(716, 151);
+            q_second_player.Name = "q_second_player";
+            q_second_player.Size = new Size(50, 20);
+            q_second_player.TabIndex = 18;
+            q_second_player.Text = "label3";
+            // 
+            // q_third_player
+            // 
+            q_third_player.AutoSize = true;
+            q_third_player.Location = new Point(536, 191);
+            q_third_player.Name = "q_third_player";
+            q_third_player.Size = new Size(50, 20);
+            q_third_player.TabIndex = 19;
+            q_third_player.Text = "label4";
+            // 
+            // q_fourth_player
+            // 
+            q_fourth_player.AutoSize = true;
+            q_fourth_player.Location = new Point(716, 191);
+            q_fourth_player.Name = "q_fourth_player";
+            q_fourth_player.Size = new Size(50, 20);
+            q_fourth_player.TabIndex = 20;
+            q_fourth_player.Text = "label5";
+            // 
+            // q_fifth_player
+            // 
+            q_fifth_player.AutoSize = true;
+            q_fifth_player.Location = new Point(536, 253);
+            q_fifth_player.Name = "q_fifth_player";
+            q_fifth_player.Size = new Size(50, 20);
+            q_fifth_player.TabIndex = 21;
+            q_fifth_player.Text = "label6";
+            // 
+            // q_sixth_player
+            // 
+            q_sixth_player.AutoSize = true;
+            q_sixth_player.Location = new Point(716, 253);
+            q_sixth_player.Name = "q_sixth_player";
+            q_sixth_player.Size = new Size(50, 20);
+            q_sixth_player.TabIndex = 22;
+            q_sixth_player.Text = "label7";
+            // 
+            // q_seventh_player
+            // 
+            q_seventh_player.AutoSize = true;
+            q_seventh_player.Location = new Point(536, 291);
+            q_seventh_player.Name = "q_seventh_player";
+            q_seventh_player.Size = new Size(50, 20);
+            q_seventh_player.TabIndex = 23;
+            q_seventh_player.Text = "label8";
+            // 
+            // q_eighth_player
+            // 
+            q_eighth_player.AutoSize = true;
+            q_eighth_player.Location = new Point(716, 291);
+            q_eighth_player.Name = "q_eighth_player";
+            q_eighth_player.Size = new Size(50, 20);
+            q_eighth_player.TabIndex = 24;
+            q_eighth_player.Text = "label9";
+            // 
+            // semifinals_label
+            // 
+            semifinals_label.AutoSize = true;
+            semifinals_label.BorderStyle = BorderStyle.FixedSingle;
+            semifinals_label.Location = new Point(490, 350);
+            semifinals_label.Name = "semifinals_label";
+            semifinals_label.Size = new Size(79, 22);
+            semifinals_label.TabIndex = 25;
+            semifinals_label.Text = "Semifinals";
+            // 
+            // s_first_player
+            // 
+            s_first_player.AutoSize = true;
+            s_first_player.Location = new Point(536, 401);
+            s_first_player.Name = "s_first_player";
+            s_first_player.Size = new Size(58, 20);
+            s_first_player.TabIndex = 26;
+            s_first_player.Text = "label10";
+            // 
+            // s_second_player
+            // 
+            s_second_player.AutoSize = true;
+            s_second_player.Location = new Point(716, 401);
+            s_second_player.Name = "s_second_player";
+            s_second_player.Size = new Size(58, 20);
+            s_second_player.TabIndex = 27;
+            s_second_player.Text = "label11";
+            // 
+            // s_third_player
+            // 
+            s_third_player.AutoSize = true;
+            s_third_player.Location = new Point(536, 444);
+            s_third_player.Name = "s_third_player";
+            s_third_player.Size = new Size(58, 20);
+            s_third_player.TabIndex = 28;
+            s_third_player.Text = "label12";
+            // 
+            // s_fourth_player
+            // 
+            s_fourth_player.AutoSize = true;
+            s_fourth_player.Location = new Point(716, 444);
+            s_fourth_player.Name = "s_fourth_player";
+            s_fourth_player.Size = new Size(58, 20);
+            s_fourth_player.TabIndex = 29;
+            s_fourth_player.Text = "label13";
+            // 
+            // finals_label
+            // 
+            finals_label.AutoSize = true;
+            finals_label.BorderStyle = BorderStyle.FixedSingle;
+            finals_label.Location = new Point(490, 501);
+            finals_label.Name = "finals_label";
+            finals_label.Size = new Size(48, 22);
+            finals_label.TabIndex = 30;
+            finals_label.Text = "Finals";
+            // 
+            // f_first_player
+            // 
+            f_first_player.AutoSize = true;
+            f_first_player.Location = new Point(536, 551);
+            f_first_player.Name = "f_first_player";
+            f_first_player.Size = new Size(58, 20);
+            f_first_player.TabIndex = 31;
+            f_first_player.Text = "label14";
+            // 
+            // f_second_player
+            // 
+            f_second_player.AutoSize = true;
+            f_second_player.Location = new Point(716, 551);
+            f_second_player.Name = "f_second_player";
+            f_second_player.Size = new Size(58, 20);
+            f_second_player.TabIndex = 32;
+            f_second_player.Text = "label15";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.BorderStyle = BorderStyle.FixedSingle;
+            label1.Location = new Point(490, 634);
+            label1.Name = "label1";
+            label1.Size = new Size(58, 22);
+            label1.TabIndex = 33;
+            label1.Text = "Winner";
+            label1.Click += label1_Click;
+            // 
+            // winner_player
+            // 
+            winner_player.AutoSize = true;
+            winner_player.Location = new Point(490, 667);
+            winner_player.Name = "winner_player";
+            winner_player.Size = new Size(58, 20);
+            winner_player.TabIndex = 34;
+            winner_player.Text = "label16";
+            // 
             // frmSeasons
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(926, 769);
+            Controls.Add(winner_player);
+            Controls.Add(label1);
+            Controls.Add(f_second_player);
+            Controls.Add(f_first_player);
+            Controls.Add(finals_label);
+            Controls.Add(s_fourth_player);
+            Controls.Add(s_third_player);
+            Controls.Add(s_second_player);
+            Controls.Add(s_first_player);
+            Controls.Add(semifinals_label);
+            Controls.Add(q_eighth_player);
+            Controls.Add(q_seventh_player);
+            Controls.Add(q_sixth_player);
+            Controls.Add(q_fifth_player);
+            Controls.Add(q_fourth_player);
+            Controls.Add(q_third_player);
+            Controls.Add(q_second_player);
+            Controls.Add(q_first_player);
+            Controls.Add(quarterfinals_label);
             Controls.Add(lbl_ListOfSeasons);
             Controls.Add(lbl_AllTournaments);
             Controls.Add(lbl_SelectedTournaments);
@@ -265,5 +479,24 @@
         private Label lbl_SelectedTournaments;
         private Label lbl_AllTournaments;
         private Label lbl_ListOfSeasons;
+        private Label quarterfinals_label;
+        private Label q_first_player;
+        private Label q_second_player;
+        private Label q_third_player;
+        private Label q_fourth_player;
+        private Label q_fifth_player;
+        private Label q_sixth_player;
+        private Label q_seventh_player;
+        private Label q_eighth_player;
+        private Label semifinals_label;
+        private Label s_first_player;
+        private Label s_second_player;
+        private Label s_third_player;
+        private Label s_fourth_player;
+        private Label finals_label;
+        private Label f_first_player;
+        private Label f_second_player;
+        private Label label1;
+        private Label winner_player;
     }
 }

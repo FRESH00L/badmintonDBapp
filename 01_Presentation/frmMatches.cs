@@ -16,5 +16,10 @@ namespace BazyDanychBadminton._01_Presentation
         {
             InitializeComponent();
         }
+
+        private void q_first_player_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
