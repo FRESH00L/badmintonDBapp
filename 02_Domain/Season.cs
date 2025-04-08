@@ -140,6 +140,30 @@ namespace BazyDanychBadminton._02_Domain
             return 1;
         }
 
+        public int CalculateTotalPointsForPlayer(Player player)
+        {
+            int totalPoints = 0;
+
+            foreach (Edition edition in this.Sea_editions)
+            {
+                foreach (Match match in edition.ListOfMatches)
+                {
+                    foreach (Set set in match.Sets)
+                    {
+                        if (set.Player1 == player)
+                        {
+                            totalPoints += set.Player1Points;
+                        }
+                        else if (set.Player2 == player)
+                        {
+                            totalPoints += set.Player2Points;
+                        }
+                    }
+                }
+            }
+            return totalPoints;
+        }
+}
 
         public List<int> ReadAllSeasons()
         {
