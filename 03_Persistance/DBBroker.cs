@@ -17,6 +17,7 @@ namespace BazyDanychBadminton._03_Persistance
         private DBBroker()
         {
             DBBroker._connectionString = "server=localhost;database=Badminton;uid=root;pwd=NamiSanji12;CharSet=utf8;";
+
             DBBroker._connection = new MySqlConnection(DBBroker._connectionString);
         }
         public static DBBroker getInstance()
