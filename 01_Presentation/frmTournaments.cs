@@ -69,11 +69,11 @@ namespace BazyDanychBadminton._01_Presentation
 					// Zakładamy, że finał jest tylko jeden – wtedy bierzemy pierwszy element
 					if (finalMatches.Count > 0 && finalMatches[0].Winner != null)
 					{
-						lbl_Champion.Text = finalMatches[0].Winner.PlaName;
+						tbx_Winner.Text = finalMatches[0].Winner.PlaName;
 					}
 					else
 					{
-						lbl_Champion.Text = "No Winner";
+						tbx_Winner.Text = "No Winner";
 					}
 				}
 				catch (Exception ex)

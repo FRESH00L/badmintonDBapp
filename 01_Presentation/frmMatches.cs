@@ -43,9 +43,15 @@ namespace BazyDanychBadminton._01_Presentation
 
 
 			List<Player> players = match.ReadMatchPlayer(matches[0]); // pobierz 2 graczy
+			List<int> points = new List<int>();
 
 			if (players.Count == 2)
 			{
+				var (set1, set2, set3) = match.ReadMatchPoints(matches[0], players[0]);
+				q_score_first_player.Text = $"{set1}, {set2}, {set3}";
+				(set1, set2, set3) = match.ReadMatchPoints(matches[0], players[1]);
+				q_score_first_rival.Text = $"{set1}, {set2}, {set3}";
+
 				q_first_player_name.Text = players[0].PlaName;
 				q_first_rival_name.Text = players[1].PlaName;
 			}
@@ -53,6 +59,11 @@ namespace BazyDanychBadminton._01_Presentation
 
 			if (players.Count == 2)
 			{
+				var (set1, set2, set3) = match.ReadMatchPoints(matches[1], players[0]);
+				q_score_second_player.Text = $"{set1}, {set2}, {set3}";
+				(set1, set2, set3) = match.ReadMatchPoints(matches[1], players[1]);
+				q_score_second_rival.Text = $"{set1}, {set2}, {set3}";
+
 				q_second_player_name.Text = players[0].PlaName;
 				q_second_rival_name.Text = players[1].PlaName;
 			}
@@ -60,6 +71,11 @@ namespace BazyDanychBadminton._01_Presentation
 
 			if (players.Count == 2)
 			{
+				var (set1, set2, set3) = match.ReadMatchPoints(matches[2], players[0]);
+				q_score_third_player.Text = $"{set1}, {set2}, {set3}";
+				(set1, set2, set3) = match.ReadMatchPoints(matches[2], players[1]);
+				q_score_third_rival.Text = $"{set1}, {set2}, {set3}";
+
 				q_third_player_name.Text = players[0].PlaName;
 				q_third_rival_name.Text = players[1].PlaName;
 			}
@@ -67,6 +83,11 @@ namespace BazyDanychBadminton._01_Presentation
 
 			if (players.Count == 2)
 			{
+				var (set1, set2, set3) = match.ReadMatchPoints(matches[3], players[0]);
+				q_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
+				(set1, set2, set3) = match.ReadMatchPoints(matches[3], players[1]);
+				q_score_fourth_rival.Text = $"{set1}, {set2}, {set3}";
+
 				q_fourth_player_name.Text = players[0].PlaName;
 				q_fourth_rival_name.Text = players[1].PlaName;
 			}
@@ -74,6 +95,11 @@ namespace BazyDanychBadminton._01_Presentation
 
 			if (players.Count == 2)
 			{
+				var (set1, set2, set3) = match.ReadMatchPoints(matches[4], players[0]);
+				s_score_first_player.Text = $"{set1}, {set2}, {set3}";
+				(set1, set2, set3) = match.ReadMatchPoints(matches[4], players[1]);
+				s_score_first_rival.Text = $"{set1}, {set2}, {set3}";
+
 				s_first_player_name.Text = players[0].PlaName;
 				s_first_rival_name.Text = players[1].PlaName;
 			}
@@ -81,6 +107,11 @@ namespace BazyDanychBadminton._01_Presentation
 
 			if (players.Count == 2)
 			{
+				var (set1, set2, set3) = match.ReadMatchPoints(matches[5], players[0]);
+				s_score_second_player.Text = $"{set1}, {set2}, {set3}";
+				(set1, set2, set3) = match.ReadMatchPoints(matches[5], players[1]);
+				s_score_second_rival.Text = $"{set1}, {set2}, {set3}";
+
 				s_second_player_name.Text = players[0].PlaName;
 				s_second_rival_name.Text = players[1].PlaName;
 			}
@@ -88,11 +119,22 @@ namespace BazyDanychBadminton._01_Presentation
 
 			if (players.Count == 2)
 			{
+				var (set1, set2, set3) = match.ReadMatchPoints(matches[6], players[0]);
+				score_first_final_player.Text = $"{set1}, {set2}, {set3}";
+				(set1, set2, set3) = match.ReadMatchPoints(matches[6], players[1]);
+				score_second_final_player.Text = $"{set1}, {set2}, {set3}";
+
 				first_final_player.Text = players[0].PlaName;
 				second_final_player.Text = players[1].PlaName;
 			}
-			
 
+			List<Match> finalMatches = match.ReadMatchByEdition(edition, tournament, "F");
+
+			// Zakładamy, że finał jest tylko jeden – wtedy bierzemy pierwszy element
+			if (finalMatches.Count > 0 && finalMatches[0].Winner != null)
+			{
+				champion_name.Text = finalMatches[0].Winner.PlaName;
+			}
 		}
 
 	}

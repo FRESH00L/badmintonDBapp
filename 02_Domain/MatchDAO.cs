@@ -128,6 +128,29 @@ namespace BazyDanychBadminton._02_Domain
             return players;
 		}
 
+		public (int, int, int?) ReadPoints(Match m, Player p)
+		{
+			string sql = "SELECT * FROM Plays WHERE idMatch='" + m.IdMatch + "' AND player='" + p.IdPlayer + "';";
+			List<string[]> table = DBBroker.getInstance().Read(sql);
+
+			if (table.Count > 0)
+			{
+				string[] row = table[0];
+
+				int set1 = int.Parse(row[2]);
+				int set2 = int.Parse(row[3]);
+				int? set3 = null;
+
+				if (!string.IsNullOrEmpty(row[4]))
+				{
+					set3 = int.Parse(row[4]);
+				}
+
+				return (set1, set2, set3);
+			}
+
+			return (0, 0, null); 
+		}
 
 		public int Insert(Match m)
         {

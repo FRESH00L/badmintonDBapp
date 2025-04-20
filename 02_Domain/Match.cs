@@ -109,6 +109,10 @@ namespace BazyDanychBadminton._02_Domain
             {
                 return this._matchDAO.ReadPlayer(m);
             }
+            public (int, int, int?) ReadMatchPoints(Match m, Player p)
+            {
+                return this._matchDAO.ReadPoints(m, p);
+            } 
 
 			public int InsertMatch()
             {
