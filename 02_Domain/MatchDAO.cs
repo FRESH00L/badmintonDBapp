@@ -83,8 +83,53 @@ namespace BazyDanychBadminton._02_Domain
                 }
             }
         }
+		public List<Match> ReadByEdition(Edition e, Tournament t, string r)
+		{
+			string sql = "SELECT * FROM Matches WHERE season='" + e.EditionSeason.ToString() + "' AND tournament='" + t.IdTournament + "' AND round='" + r + "';";
+			List<string[]> table = DBBroker.getInstance().Read(sql);
 
-        public int Insert(Match m)
+			List<Match> matches = new List<Match>();
+
+			foreach (var row in table)
+			{
+				Match m = new Match();
+				m.IdMatch = int.Parse(row[0]);
+				m.Season = new Season(int.Parse(row[1]));
+				m.Tournament = new Tournament(int.Parse(row[2]));
+				m.Round = row[4];
+				m.MatchEdition = e;
+
+				if (!string.IsNullOrEmpty(row[3]))
+				{
+					Player winner = new Player(int.Parse(row[3]));
+					winner.ReadPlayerById();
+					m.Winner = winner;
+				}
+
+				matches.Add(m);
+			}
+
+			return matches;
+		}
+        public List<Player> ReadPlayer(Match m)
+        {
+            string sql = "SELECT * FROM Plays WHERE idMatch='" + m.IdMatch + "';";
+			List<string[]> table = DBBroker.getInstance().Read(sql);
+
+			List<Player> players = new List<Player>();
+
+			foreach (var row in table)
+            {
+                Player player = new Player();
+                player.IdPlayer = int.Parse(row[0]);
+                player.ReadPlayerById();
+                players.Add(player);
+            }
+            return players;
+		}
+
+
+		public int Insert(Match m)
         {
             string sql = "INSERT INTO Matches (season, tournament, winner, round) VALUES ('"
                          + m.Season + "', '"

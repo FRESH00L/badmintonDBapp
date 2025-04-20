@@ -101,8 +101,16 @@ namespace BazyDanychBadminton._02_Domain
             {
                 this._matchDAO.ReadById(this);
             }
+            public List<Match> ReadMatchByEdition(Edition e, Tournament t, String r)
+            {
+                return this._matchDAO.ReadByEdition(e, t, r);
+            }
+            public List<Player> ReadMatchPlayer(Match m)
+            {
+                return this._matchDAO.ReadPlayer(m);
+            }
 
-            public int InsertMatch()
+			public int InsertMatch()
             {
                 return this._matchDAO.Insert(this);
             }

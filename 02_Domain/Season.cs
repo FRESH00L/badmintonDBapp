@@ -77,8 +77,7 @@ namespace BazyDanychBadminton._02_Domain
                 return -1;
             }
 
-            List<Tournament> tournaments = new Tournament().ReadAllTournaments();
-            if(tournaments.Count <= 7 && tournaments.Count >= 4)
+            if(listT.Count <= 7 && listT.Count >= 4)
             {
                 Random random = new Random();
                 int order = 1;
@@ -168,7 +167,7 @@ namespace BazyDanychBadminton._02_Domain
             }
             return totalPoints;
         }
-}
+
 
         public List<int> ReadAllSeasons()
         {
@@ -193,7 +192,7 @@ namespace BazyDanychBadminton._02_Domain
         }
         public override string ToString()
         {
-            return Season_year.ToString();
+            return season_year.ToString();
         }
     }
 }
