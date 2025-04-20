@@ -16,5 +16,10 @@ namespace BazyDanychBadminton._01_Presentation
         {
             InitializeComponent();
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

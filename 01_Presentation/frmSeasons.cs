@@ -202,5 +202,172 @@ namespace BazyDanychBadminton._01_Presentation
         {
 
         }
+
+        private void q_first_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            m.ReadMatchById();
+            if (m.Round == "Q")
+            {
+                //m.ReadMatchPlayer(); 
+                //q_first_player = m.Player1;
+            }
+
+        }
+
+        private void q_second_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "Q")
+            {
+                //q_second_player = m.Player2;
+            }
+        }
+
+        private void q_third_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "Q")
+            {
+                //q_third_player = m.Player1;
+            }
+        }
+
+        private void q_fourth_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "Q")
+            {
+                //q_fourth_player = m.Player2;
+            }
+        }
+
+        private void q_fifth_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "Q")
+            {
+                //q_fifth_player = m.Player1;
+            }
+        }
+
+        private void q_sixth_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "Q")
+            {
+                //q_sixth_player = m.Player2;
+            }
+        }
+
+        private void q_seventh_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "Q")
+            {
+                //q_seventh_player = m.Player1;
+            }
+        }
+
+        private void q_eighth_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "Q")
+            {
+                //q_eighth_player = m.Player2;
+            }
+        }
+
+        private void s_first_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "S")
+            {
+                //s_first_player = m.Player1;
+            }
+        }
+
+        private void s_second_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "S")
+            {
+                //s_second_player = m.Player2;
+            }
+        }
+
+        private void s_third_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "S")
+            {
+                //s_third_player = m.Player1;
+            }
+        }
+
+        private void s_fourth_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "S")
+            {
+                //s_fourth_player = m.Player2;
+            }
+        }
+
+        private void f_first_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            if (m.Round == "F")
+            {
+                //f_first_player = m.Player1;
+            }
+        }
+
+        private void f_second_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            m.ReadMatchById();
+            if (m.Round == "F")
+            {
+                //f_second_player = m.Player2;
+            }
+        }
+
+        private void winner_player_Click(object sender, EventArgs e)
+        {
+            Season s = new Season();
+            Match m = new Match();
+            s.ReadSeasonsByYear();
+            m.ReadMatchById();
+            //winner_player = m.Winner;
+        }
     }
 }

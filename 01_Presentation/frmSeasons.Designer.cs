@@ -253,6 +253,7 @@
             q_first_player.Size = new Size(50, 20);
             q_first_player.TabIndex = 17;
             q_first_player.Text = "label2";
+            q_first_player.Click += q_first_player_Click;
             // 
             // q_second_player
             // 
@@ -262,6 +263,7 @@
             q_second_player.Size = new Size(50, 20);
             q_second_player.TabIndex = 18;
             q_second_player.Text = "label3";
+            q_second_player.Click += q_second_player_Click;
             // 
             // q_third_player
             // 
@@ -271,6 +273,7 @@
             q_third_player.Size = new Size(50, 20);
             q_third_player.TabIndex = 19;
             q_third_player.Text = "label4";
+            q_third_player.Click += q_third_player_Click;
             // 
             // q_fourth_player
             // 
@@ -280,6 +283,7 @@
             q_fourth_player.Size = new Size(50, 20);
             q_fourth_player.TabIndex = 20;
             q_fourth_player.Text = "label5";
+            q_fourth_player.Click += q_fourth_player_Click;
             // 
             // q_fifth_player
             // 
@@ -289,6 +293,7 @@
             q_fifth_player.Size = new Size(50, 20);
             q_fifth_player.TabIndex = 21;
             q_fifth_player.Text = "label6";
+            q_fifth_player.Click += q_fifth_player_Click;
             // 
             // q_sixth_player
             // 
@@ -298,6 +303,7 @@
             q_sixth_player.Size = new Size(50, 20);
             q_sixth_player.TabIndex = 22;
             q_sixth_player.Text = "label7";
+            q_sixth_player.Click += q_sixth_player_Click;
             // 
             // q_seventh_player
             // 
@@ -307,6 +313,7 @@
             q_seventh_player.Size = new Size(50, 20);
             q_seventh_player.TabIndex = 23;
             q_seventh_player.Text = "label8";
+            q_seventh_player.Click += q_seventh_player_Click;
             // 
             // q_eighth_player
             // 
@@ -316,6 +323,7 @@
             q_eighth_player.Size = new Size(50, 20);
             q_eighth_player.TabIndex = 24;
             q_eighth_player.Text = "label9";
+            q_eighth_player.Click += q_eighth_player_Click;
             // 
             // semifinals_label
             // 
@@ -335,6 +343,7 @@
             s_first_player.Size = new Size(58, 20);
             s_first_player.TabIndex = 26;
             s_first_player.Text = "label10";
+            s_first_player.Click += s_first_player_Click;
             // 
             // s_second_player
             // 
@@ -344,6 +353,7 @@
             s_second_player.Size = new Size(58, 20);
             s_second_player.TabIndex = 27;
             s_second_player.Text = "label11";
+            s_second_player.Click += s_second_player_Click;
             // 
             // s_third_player
             // 
@@ -353,6 +363,7 @@
             s_third_player.Size = new Size(58, 20);
             s_third_player.TabIndex = 28;
             s_third_player.Text = "label12";
+            s_third_player.Click += s_third_player_Click;
             // 
             // s_fourth_player
             // 
@@ -362,6 +373,7 @@
             s_fourth_player.Size = new Size(58, 20);
             s_fourth_player.TabIndex = 29;
             s_fourth_player.Text = "label13";
+            s_fourth_player.Click += s_fourth_player_Click;
             // 
             // finals_label
             // 
@@ -381,6 +393,7 @@
             f_first_player.Size = new Size(58, 20);
             f_first_player.TabIndex = 31;
             f_first_player.Text = "label14";
+            f_first_player.Click += f_first_player_Click;
             // 
             // f_second_player
             // 
@@ -390,6 +403,7 @@
             f_second_player.Size = new Size(58, 20);
             f_second_player.TabIndex = 32;
             f_second_player.Text = "label15";
+            f_second_player.Click += f_second_player_Click;
             // 
             // label1
             // 
@@ -410,6 +424,7 @@
             winner_player.Size = new Size(58, 20);
             winner_player.TabIndex = 34;
             winner_player.Text = "label16";
+            winner_player.Click += winner_player_Click;
             // 
             // frmSeasons
             // 
