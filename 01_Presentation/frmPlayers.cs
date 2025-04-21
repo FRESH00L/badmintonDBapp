@@ -51,8 +51,6 @@ namespace BazyDanychBadminton._01_Presentation
             dbx_PlayerBirthDate.Value = player.PlaBirthDate;
             tbx_PlayerName.Text = player.PlaName;
             cmb_PlayerCountry.Text = player.PlaCountry.CountryName;
-
-
         }
         private void btn_Insert_Click(object sender, EventArgs e)
         {
@@ -235,7 +233,34 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void lbx_Tournaments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            Tournament tournament = new Tournament();
+            Edition edition = new Edition();
+            List<Edition> editions = new List<Edition>();
+            if (lbx_Tournaments.SelectedItem != null)
+            {
+                tournament.TouName = lbx_Tournaments.SelectedItem.ToString();
+            }
+            try
+            {
+                tournament.ReadTournamentByName();
+                editions = edition.ReadEditionByTournament(tournament);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+            lbx_Editions.Items.Clear();
+            foreach (Edition ed in editions)
+            {
+                lbx_Editions.Items.Add(ed.EditionSeason.ToString());
+            }
+            lbl_PlayerId.Text = player.IdPlayer.ToString();
+            dbx_PlayerBirthDate.Value = player.PlaBirthDate;
+            tbx_PlayerName.Text = player.PlaName;
+            cmb_PlayerCountry.Text = player.PlaCountry.CountryName;
+
+
         }
     }
 }
