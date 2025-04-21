@@ -42,9 +42,9 @@
             cmb_PlayerCountry = new ComboBox();
             lbl_PlayerId = new Label();
             label1 = new Label();
-            listBox1 = new ListBox();
+            lbx_Tournaments = new ListBox();
             label4 = new Label();
-            listBox2 = new ListBox();
+            lbx_Editions = new ListBox();
             label5 = new Label();
             year_elector = new ComboBox();
             button1 = new Button();
@@ -189,13 +189,14 @@
             label1.TabIndex = 15;
             label1.Text = "Tournaments played";
             // 
-            // listBox1
+            // lbx_Tournaments
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.Location = new Point(310, 254);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(150, 184);
-            listBox1.TabIndex = 16;
+            lbx_Tournaments.FormattingEnabled = true;
+            lbx_Tournaments.Location = new Point(310, 254);
+            lbx_Tournaments.Name = "lbx_Tournaments";
+            lbx_Tournaments.Size = new Size(150, 184);
+            lbx_Tournaments.TabIndex = 16;
+            lbx_Tournaments.SelectedIndexChanged += lbx_Tournaments_SelectedIndexChanged;
             // 
             // label4
             // 
@@ -206,13 +207,13 @@
             label4.TabIndex = 17;
             label4.Text = "Editions played";
             // 
-            // listBox2
+            // lbx_Editions
             // 
-            listBox2.FormattingEnabled = true;
-            listBox2.Location = new Point(472, 254);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(150, 184);
-            listBox2.TabIndex = 18;
+            lbx_Editions.FormattingEnabled = true;
+            lbx_Editions.Location = new Point(472, 254);
+            lbx_Editions.Name = "lbx_Editions";
+            lbx_Editions.Size = new Size(150, 184);
+            lbx_Editions.TabIndex = 18;
             // 
             // label5
             // 
@@ -245,6 +246,7 @@
             // 
             textBox1.Location = new Point(657, 281);
             textBox1.Name = "textBox1";
+            textBox1.ReadOnly = true;
             textBox1.Size = new Size(238, 27);
             textBox1.TabIndex = 22;
             textBox1.TextChanged += player_result;
@@ -258,9 +260,9 @@
             Controls.Add(button1);
             Controls.Add(year_elector);
             Controls.Add(label5);
-            Controls.Add(listBox2);
+            Controls.Add(lbx_Editions);
             Controls.Add(label4);
-            Controls.Add(listBox1);
+            Controls.Add(lbx_Tournaments);
             Controls.Add(label1);
             Controls.Add(lbl_PlayerId);
             Controls.Add(cmb_PlayerCountry);
@@ -299,9 +301,9 @@
         private ComboBox cmb_PlayerCountry;
         private Label lbl_PlayerId;
         private Label label1;
-        private ListBox listBox1;
+        private ListBox lbx_Tournaments;
         private Label label4;
-        private ListBox listBox2;
+        private ListBox lbx_Editions;
         private Label label5;
         private ComboBox year_elector;
         private Button button1;

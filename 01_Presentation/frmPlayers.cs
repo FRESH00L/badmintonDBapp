@@ -26,6 +26,8 @@ namespace BazyDanychBadminton._01_Presentation
             btn_Update.Enabled = true;
 
             player = new Player();
+            Tournament tournament = new Tournament();
+            List<Tournament> tournaments = new List<Tournament>();
             if (lbx_ListOfPlayers.SelectedItem != null)
             {
                 player.PlaName = lbx_ListOfPlayers.SelectedItem.ToString();
@@ -33,16 +35,24 @@ namespace BazyDanychBadminton._01_Presentation
             try
             {
                 player.ReadPlayerByName();
+                tournaments = tournament.ReadTournamentsByPlayer(player);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            lbx_Tournaments.Items.Clear();
+            foreach (Tournament t in tournaments)
+            {
+                lbx_Tournaments.Items.Add(t.TouName.ToString());
+            }
             lbl_PlayerId.Text = player.IdPlayer.ToString();
             dbx_PlayerBirthDate.Value = player.PlaBirthDate;
             tbx_PlayerName.Text = player.PlaName;
             cmb_PlayerCountry.Text = player.PlaCountry.CountryName;
+
+
         }
         private void btn_Insert_Click(object sender, EventArgs e)
         {
@@ -221,6 +231,11 @@ namespace BazyDanychBadminton._01_Presentation
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void lbx_Tournaments_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

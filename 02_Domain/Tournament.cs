@@ -82,5 +82,9 @@ namespace BazyDanychBadminton._02_Domain
             }
             return 0;
         }
+        public List<Tournament> ReadTournamentsByPlayer(Player p)
+        {
+            return this._tournamentDAO.ReadByPlayer(p);
+        }
     }
 }

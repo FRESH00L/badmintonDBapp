@@ -41,7 +41,7 @@ namespace BazyDanychBadminton._02_Domain
 
                 if (!string.IsNullOrEmpty(row[4]))
                 {
-                    Player winner = new Player(int.Parse(row[4]));
+                    Player winner = new Player(int.Parse(row[3]));
                     winner.ReadPlayerById();
                     m.Winner = winner;
                 }
@@ -77,7 +77,7 @@ namespace BazyDanychBadminton._02_Domain
 
                 if (!string.IsNullOrEmpty(row[4]))
                 {
-                    Player winner = new Player(int.Parse(row[4]));
+                    Player winner = new Player(int.Parse(row[3]));
                     winner.ReadPlayerById();
                     m.Winner = winner;
                 }

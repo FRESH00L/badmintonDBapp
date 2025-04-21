@@ -73,6 +73,29 @@ namespace BazyDanychBadminton._02_Domain
             string sql = "DELETE FROM Tournaments WHERE idTournament='" + t.IdTournament + "';";
             return DBBroker.getInstance().Change(sql);
         }
+
+        public List<Tournament> ReadByPlayer(Player p)
+        {
+            List<Tournament> result = new List<Tournament>();
+            List<int> tournamentIds = new List<int>(); // Avoid duplications
+            string sql = "SELECT * FROM Plays WHERE player='" + p.IdPlayer + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+
+            foreach (string[] row in table)
+            {
+                Match m = new Match(int.Parse(row[1]));
+                m.ReadMatchById();
+                m.Tournament.ReadTournamentById();
+
+                if (!tournamentIds.Contains(m.Tournament.IdTournament))
+                {
+                    tournamentIds.Add(m.Tournament.IdTournament);
+                    result.Add(m.Tournament);
+                }
+            }
+
+            return result;
+        }
     }
 }
     

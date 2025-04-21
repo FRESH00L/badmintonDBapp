@@ -26,7 +26,7 @@ namespace BazyDanychBadminton._02_Domain
         }
         public Edition ReadByOrder(Edition e)
         {
-            string sql = "SELECT * FROM Editions WHERE orderInEdition='" + e.OrderInSeason + "';";
+            string sql = "SELECT * FROM Editions WHERE orderInSeason='" + e.OrderInSeason + "';";
             List<string[]> table = DBBroker.getInstance().Read(sql);
             if (table.Count > 0)
             {
