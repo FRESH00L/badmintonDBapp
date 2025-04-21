@@ -48,7 +48,7 @@
             label5 = new Label();
             year_elector = new ComboBox();
             button1 = new Button();
-            textBox1 = new TextBox();
+            tbx_isWinner = new TextBox();
             SuspendLayout();
             // 
             // lbx_ListOfPlayers
@@ -214,6 +214,7 @@
             lbx_Editions.Name = "lbx_Editions";
             lbx_Editions.Size = new Size(150, 184);
             lbx_Editions.TabIndex = 18;
+            lbx_Editions.SelectedIndexChanged += lbx_Editions_SelectedIndexChanged;
             // 
             // label5
             // 
@@ -242,21 +243,21 @@
             button1.UseVisualStyleBackColor = true;
             button1.Click += season_results_button;
             // 
-            // textBox1
+            // tbx_isWinner
             // 
-            textBox1.Location = new Point(657, 281);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(238, 27);
-            textBox1.TabIndex = 22;
-            textBox1.TextChanged += player_result;
+            tbx_isWinner.Location = new Point(657, 281);
+            tbx_isWinner.Name = "tbx_isWinner";
+            tbx_isWinner.ReadOnly = true;
+            tbx_isWinner.Size = new Size(238, 27);
+            tbx_isWinner.TabIndex = 22;
+            tbx_isWinner.TextChanged += player_result;
             // 
             // frmPlayers
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(927, 449);
-            Controls.Add(textBox1);
+            Controls.Add(tbx_isWinner);
             Controls.Add(button1);
             Controls.Add(year_elector);
             Controls.Add(label5);
@@ -307,6 +308,6 @@
         private Label label5;
         private ComboBox year_elector;
         private Button button1;
-        private TextBox textBox1;
+        private TextBox tbx_isWinner;
     }
 }

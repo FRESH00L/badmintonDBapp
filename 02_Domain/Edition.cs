@@ -70,6 +70,10 @@ namespace BazyDanychBadminton._02_Domain
             List<Edition> l = this._editionDAO.ReadByTournament(t);
             return l;
         }
+        public Edition ReadEditionBySeasonAndTournament()
+        {
+            return this._editionDAO.ReadBySeasonAndTournament(this);
+        }
 
         public void InsertEdition()
         {

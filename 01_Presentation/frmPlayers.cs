@@ -24,6 +24,7 @@ namespace BazyDanychBadminton._01_Presentation
         {
             btn_Delete.Enabled = true;
             btn_Update.Enabled = true;
+            tbx_isWinner.Text = "";
 
             player = new Player();
             Tournament tournament = new Tournament();
@@ -43,6 +44,7 @@ namespace BazyDanychBadminton._01_Presentation
                 return;
             }
             lbx_Tournaments.Items.Clear();
+            lbx_Editions.Items.Clear();
             foreach (Tournament t in tournaments)
             {
                 lbx_Tournaments.Items.Add(t.TouName.ToString());
@@ -251,16 +253,47 @@ namespace BazyDanychBadminton._01_Presentation
                 return;
             }
             lbx_Editions.Items.Clear();
+            tbx_isWinner.Text = "";
             foreach (Edition ed in editions)
             {
                 lbx_Editions.Items.Add(ed.EditionSeason.ToString());
             }
-            lbl_PlayerId.Text = player.IdPlayer.ToString();
-            dbx_PlayerBirthDate.Value = player.PlaBirthDate;
-            tbx_PlayerName.Text = player.PlaName;
-            cmb_PlayerCountry.Text = player.PlaCountry.CountryName;
+        }
 
+        private void lbx_Editions_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Edition edition = new Edition();
+            Match m = new Match();
+            if (lbx_Editions.SelectedItem != null)
+            {
+                Tournament tournament = new Tournament();
+                tournament.TouName = lbx_Tournaments.SelectedItem.ToString();
+                tournament.ReadTournamentByName();
+                Season season = new Season(int.Parse(lbx_Editions.SelectedItem.ToString()));
+                edition.EditionSeason = season;
+                edition.EditionTournament = tournament;
+                edition.ReadEditionBySeasonAndTournament();
 
+                try
+                {
+                    List<Match> finalMatches = m.ReadMatchByEdition(edition, edition.EditionTournament, "F");
+                    player.PlaName = lbx_ListOfPlayers.SelectedItem.ToString();
+
+                    if (finalMatches.Count > 0 && finalMatches[0].Winner.PlaName == player.PlaName)
+                    {
+                        tbx_isWinner.Text = "Winner";
+                    }
+                    else
+                    {
+                        tbx_isWinner.Text = "No Winner";
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+            }
         }
     }
 }

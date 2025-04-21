@@ -65,5 +65,19 @@ namespace BazyDanychBadminton._02_Domain
             string sql = "DELETE FROM Editions WHERE orderInSeason='" + e.OrderInSeason + "';";
             return DBBroker.getInstance().Change(sql);
         }
+
+        public Edition ReadBySeasonAndTournament(Edition e)
+        {
+            string sql = "SELECT * FROM Editions WHERE season='" + e.EditionSeason.Season_year + "' AND tournament='" + e.EditionTournament.IdTournament + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+            if (table.Count > 0)
+            {
+                string[] row = table[0];
+                e.EditionSeason = new Season(int.Parse(row[0]));
+                e.EditionTournament = new Tournament(int.Parse(row[1]));
+                e.OrderInSeason = int.Parse(row[2]);
+            }
+            return e;
+        }
     }
 }
