@@ -247,14 +247,14 @@ namespace BazyDanychBadminton._01_Presentation
                 return;
             }
 
-            Player selectedPlayer = this.player; 
-            int selectedYear = Convert.ToInt32(cmb_seasonSelector.SelectedItem); 
+            Player selectedPlayer = this.player;
+            int selectedYear = Convert.ToInt32(cmb_seasonSelector.SelectedItem);
             Season selectedSeason = new Season(selectedYear);
 
             playersGrid pg = new playersGrid(selectedPlayer, selectedSeason);
             pg.ShowDialog();
 
-        } 
+        }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -309,11 +309,11 @@ namespace BazyDanychBadminton._01_Presentation
 
                     if (finalMatches.Count > 0 && finalMatches[0].Winner.PlaName == player.PlaName)
                     {
-                        tbx_isWinner.Text = "Winner";
+                        tbx_isWinner.Text = "Won";
                     }
                     else
                     {
-                        tbx_isWinner.Text = "No Winner";
+                        tbx_isWinner.Text = "Lost";
                     }
                 }
                 catch (Exception ex)
@@ -326,20 +326,7 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void year_elector_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Season season = new Season();
-
-            try
-            {
-                List<int> list_season_years = season.ReadAllSeasons();   
-                foreach (int year in list_season_years)
-                {
-                    cmb_seasonSelector.Items.Add(year);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            }
+            
         }
     }
 }
