@@ -214,6 +214,13 @@ namespace BazyDanychBadminton._01_Presentation
             {
                 cmb_PlayerCountry.Items.Add(cou.CountryName);
             }
+
+            Season season = new Season();
+            List<int> list_season_years = season.ReadAllSeasons();
+            foreach (int year in list_season_years)
+            {
+                cmb_seasonSelector.Items.Add(year);
+            }
         }
 
         private void player_result(object sender, EventArgs e)
@@ -223,10 +230,31 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void season_results_button(object sender, EventArgs e)
         {
-            playersGrid pg = new playersGrid();
-            pg.Show();
+            if (this.player == null || this.player.IdPlayer <= 0)
+            {
+                MessageBox.Show("Please, select a player.",
+                                "No selected player",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
+            if (cmb_seasonSelector.SelectedItem == null)
+            {
+                MessageBox.Show("Please, select a season.",
+                                "No selected season",
+                                MessageBoxButtons.OK,
+                                MessageBoxIcon.Warning);
+                return;
+            }
 
-        }
+            Player selectedPlayer = this.player; 
+            int selectedYear = Convert.ToInt32(cmb_seasonSelector.SelectedItem); 
+            Season selectedSeason = new Season(selectedYear);
+
+            playersGrid pg = new playersGrid(selectedPlayer, selectedSeason);
+            pg.ShowDialog();
+
+        } 
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -293,6 +321,24 @@ namespace BazyDanychBadminton._01_Presentation
                     MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
+            }
+        }
+
+        private void year_elector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Season season = new Season();
+
+            try
+            {
+                List<int> list_season_years = season.ReadAllSeasons();   
+                foreach (int year in list_season_years)
+                {
+                    cmb_seasonSelector.Items.Add(year);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

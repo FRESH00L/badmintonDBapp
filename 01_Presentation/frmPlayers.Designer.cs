@@ -46,7 +46,7 @@
             label4 = new Label();
             lbx_Editions = new ListBox();
             label5 = new Label();
-            year_elector = new ComboBox();
+            cmb_seasonSelector = new ComboBox();
             button1 = new Button();
             tbx_isWinner = new TextBox();
             SuspendLayout();
@@ -225,13 +225,15 @@
             label5.TabIndex = 19;
             label5.Text = "Result";
             // 
-            // year_elector
+            // cmb_seasonSelector
             // 
-            year_elector.FormattingEnabled = true;
-            year_elector.Location = new Point(657, 373);
-            year_elector.Name = "year_elector";
-            year_elector.Size = new Size(238, 28);
-            year_elector.TabIndex = 20;
+            cmb_seasonSelector.DropDownStyle = ComboBoxStyle.DropDownList;
+            cmb_seasonSelector.FormattingEnabled = true;
+            cmb_seasonSelector.Location = new Point(657, 373);
+            cmb_seasonSelector.Name = "cmb_seasonSelector";
+            cmb_seasonSelector.Size = new Size(238, 28);
+            cmb_seasonSelector.TabIndex = 20;
+            cmb_seasonSelector.SelectedIndexChanged += year_elector_SelectedIndexChanged;
             // 
             // button1
             // 
@@ -259,7 +261,7 @@
             ClientSize = new Size(927, 449);
             Controls.Add(tbx_isWinner);
             Controls.Add(button1);
-            Controls.Add(year_elector);
+            Controls.Add(cmb_seasonSelector);
             Controls.Add(label5);
             Controls.Add(lbx_Editions);
             Controls.Add(label4);
@@ -306,7 +308,7 @@
         private Label label4;
         private ListBox lbx_Editions;
         private Label label5;
-        private ComboBox year_elector;
+        private ComboBox cmb_seasonSelector;
         private Button button1;
         private TextBox tbx_isWinner;
     }
