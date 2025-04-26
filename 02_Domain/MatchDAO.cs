@@ -178,7 +178,7 @@ namespace BazyDanychBadminton._02_Domain
             return DBBroker.getInstance().Change(sql);
         }
 
-        public List<Match> ReadByPlayerAndSeason(Player p, Season s)
+        public List<Match> ReadByPlayerAndSeason(Player p, Edition e)
         {
             string sql = "SELECT * FROM Plays WHERE player='" + p.IdPlayer + "';";
             List<string[]> table = DBBroker.getInstance().Read(sql);
@@ -188,7 +188,7 @@ namespace BazyDanychBadminton._02_Domain
                 string[] row = table[0];
                 Match m = new Match(int.Parse(row[1]));
                 m.ReadMatchById();
-                if (m.Season.Season_year == s.Season_year)
+                if (m.MatchEdition.EditionSeason.Season_year == e.EditionSeason.Season_year)
                 {
                     result.Add(m);
                 }

@@ -133,9 +133,9 @@ namespace BazyDanychBadminton._02_Domain
             }
             return 0;
         }
-        public List<Match> ReadMatchesByPlayerAndSeason(Player p, Season s)
+        public List<Match> ReadMatchesByPlayerAndSeason(Player p, Edition e)
         {
-            return this._matchDAO.ReadByPlayerAndSeason(p, s);
+            return this._matchDAO.ReadByPlayerAndSeason(p, e);
         }
 
         public void SimulateMatch()

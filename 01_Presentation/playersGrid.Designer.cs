@@ -29,62 +29,28 @@
         private void InitializeComponent()
         {
             dataGridView1 = new DataGridView();
-            tournaments_column = new DataGridViewTextBoxColumn();
-            result_column = new DataGridViewTextBoxColumn();
-            rounds_column = new DataGridViewTextBoxColumn();
-            rival_column = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { tournaments_column, result_column, rounds_column, rival_column });
             dataGridView1.Location = new Point(-1, 0);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(707, 350);
+            dataGridView1.Size = new Size(619, 262);
             dataGridView1.TabIndex = 24;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // tournaments_column
-            // 
-            tournaments_column.HeaderText = "Tournaments";
-            tournaments_column.MinimumWidth = 6;
-            tournaments_column.Name = "tournaments_column";
-            tournaments_column.ReadOnly = true;
-            tournaments_column.Width = 125;
-            // 
-            // result_column
-            // 
-            result_column.HeaderText = "Result";
-            result_column.MinimumWidth = 6;
-            result_column.Name = "result_column";
-            result_column.ReadOnly = true;
-            result_column.Width = 125;
-            // 
-            // rounds_column
-            // 
-            rounds_column.HeaderText = "Round";
-            rounds_column.MinimumWidth = 6;
-            rounds_column.Name = "rounds_column";
-            rounds_column.ReadOnly = true;
-            rounds_column.Width = 125;
-            // 
-            // rival_column
-            // 
-            rival_column.HeaderText = "Rival";
-            rival_column.MinimumWidth = 6;
-            rival_column.Name = "rival_column";
-            rival_column.ReadOnly = true;
-            rival_column.Width = 125;
+            
             // 
             // playersGrid
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(706, 346);
+            ClientSize = new Size(618, 260);
             Controls.Add(dataGridView1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "playersGrid";
             Text = "playersGrid";
             Load += playersGrid_Load;
@@ -95,9 +61,5 @@
         #endregion
 
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn tournaments_column;
-        private DataGridViewTextBoxColumn result_column;
-        private DataGridViewTextBoxColumn rounds_column;
-        private DataGridViewTextBoxColumn rival_column;
     }
 }

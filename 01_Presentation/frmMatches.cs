@@ -141,5 +141,10 @@ namespace BazyDanychBadminton._01_Presentation
         {
 
         }
+
+        private void s_first_player_name_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
