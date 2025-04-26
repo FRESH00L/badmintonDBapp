@@ -373,7 +373,7 @@
             Controls.Add(semifinals_label);
             Controls.Add(queartefinals_label);
             Name = "frmMatches";
-            Text = "Form1";
+            Text = "frmMatches";
             Load += frmMatches_Load;
             ResumeLayout(false);
             PerformLayout();

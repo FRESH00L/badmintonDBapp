@@ -29,6 +29,10 @@ namespace BazyDanychBadminton._01_Presentation
         {
             try
             {
+                Match m = new Match();
+                List<Match> matches = m.ReadMatchesByPlayerAndSeason(this._selectedPlayer,this._selectedSeason);
+                // TODO: get maximum round in each match for a tournament in order to get result, round and rival in the final match
+
                 string sql = $@"SELECT t.TouName AS Tournament,
                                m.Result,
                                m.Round,

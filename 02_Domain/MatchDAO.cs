@@ -83,42 +83,42 @@ namespace BazyDanychBadminton._02_Domain
                 }
             }
         }
-		public List<Match> ReadByEdition(Edition e, Tournament t, string r)
-		{
-			string sql = "SELECT * FROM Matches WHERE season='" + e.EditionSeason.ToString() + "' AND tournament='" + t.IdTournament + "' AND round='" + r + "';";
-			List<string[]> table = DBBroker.getInstance().Read(sql);
+        public List<Match> ReadByEdition(Edition e, Tournament t, string r)
+        {
+            string sql = "SELECT * FROM Matches WHERE season='" + e.EditionSeason.ToString() + "' AND tournament='" + t.IdTournament + "' AND round='" + r + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
 
-			List<Match> matches = new List<Match>();
+            List<Match> matches = new List<Match>();
 
-			foreach (var row in table)
-			{
-				Match m = new Match();
-				m.IdMatch = int.Parse(row[0]);
-				m.Season = new Season(int.Parse(row[1]));
-				m.Tournament = new Tournament(int.Parse(row[2]));
-				m.Round = row[4];
-				m.MatchEdition = e;
+            foreach (var row in table)
+            {
+                Match m = new Match();
+                m.IdMatch = int.Parse(row[0]);
+                m.Season = new Season(int.Parse(row[1]));
+                m.Tournament = new Tournament(int.Parse(row[2]));
+                m.Round = row[4];
+                m.MatchEdition = e;
 
-				if (!string.IsNullOrEmpty(row[3]))
-				{
-					Player winner = new Player(int.Parse(row[3]));
-					winner.ReadPlayerById();
-					m.Winner = winner;
-				}
+                if (!string.IsNullOrEmpty(row[3]))
+                {
+                    Player winner = new Player(int.Parse(row[3]));
+                    winner.ReadPlayerById();
+                    m.Winner = winner;
+                }
 
-				matches.Add(m);
-			}
+                matches.Add(m);
+            }
 
-			return matches;
-		}
+            return matches;
+        }
         public List<Player> ReadPlayer(Match m)
         {
             string sql = "SELECT * FROM Plays WHERE idMatch='" + m.IdMatch + "';";
-			List<string[]> table = DBBroker.getInstance().Read(sql);
+            List<string[]> table = DBBroker.getInstance().Read(sql);
 
-			List<Player> players = new List<Player>();
+            List<Player> players = new List<Player>();
 
-			foreach (var row in table)
+            foreach (var row in table)
             {
                 Player player = new Player();
                 player.IdPlayer = int.Parse(row[0]);
@@ -126,33 +126,33 @@ namespace BazyDanychBadminton._02_Domain
                 players.Add(player);
             }
             return players;
-		}
+        }
 
-		public (int, int, int?) ReadPoints(Match m, Player p)
-		{
-			string sql = "SELECT * FROM Plays WHERE idMatch='" + m.IdMatch + "' AND player='" + p.IdPlayer + "';";
-			List<string[]> table = DBBroker.getInstance().Read(sql);
+        public (int, int, int?) ReadPoints(Match m, Player p)
+        {
+            string sql = "SELECT * FROM Plays WHERE idMatch='" + m.IdMatch + "' AND player='" + p.IdPlayer + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
 
-			if (table.Count > 0)
-			{
-				string[] row = table[0];
+            if (table.Count > 0)
+            {
+                string[] row = table[0];
 
-				int set1 = int.Parse(row[2]);
-				int set2 = int.Parse(row[3]);
-				int? set3 = null;
+                int set1 = int.Parse(row[2]);
+                int set2 = int.Parse(row[3]);
+                int? set3 = null;
 
-				if (!string.IsNullOrEmpty(row[4]))
-				{
-					set3 = int.Parse(row[4]);
-				}
+                if (!string.IsNullOrEmpty(row[4]))
+                {
+                    set3 = int.Parse(row[4]);
+                }
 
-				return (set1, set2, set3);
-			}
+                return (set1, set2, set3);
+            }
 
-			return (0, 0, null); 
-		}
+            return (0, 0, null);
+        }
 
-		public int Insert(Match m)
+        public int Insert(Match m)
         {
             string sql = "INSERT INTO Matches (season, tournament, winner, round) VALUES ('"
                          + m.Season + "', '"
@@ -176,6 +176,25 @@ namespace BazyDanychBadminton._02_Domain
         {
             string sql = "DELETE FROM Matches WHERE idMatch='" + m.IdMatch + "';";
             return DBBroker.getInstance().Change(sql);
+        }
+
+        public List<Match> ReadByPlayerAndSeason(Player p, Season s)
+        {
+            string sql = "SELECT * FROM Plays WHERE player='" + p.IdPlayer + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+            List<Match> result = new List<Match>();
+            if (table.Count > 0)
+            {
+                string[] row = table[0];
+                Match m = new Match(int.Parse(row[1]));
+                m.ReadMatchById();
+                if (m.Season.Season_year == s.Season_year)
+                {
+                    result.Add(m);
+                }
+            }
+
+            return result;
         }
     }
 }

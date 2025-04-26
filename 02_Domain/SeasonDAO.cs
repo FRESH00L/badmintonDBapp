@@ -115,5 +115,25 @@ namespace BazyDanychBadminton._02_Domain
             }
             return 1;
         }
+
+        public List<int> ReadByPlayer(Player player)
+        {
+            string sql = "SELECT * FROM Plays WHERE player='" + player.IdPlayer + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+            List<int> seasons = new List<int>();
+            if (table.Count > 0)
+            {
+                foreach (string[] row in table)
+                {
+                    Match m = new Match(int.Parse(row[1]));
+                    m.ReadMatchById();
+                    if (!seasons.Contains(m.Season.Season_year))
+                    {
+                        seasons.Add(m.Season.Season_year);
+                    }
+                }
+            }
+            return seasons;
+        }
     }
 }

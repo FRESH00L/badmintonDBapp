@@ -194,5 +194,10 @@ namespace BazyDanychBadminton._02_Domain
         {
             return season_year.ToString();
         }
+
+        public List<int> ReadSeasonsByPlayer(Player player)
+        {
+            return this.seasonDAO.ReadByPlayer(player);
+        }
     }
 }

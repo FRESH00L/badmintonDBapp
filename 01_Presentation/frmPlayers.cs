@@ -45,6 +45,7 @@ namespace BazyDanychBadminton._01_Presentation
             }
             lbx_Tournaments.Items.Clear();
             lbx_Editions.Items.Clear();
+            cmb_seasonSelector.Items.Clear();
             foreach (Tournament t in tournaments)
             {
                 lbx_Tournaments.Items.Add(t.TouName.ToString());
@@ -53,6 +54,13 @@ namespace BazyDanychBadminton._01_Presentation
             dbx_PlayerBirthDate.Value = player.PlaBirthDate;
             tbx_PlayerName.Text = player.PlaName;
             cmb_PlayerCountry.Text = player.PlaCountry.CountryName;
+
+            Season season = new Season();
+            List<int> list_season_years = season.ReadSeasonsByPlayer(player);
+            foreach (int year in list_season_years)
+            {
+                cmb_seasonSelector.Items.Add(year);
+            }
         }
         private void btn_Insert_Click(object sender, EventArgs e)
         {
@@ -213,13 +221,6 @@ namespace BazyDanychBadminton._01_Presentation
             foreach (Country cou in list_countries)
             {
                 cmb_PlayerCountry.Items.Add(cou.CountryName);
-            }
-
-            Season season = new Season();
-            List<int> list_season_years = season.ReadAllSeasons();
-            foreach (int year in list_season_years)
-            {
-                cmb_seasonSelector.Items.Add(year);
             }
         }
 
