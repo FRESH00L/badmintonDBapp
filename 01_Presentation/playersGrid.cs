@@ -24,7 +24,6 @@ namespace BazyDanychBadminton._01_Presentation
             this._selectedEdition = edition;
             this.Text = $"Results of {_selectedPlayer.PlaName} - Season {_selectedEdition.EditionSeason.Season_year}";
         }
-        // Solo selecciona los de 2020, por que
 
         private void playersGrid_Load(object sender, EventArgs e)
         {
@@ -33,7 +32,11 @@ namespace BazyDanychBadminton._01_Presentation
                 // Consulta SQL para obtener los partidos del jugador  
                 string sql = $@"  
                SELECT  
-                   m.tournament AS Tournaments,  
+                   (
+                        SELECT t.touName
+                        FROM Tournaments t
+                        WHERE t.idTournament = m.tournament
+                   ) AS Tournaments,
                    CASE  
                        WHEN m.winner = {_selectedPlayer.IdPlayer} THEN 'Won'  
                        ELSE 'Lost'  
