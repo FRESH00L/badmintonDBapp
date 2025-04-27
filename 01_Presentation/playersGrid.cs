@@ -22,8 +22,9 @@ namespace BazyDanychBadminton._01_Presentation
             InitializeComponent();
             this._selectedPlayer = player;
             this._selectedEdition = edition;
-            this.Text = $"Results of {_selectedPlayer.PlaName} - Season {_selectedEdition.EditionSeason}";
+            this.Text = $"Results of {_selectedPlayer.PlaName} - Season {_selectedEdition.EditionSeason.Season_year}";
         }
+        // Solo selecciona los de 2020, por que
 
         private void playersGrid_Load(object sender, EventArgs e)
         {

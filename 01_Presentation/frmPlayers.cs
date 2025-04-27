@@ -249,9 +249,10 @@ namespace BazyDanychBadminton._01_Presentation
             }
 
             Player selectedPlayer = this.player;
+            Edition selectedEdition = new Edition();
             int selectedYear = Convert.ToInt32(cmb_seasonSelector.SelectedItem);
-            Edition selectedEdition = new Edition(selectedYear);
-
+            Season season = new Season(selectedYear);
+            selectedEdition.EditionSeason = season;
             playersGrid pg = new playersGrid(selectedPlayer, selectedEdition);
             pg.ShowDialog();
 
