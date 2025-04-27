@@ -29,32 +29,48 @@ namespace BazyDanychBadminton._01_Presentation
         {
             try
             {
-                // Consulta SQL para obtener los partidos del jugador  
                 string sql = $@"  
-               SELECT  
-                   (
-                        SELECT t.touName
-                        FROM Tournaments t
-                        WHERE t.idTournament = m.tournament
-                   ) AS Tournaments,
-                   CASE  
-                       WHEN m.winner = {_selectedPlayer.IdPlayer} THEN 'Won'  
-                       ELSE 'Lost'  
-                   END AS Result,  
-                   m.round AS Round,  
-                   (  
-                       SELECT p.PlaName  
-                       FROM players p  
-                       JOIN plays pl_rival ON p.idPlayer = pl_rival.player  
-                       WHERE pl_rival.idMatch = m.idMatch  
-                         AND pl_rival.player <> {_selectedPlayer.IdPlayer}  
-                   ) AS Rival  
-               FROM matches m  
-               JOIN plays pl_selected ON m.idMatch = pl_selected.idMatch  
-               WHERE pl_selected.player = {_selectedPlayer.IdPlayer}  
-                 AND m.season = {_selectedEdition.EditionSeason.Season_year};";
+                SELECT
+                    (SELECT t.touName 
+                    FROM Tournaments t 
+                    WHERE t.idTournament = m.tournament) AS Tournament,
+                    CASE
+                        WHEN m.winner = {_selectedPlayer.IdPlayer} AND m.round = 'F' THEN 'Won'
+                        ELSE 'Lost'
+                    END AS Result,
+                    m.round AS Round,
+                    (SELECT p.PlaName
+                     FROM players p
+                     JOIN plays pl_rival ON p.idPlayer = pl_rival.player
+                     WHERE pl_rival.idMatch = m.idMatch
+                       AND pl_rival.player <> {_selectedPlayer.IdPlayer}
+                    ) AS Rival
+                FROM matches m
+                JOIN plays pl_selected ON m.idMatch = pl_selected.idMatch
+                WHERE pl_selected.player = {_selectedPlayer.IdPlayer}
+                AND m.season = {_selectedEdition.EditionSeason.Season_year}
+                AND (
+                    CASE
+                        WHEN m.round = 'F' THEN 3
+                        WHEN m.round = 'S' THEN 2
+                        WHEN m.round = 'Q' THEN 1
+                        ELSE 0
+                    END
+                ) = (
+                    SELECT MAX(
+                        CASE WHEN m2.round = 'F' THEN 3
+                             WHEN m2.round = 'S' THEN 2
+                             WHEN m2.round = 'Q' THEN 1
+                             ELSE 0
+                        END)
+                    FROM matches m2
+                    JOIN plays pl_selected2 ON m2.idMatch = pl_selected2.idMatch
+                    WHERE pl_selected2.player = {_selectedPlayer.IdPlayer}
+                        AND m2.tournament = m.tournament
+                        AND m2.season = m.season
+                )
+              ;";
 
-                // Leer los datos de la base de datos  
                 List<string[]> table = DBBroker.getInstance().Read(sql);
 
                 if (table == null || table.Count == 0)
@@ -89,85 +105,3 @@ namespace BazyDanychBadminton._01_Presentation
         }
     }
 }
-/*private void playersGrid_Load(object sender, EventArgs e)
-        {
-            Match m = new Match();
-            List<Match> matches = m.ReadMatchesByPlayerAndSeason(this._selectedPlayer, this._selectedEdition);
-            string sql = "SELECT m.idMatch, m.tournament, m.winner, m.round " +
-                            " FROM matches m, plays pl " +
-                            " WHERE m.idMatch = pl.idMatch " +
-                            " AND pl.player = " + _selectedPlayer.IdPlayer +
-                            " AND m.season = " + _selectedEdition.EditionSeason.Season_year + ";";
-            List<string[]> table = DBBroker.getInstance().Read(sql);
-
-            string currentTournament = "";
-            string furthestRound = "";
-            string finalMatchId = "";
-            int finalWinner = 0;
-
-            foreach (string[] row in table)
-            {
-                string matchId = row[0];
-                int tournamentId = Convert.ToInt32(row[1]);
-                int winnerId = Convert.ToInt32(row[2]);
-                string round = row[3];
-
-                Tournament t = new Tournament(tournamentId);
-                t.ReadTournamentById();
-
-                // If switching tournaments, add the previous tournament's data to the grid  
-                if (!string.IsNullOrEmpty(currentTournament) && currentTournament != t.TouName)
-                {
-                    string rival = getRivalName(finalMatchId, _selectedPlayer.IdPlayer);
-                    matches.Add(new string[]
-                    {
-                       currentTournament, (finalWinner == _selectedPlayer.IdPlayer) ? "Won" : "Lost", furthestRound, rival
-                    });
-
-                    // Reset tracking for new tournament
-                    furthestRound = round;
-                    finalMatchId = matchId;
-                    finalWinner = winnerId;
-                    */
-
-/* try
-    {
-        Match m = new Match();
-        List<Match> matches = m.ReadMatchesByPlayerAndSeason(this._selectedPlayer,this._selectedSeason);
-        // TODO: get maximum round in each match for a tournament in order to get result, round and rival in the final match
-
-        string sql = $@"SELECT t.TouName AS Tournament,
-                       m.Result,
-                       m.Round,
-                       m.Rival
-                FROM Matches m
-                INNER JOIN Tournaments t ON m.TournamentId = t.IdTournament
-                INNER JOIN Editions e ON m.EditionId = e.IdEdition
-                WHERE m.PlayerId = {_selectedPlayer.IdPlayer} 
-                  AND e.EditionSeason = {_selectedSeason.Season_year}";
-        List<string[]> table = DBBroker.getInstance().Read(sql);
-
-        if (table == null || table.Count == 0)
-        {
-            MessageBox.Show("No data found for the selected player and season.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            return;
-        }
-
-        dataGridView1.Rows.Clear();
-        foreach (var row in table)
-        {
-            if (row.Length == 4)
-            {
-                dataGridView1.Rows.Add(row);
-            }
-            else
-            {
-                MessageBox.Show("Row format is incorrect.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-    }
-    catch (Exception ex)
-    {
-        MessageBox.Show($"Error loading match data: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-    }
-    */
