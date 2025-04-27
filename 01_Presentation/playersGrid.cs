@@ -29,49 +29,7 @@ namespace BazyDanychBadminton._01_Presentation
         {
             try
             {
-                string sql = $@"  
-                SELECT
-                    (SELECT t.touName 
-                    FROM Tournaments t 
-                    WHERE t.idTournament = m.tournament) AS Tournament,
-                    CASE
-                        WHEN m.winner = {_selectedPlayer.IdPlayer} AND m.round = 'F' THEN 'Won'
-                        ELSE 'Lost'
-                    END AS Result,
-                    m.round AS Round,
-                    (SELECT p.PlaName
-                     FROM players p
-                     JOIN plays pl_rival ON p.idPlayer = pl_rival.player
-                     WHERE pl_rival.idMatch = m.idMatch
-                       AND pl_rival.player <> {_selectedPlayer.IdPlayer}
-                    ) AS Rival
-                FROM matches m
-                JOIN plays pl_selected ON m.idMatch = pl_selected.idMatch
-                WHERE pl_selected.player = {_selectedPlayer.IdPlayer}
-                AND m.season = {_selectedEdition.EditionSeason.Season_year}
-                AND (
-                    CASE
-                        WHEN m.round = 'F' THEN 3
-                        WHEN m.round = 'S' THEN 2
-                        WHEN m.round = 'Q' THEN 1
-                        ELSE 0
-                    END
-                ) = (
-                    SELECT MAX(
-                        CASE WHEN m2.round = 'F' THEN 3
-                             WHEN m2.round = 'S' THEN 2
-                             WHEN m2.round = 'Q' THEN 1
-                             ELSE 0
-                        END)
-                    FROM matches m2
-                    JOIN plays pl_selected2 ON m2.idMatch = pl_selected2.idMatch
-                    WHERE pl_selected2.player = {_selectedPlayer.IdPlayer}
-                        AND m2.tournament = m.tournament
-                        AND m2.season = m.season
-                )
-              ;";
-
-                List<string[]> table = DBBroker.getInstance().Read(sql);
+                List<string[]> table = _selectedPlayer.ReadPlayerResultsByEdition(_selectedEdition);
 
                 if (table == null || table.Count == 0)
                 {

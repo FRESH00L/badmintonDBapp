@@ -30,7 +30,7 @@ namespace BazyDanychBadminton._02_Domain
             }
             return result;
         }
-            public void ReadById(Player p)
+        public void ReadById(Player p)
         {
             string sql = "SELECT * FROM Players WHERE idPlayer='" + p.IdPlayer + "';";
             List<string[]> table = DBBroker.getInstance().Read(sql);
@@ -74,6 +74,52 @@ namespace BazyDanychBadminton._02_Domain
         {
             string sql = "DELETE FROM Players Where idPlayer='" + p.IdPlayer + "';";
             return DBBroker.getInstance().Change(sql);
+        }
+
+        public List<string[]> ReadPlayerResultsByEdition(Player player, Edition edition)
+        {
+            string sql = $@"  
+                SELECT
+                    (SELECT t.touName 
+                    FROM Tournaments t 
+                    WHERE t.idTournament = m.tournament) AS Tournament,
+                    CASE
+                        WHEN m.winner = {player.IdPlayer} AND m.round = 'F' THEN 'Won'
+                        ELSE 'Lost'
+                    END AS Result,
+                    m.round AS Round,
+                    (SELECT p.PlaName
+                     FROM players p
+                     JOIN plays pl_rival ON p.idPlayer = pl_rival.player
+                     WHERE pl_rival.idMatch = m.idMatch
+                       AND pl_rival.player <> {player.IdPlayer}
+                    ) AS Rival
+                FROM matches m
+                JOIN plays pl_selected ON m.idMatch = pl_selected.idMatch
+                WHERE pl_selected.player = {player.IdPlayer}
+                AND m.season = {edition.EditionSeason.Season_year}
+                AND (
+                    CASE
+                        WHEN m.round = 'F' THEN 3
+                        WHEN m.round = 'S' THEN 2
+                        WHEN m.round = 'Q' THEN 1
+                        ELSE 0
+                    END
+                ) = (
+                    SELECT MAX(
+                        CASE WHEN m2.round = 'F' THEN 3
+                             WHEN m2.round = 'S' THEN 2
+                             WHEN m2.round = 'Q' THEN 1
+                             ELSE 0
+                        END)
+                    FROM matches m2
+                    JOIN plays pl_selected2 ON m2.idMatch = pl_selected2.idMatch
+                    WHERE pl_selected2.player = {player.IdPlayer}
+                        AND m2.tournament = m.tournament
+                        AND m2.season = m.season
+                )
+              ;";
+            return DBBroker.getInstance().Read(sql);
         }
     }
 }

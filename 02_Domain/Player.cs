@@ -85,5 +85,10 @@ namespace BazyDanychBadminton._02_Domain
             return 0;
             
         }
+
+        public List<string[]> ReadPlayerResultsByEdition(Edition selectedEdition)
+        {
+            return this._playerDAO.ReadPlayerResultsByEdition(this, selectedEdition);
+        }
     }
 }
