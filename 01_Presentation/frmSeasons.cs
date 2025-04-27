@@ -48,99 +48,104 @@ namespace BazyDanychBadminton._01_Presentation
             //Final
             var finals = matches.Where(m => m.Round == "F").ToList();
 
-
-            List<Player> players = match.ReadMatchPlayer(matches[0]); // Charges 2 players
-            List<int> points = new List<int>();
-
-            if (players.Count == 2)
+            try
             {
-                var (set1, set2, set3) = match.ReadMatchPoints(matches[0], players[0]);
-                q_score_first_player.Text = $"{set1}, {set2}, {set3}";
-                (set1, set2, set3) = match.ReadMatchPoints(matches[0], players[1]);
-                q_score_second_player.Text = $"{set1}, {set2}, {set3}";
+                List<Player> players = match.ReadMatchPlayer(matches[0]); // Charges 2 players
+                List<int> points = new List<int>();
 
-                q_first_player.Text = players[0].PlaName;
-                q_second_player.Text = players[1].PlaName;
-            }
-            players = match.ReadMatchPlayer(matches[1]); // Charges 2 players
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(matches[0], players[0]);
+                    q_score_first_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(matches[0], players[1]);
+                    q_score_second_player.Text = $"{set1}, {set2}, {set3}";
 
-            if (players.Count == 2)
+                    q_first_player.Text = players[0].PlaName;
+                    q_second_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(matches[1]); // Charges 2 players
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(matches[1], players[0]);
+                    q_score_third_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(matches[1], players[1]);
+                    q_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
+
+                    q_third_player.Text = players[0].PlaName;
+                    q_fourth_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(matches[2]); // Charges 2 players
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(matches[2], players[0]);
+                    q_score_fifth_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(matches[2], players[1]);
+                    q_score_sixth_player.Text = $"{set1}, {set2}, {set3}";
+
+                    q_fifth_player.Text = players[0].PlaName;
+                    q_sixth_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(matches[3]); // Charges 2 players
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(matches[3], players[0]);
+                    q_score_seventh_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(matches[3], players[1]);
+                    q_score_eightth_player.Text = $"{set1}, {set2}, {set3}";
+
+                    q_seventh_player.Text = players[0].PlaName;
+                    q_eighth_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(matches[4]); // Charges 2 players
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(matches[4], players[0]);
+                    s_score_first_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(matches[4], players[1]);
+                    s_score_second_player.Text = $"{set1}, {set2}, {set3}";
+
+                    s_first_player.Text = players[0].PlaName;
+                    s_second_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(matches[5]); // Charges 2 players
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(matches[5], players[0]);
+                    s_score_third_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(matches[5], players[1]);
+                    s_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
+
+                    s_third_player.Text = players[0].PlaName;
+                    s_fourth_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(matches[6]); // Charges 2 players
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(matches[6], players[0]);
+                    f_score_first_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(matches[6], players[1]);
+                    f_score_second_player.Text = $"{set1}, {set2}, {set3}";
+
+                    f_first_player.Text = players[0].PlaName;
+                    f_second_player.Text = players[1].PlaName;
+                }
+
+                var final_matches = new List<(Match, List<int>)>();
+
+                // Supposing there is just one final player, we take the first element
+                if (final_matches.Count > 0 && final_matches[0].Item1.Winner != null)
+                {
+                    winner_player.Text = final_matches[0].Item1.Winner.PlaName;
+                }
+            }catch(ArgumentOutOfRangeException ex)
             {
-                var (set1, set2, set3) = match.ReadMatchPoints(matches[1], players[0]);
-                q_score_third_player.Text = $"{set1}, {set2}, {set3}";
-                (set1, set2, set3) = match.ReadMatchPoints(matches[1], players[1]);
-                q_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
-
-                q_third_player.Text = players[0].PlaName;
-                q_fourth_player.Text = players[1].PlaName;
-            }
-            players = match.ReadMatchPlayer(matches[2]); // Charges 2 players
-
-            if (players.Count == 2)
-            {
-                var (set1, set2, set3) = match.ReadMatchPoints(matches[2], players[0]);
-                q_score_fifth_player.Text = $"{set1}, {set2}, {set3}";
-                (set1, set2, set3) = match.ReadMatchPoints(matches[2], players[1]);
-                q_score_sixth_player.Text = $"{set1}, {set2}, {set3}";
-
-                q_fifth_player.Text = players[0].PlaName;
-                q_sixth_player.Text = players[1].PlaName;
-            }
-            players = match.ReadMatchPlayer(matches[3]); // Charges 2 players
-
-            if (players.Count == 2)
-            {
-                var (set1, set2, set3) = match.ReadMatchPoints(matches[3], players[0]);
-                q_score_seventh_player.Text = $"{set1}, {set2}, {set3}";
-                (set1, set2, set3) = match.ReadMatchPoints(matches[3], players[1]);
-                q_score_eightth_player.Text = $"{set1}, {set2}, {set3}";
-
-                q_seventh_player.Text = players[0].PlaName;
-                q_eighth_player.Text = players[1].PlaName;
-            }
-            players = match.ReadMatchPlayer(matches[4]); // Charges 2 players
-
-            if (players.Count == 2)
-            {
-                var (set1, set2, set3) = match.ReadMatchPoints(matches[4], players[0]);
-                s_score_first_player.Text = $"{set1}, {set2}, {set3}";
-                (set1, set2, set3) = match.ReadMatchPoints(matches[4], players[1]);
-                s_score_second_player.Text = $"{set1}, {set2}, {set3}";
-
-                s_first_player.Text = players[0].PlaName;
-                s_second_player.Text = players[1].PlaName;
-            }
-            players = match.ReadMatchPlayer(matches[5]); // Charges 2 players
-
-            if (players.Count == 2)
-            {
-                var (set1, set2, set3) = match.ReadMatchPoints(matches[5], players[0]);
-                s_score_third_player.Text = $"{set1}, {set2}, {set3}";
-                (set1, set2, set3) = match.ReadMatchPoints(matches[5], players[1]);
-                s_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
-
-                s_third_player.Text = players[0].PlaName;
-                s_fourth_player.Text = players[1].PlaName;
-            }
-            players = match.ReadMatchPlayer(matches[6]); // Charges 2 players
-
-            if (players.Count == 2)
-            {
-                var (set1, set2, set3) = match.ReadMatchPoints(matches[6], players[0]);
-                f_score_first_player.Text = $"{set1}, {set2}, {set3}";
-                (set1, set2, set3) = match.ReadMatchPoints(matches[6], players[1]);
-                f_score_second_player.Text = $"{set1}, {set2}, {set3}";
-
-                f_first_player.Text = players[0].PlaName;
-                f_second_player.Text = players[1].PlaName;
-            }
-
-            var final_matches = new List<(Match, List<int>)>();
-
-            // Supposing there is just one final player, we take the first element
-            if (final_matches.Count > 0 && final_matches[0].Item1.Winner != null)
-            {
-                winner_player.Text = final_matches[0].Item1.Winner.PlaName;
+                Console.WriteLine("Error: Index out of range.");
             }
         }
         private void btn_Add_Click(object sender, EventArgs e)
