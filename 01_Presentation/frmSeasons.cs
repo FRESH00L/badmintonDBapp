@@ -1,5 +1,4 @@
 ﻿using BazyDanychBadminton._02_Domain;
-using MySqlX.XDevAPI.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +21,36 @@ namespace BazyDanychBadminton._01_Presentation
         }
         private void frmSeason_Load(object sender, EventArgs e)
         {
+            q_first_player.Text = "";
+            q_second_player.Text = "";
+            q_third_player.Text = "";
+            q_fourth_player.Text = "";
+            q_fifth_player.Text = "";
+            q_sixth_player.Text = "";
+            q_seventh_player.Text = "";
+            q_eighth_player.Text = "";
+            s_first_player.Text = "";
+            s_second_player.Text = "";
+            s_third_player.Text = "";
+            s_fourth_player.Text = "";
+            f_first_player.Text = "";
+            f_second_player.Text = "";
+            winner_player.Text = "";
+            q_score_first_player.Text = "";
+            q_score_second_player.Text = "";
+            q_score_third_player.Text = "";
+            q_score_fourth_player.Text = "";
+            q_score_fifth_player.Text = "";
+            q_score_sixth_player.Text = "";
+            q_score_seventh_player.Text = "";
+            q_score_eightth_player.Text = "";
+            s_score_first_player.Text = "";
+            s_score_second_player.Text = "";
+            s_score_third_player.Text = "";
+            s_score_fourth_player.Text = "";
+            f_score_first_player.Text = "";
+            f_score_second_player.Text = "";
+            winner_score.Text = "";
             season = new Season();
             List<int> list_seasons = season.ReadAllSeasons();
             foreach (int i in list_seasons)
@@ -33,119 +62,6 @@ namespace BazyDanychBadminton._01_Presentation
             foreach (Tournament tournamnet in list_tournament)
             {
                 lbx_ListOfAllTournaments.Items.Add(tournamnet.TouName);
-            }
-
-            List<Match> matches = new List<Match>();
-            Match match = new Match();
-            List<(Player, List<int>)> final_results = new List<(Player, List<int>)>();
-
-            // Quarterfinal
-            var quarterFinals = matches.Where(m => m.Round == "Q").ToList();
-
-            // Semifinal
-            var semiFinals = matches.Where(m => m.Round == "S").ToList();
-
-            //Final
-            var finals = matches.Where(m => m.Round == "F").ToList();
-
-            try
-            {
-                List<Player> players = match.ReadMatchPlayer(matches[0]); // Charges 2 players
-                List<int> points = new List<int>();
-
-                if (players.Count == 2)
-                {
-                    var (set1, set2, set3) = match.ReadMatchPoints(matches[0], players[0]);
-                    q_score_first_player.Text = $"{set1}, {set2}, {set3}";
-                    (set1, set2, set3) = match.ReadMatchPoints(matches[0], players[1]);
-                    q_score_second_player.Text = $"{set1}, {set2}, {set3}";
-
-                    q_first_player.Text = players[0].PlaName;
-                    q_second_player.Text = players[1].PlaName;
-                }
-                players = match.ReadMatchPlayer(matches[1]); // Charges 2 players
-
-                if (players.Count == 2)
-                {
-                    var (set1, set2, set3) = match.ReadMatchPoints(matches[1], players[0]);
-                    q_score_third_player.Text = $"{set1}, {set2}, {set3}";
-                    (set1, set2, set3) = match.ReadMatchPoints(matches[1], players[1]);
-                    q_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
-
-                    q_third_player.Text = players[0].PlaName;
-                    q_fourth_player.Text = players[1].PlaName;
-                }
-                players = match.ReadMatchPlayer(matches[2]); // Charges 2 players
-
-                if (players.Count == 2)
-                {
-                    var (set1, set2, set3) = match.ReadMatchPoints(matches[2], players[0]);
-                    q_score_fifth_player.Text = $"{set1}, {set2}, {set3}";
-                    (set1, set2, set3) = match.ReadMatchPoints(matches[2], players[1]);
-                    q_score_sixth_player.Text = $"{set1}, {set2}, {set3}";
-
-                    q_fifth_player.Text = players[0].PlaName;
-                    q_sixth_player.Text = players[1].PlaName;
-                }
-                players = match.ReadMatchPlayer(matches[3]); // Charges 2 players
-
-                if (players.Count == 2)
-                {
-                    var (set1, set2, set3) = match.ReadMatchPoints(matches[3], players[0]);
-                    q_score_seventh_player.Text = $"{set1}, {set2}, {set3}";
-                    (set1, set2, set3) = match.ReadMatchPoints(matches[3], players[1]);
-                    q_score_eightth_player.Text = $"{set1}, {set2}, {set3}";
-
-                    q_seventh_player.Text = players[0].PlaName;
-                    q_eighth_player.Text = players[1].PlaName;
-                }
-                players = match.ReadMatchPlayer(matches[4]); // Charges 2 players
-
-                if (players.Count == 2)
-                {
-                    var (set1, set2, set3) = match.ReadMatchPoints(matches[4], players[0]);
-                    s_score_first_player.Text = $"{set1}, {set2}, {set3}";
-                    (set1, set2, set3) = match.ReadMatchPoints(matches[4], players[1]);
-                    s_score_second_player.Text = $"{set1}, {set2}, {set3}";
-
-                    s_first_player.Text = players[0].PlaName;
-                    s_second_player.Text = players[1].PlaName;
-                }
-                players = match.ReadMatchPlayer(matches[5]); // Charges 2 players
-
-                if (players.Count == 2)
-                {
-                    var (set1, set2, set3) = match.ReadMatchPoints(matches[5], players[0]);
-                    s_score_third_player.Text = $"{set1}, {set2}, {set3}";
-                    (set1, set2, set3) = match.ReadMatchPoints(matches[5], players[1]);
-                    s_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
-
-                    s_third_player.Text = players[0].PlaName;
-                    s_fourth_player.Text = players[1].PlaName;
-                }
-                players = match.ReadMatchPlayer(matches[6]); // Charges 2 players
-
-                if (players.Count == 2)
-                {
-                    var (set1, set2, set3) = match.ReadMatchPoints(matches[6], players[0]);
-                    f_score_first_player.Text = $"{set1}, {set2}, {set3}";
-                    (set1, set2, set3) = match.ReadMatchPoints(matches[6], players[1]);
-                    f_score_second_player.Text = $"{set1}, {set2}, {set3}";
-
-                    f_first_player.Text = players[0].PlaName;
-                    f_second_player.Text = players[1].PlaName;
-                }
-
-                var final_matches = new List<(Match, List<int>)>();
-
-                // Supposing there is just one final player, we take the first element
-                if (final_matches.Count > 0 && final_matches[0].Item1.Winner != null)
-                {
-                    winner_player.Text = final_matches[0].Item1.Winner.PlaName;
-                }
-            }catch(ArgumentOutOfRangeException ex)
-            {
-                Console.WriteLine("Error: Index out of range.");
             }
         }
         private void btn_Add_Click(object sender, EventArgs e)
@@ -312,176 +228,156 @@ namespace BazyDanychBadminton._01_Presentation
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void lbx_ListSelectedTournament_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void q_first_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            m.ReadMatchById();
-            if (m.Round == "Q")
+            q_first_player.Text = "";
+            q_second_player.Text = "";
+            q_third_player.Text = "";
+            q_fourth_player.Text = "";
+            q_fifth_player.Text = "";
+            q_sixth_player.Text = "";
+            q_seventh_player.Text = "";
+            q_eighth_player.Text = "";
+            s_first_player.Text = "";
+            s_second_player.Text = "";
+            s_third_player.Text = "";
+            s_fourth_player.Text = "";
+            f_first_player.Text = "";
+            f_second_player.Text = "";
+            winner_player.Text = "";
+            q_score_first_player.Text = "";
+            q_score_second_player.Text = "";
+            q_score_third_player.Text = "";
+            q_score_fourth_player.Text = "";
+            q_score_fifth_player.Text = "";
+            q_score_sixth_player.Text = "";
+            q_score_seventh_player.Text = "";
+            q_score_eightth_player.Text = "";
+            s_score_first_player.Text = "";
+            s_score_second_player.Text = "";
+            s_score_third_player.Text = "";
+            s_score_fourth_player.Text = "";
+            f_score_first_player.Text = "";
+            f_score_second_player.Text = "";
+            winner_score.Text = "";
+            if (lbx_ListSelectedTournament.SelectedItem != null && lbx_ListOfSeasons.SelectedItem != null)
             {
-                //m.ReadMatchPlayer(); 
-                //q_first_player = m.Player1;
+                Tournament tournament = new Tournament();
+                tournament.TouName = lbx_ListSelectedTournament.SelectedItem.ToString();
+                tournament.ReadTournamentByName();
+                Edition edition = new Edition();
+                edition.EditionSeason.Season_year = int.Parse(lbx_ListOfSeasons.SelectedItem.ToString());
+                edition.EditionTournament = tournament;
+                edition.ReadEditionBySeasonAndTournament();
+
+                Match match = new Match();
+                List<Match> quarterFinalMatches = match.ReadMatchByEdition(edition, edition.EditionTournament, "Q");
+                List<Match> semiFinalMatches = match.ReadMatchByEdition(edition, edition.EditionTournament, "S");
+                List<Match> finalMatches = match.ReadMatchByEdition(edition, edition.EditionTournament, "F");
+                if (quarterFinalMatches.Count != 4 && semiFinalMatches.Count != 2 && finalMatches.Count != 1)
+                {
+                    MessageBox.Show("Error while reading seasons", "Error");
+                    return;
+                }
+
+                // Q
+                List<Player> players = match.ReadMatchPlayer(quarterFinalMatches[0]);
+                List<int> points = new List<int>();
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[0], players[0]);
+                    q_score_first_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[0], players[1]);
+                    q_score_second_player.Text = $"{set1}, {set2}, {set3}";
+
+                    q_first_player.Text = players[0].PlaName;
+                    q_second_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(quarterFinalMatches[1]);
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[1], players[0]);
+                    q_score_third_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[1], players[1]);
+                    q_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
+
+                    q_third_player.Text = players[0].PlaName;
+                    q_fourth_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(quarterFinalMatches[2]);
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[2], players[0]);
+                    q_score_fifth_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[2], players[1]);
+                    q_score_sixth_player.Text = $"{set1}, {set2}, {set3}";
+
+                    q_fifth_player.Text = players[0].PlaName;
+                    q_sixth_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(quarterFinalMatches[3]);
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[3], players[0]);
+                    q_score_seventh_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[3], players[1]);
+                    q_score_eightth_player.Text = $"{set1}, {set2}, {set3}";
+
+                    q_seventh_player.Text = players[0].PlaName;
+                    q_eighth_player.Text = players[1].PlaName;
+                }
+
+                // S
+                players = match.ReadMatchPlayer(semiFinalMatches[0]);
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(semiFinalMatches[0], players[0]);
+                    s_score_first_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(semiFinalMatches[0], players[1]);
+                    s_score_second_player.Text = $"{set1}, {set2}, {set3}";
+
+                    s_first_player.Text = players[0].PlaName;
+                    s_second_player.Text = players[1].PlaName;
+                }
+                players = match.ReadMatchPlayer(semiFinalMatches[1]);
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(semiFinalMatches[1], players[0]);
+                    s_score_third_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(semiFinalMatches[1], players[1]);
+                    s_score_fourth_player.Text = $"{set1}, {set2}, {set3}";
+
+                    s_third_player.Text = players[0].PlaName;
+                    s_fourth_player.Text = players[1].PlaName;
+                }
+                // F
+                players = match.ReadMatchPlayer(finalMatches[0]);
+
+                if (players.Count == 2)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(finalMatches[0], players[0]);
+                    f_score_first_player.Text = $"{set1}, {set2}, {set3}";
+                    (set1, set2, set3) = match.ReadMatchPoints(finalMatches[0], players[1]);
+                    f_score_second_player.Text = $"{set1}, {set2}, {set3}";
+
+                    f_first_player.Text = players[0].PlaName;
+                    f_second_player.Text = players[1].PlaName;
+                }
+
+                if (finalMatches[0].Winner != null)
+                {
+                    var (set1, set2, set3) = match.ReadMatchPoints(finalMatches[0], players[0]);
+                    winner_score.Text = $"{points}";
+                    winner_player.Text = finalMatches[0].Winner.PlaName;
+                }
             }
 
-        }
-
-        private void q_second_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "Q")
-            {
-                //q_second_player = m.Player2;
-            }
-        }
-
-        private void q_third_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "Q")
-            {
-                //q_third_player = m.Player1;
-            }
-        }
-
-        private void q_fourth_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "Q")
-            {
-                //q_fourth_player = m.Player2;
-            }
-        }
-
-        private void q_fifth_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "Q")
-            {
-                //q_fifth_player = m.Player1;
-            }
-        }
-
-        private void q_sixth_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "Q")
-            {
-                //q_sixth_player = m.Player2;
-            }
-        }
-
-        private void q_seventh_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "Q")
-            {
-                //q_seventh_player = m.Player1;
-            }
-        }
-
-        private void q_eighth_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "Q")
-            {
-                //q_eighth_player = m.Player2;
-            }
-        }
-
-        private void s_first_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "S")
-            {
-                //s_first_player = m.Player1;
-            }
-        }
-
-        private void s_second_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "S")
-            {
-                //s_second_player = m.Player2;
-            }
-        }
-
-        private void s_third_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "S")
-            {
-                //s_third_player = m.Player1;
-            }
-        }
-
-        private void s_fourth_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "S")
-            {
-                //s_fourth_player = m.Player2;
-            }
-        }
-
-        private void f_first_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            if (m.Round == "F")
-            {
-                //f_first_player = m.Player1;
-            }
-        }
-
-        private void f_second_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            m.ReadMatchById();
-            if (m.Round == "F")
-            {
-                //f_second_player = m.Player2;
-            }
-        }
-
-        private void winner_player_Click(object sender, EventArgs e)
-        {
-            Season s = new Season();
-            Match m = new Match();
-            s.ReadSeasonsByYear();
-            m.ReadMatchById();
-            //winner_player = m.Winner;
         }
     }
 }
