@@ -372,7 +372,11 @@ namespace BazyDanychBadminton._01_Presentation
 
                 if (finalMatches[0].Winner != null)
                 {
+                    var (set1, set2, set3) = match.ReadMatchPoints(finalMatches[0], players[0]);
+                    winner_score.Text = $"{set1}, {set2}, {set3}";
+
                     winner_player.Text = finalMatches[0].Winner.PlaName;
+
                 }
             }
 
