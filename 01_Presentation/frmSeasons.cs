@@ -43,7 +43,7 @@ namespace BazyDanychBadminton._01_Presentation
             q_score_fifth_player.Text = "";
             q_score_sixth_player.Text = "";
             q_score_seventh_player.Text = "";
-            q_score_eightth_player.Text = "";
+            q_score_eighth_player.Text = "";
             s_score_first_player.Text = "";
             s_score_second_player.Text = "";
             s_score_third_player.Text = "";
@@ -252,7 +252,7 @@ namespace BazyDanychBadminton._01_Presentation
             q_score_fifth_player.Text = "";
             q_score_sixth_player.Text = "";
             q_score_seventh_player.Text = "";
-            q_score_eightth_player.Text = "";
+            q_score_eighth_player.Text = "";
             s_score_first_player.Text = "";
             s_score_second_player.Text = "";
             s_score_third_player.Text = "";
@@ -325,7 +325,7 @@ namespace BazyDanychBadminton._01_Presentation
                     var (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[3], players[0]);
                     q_score_seventh_player.Text = $"{set1}, {set2}, {set3}";
                     (set1, set2, set3) = match.ReadMatchPoints(quarterFinalMatches[3], players[1]);
-                    q_score_eightth_player.Text = $"{set1}, {set2}, {set3}";
+                    q_score_eighth_player.Text = $"{set1}, {set2}, {set3}";
 
                     q_seventh_player.Text = players[0].PlaName;
                     q_eighth_player.Text = players[1].PlaName;

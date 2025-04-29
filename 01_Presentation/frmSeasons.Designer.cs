@@ -70,7 +70,7 @@
             q_score_fifth_player = new Label();
             q_score_sixth_player = new Label();
             q_score_seventh_player = new Label();
-            q_score_eightth_player = new Label();
+            q_score_eighth_player = new Label();
             s_score_first_player = new Label();
             s_score_second_player = new Label();
             s_score_third_player = new Label();
@@ -491,12 +491,12 @@
             // 
             // q_score_eightth_player
             // 
-            q_score_eightth_player.AutoSize = true;
-            q_score_eightth_player.Location = new Point(1036, 291);
-            q_score_eightth_player.Name = "q_score_eightth_player";
-            q_score_eightth_player.Size = new Size(95, 20);
-            q_score_eightth_player.TabIndex = 42;
-            q_score_eightth_player.Text = "playerScore8";
+            q_score_eighth_player.AutoSize = true;
+            q_score_eighth_player.Location = new Point(1036, 291);
+            q_score_eighth_player.Name = "q_score_eightth_player";
+            q_score_eighth_player.Size = new Size(95, 20);
+            q_score_eighth_player.TabIndex = 42;
+            q_score_eighth_player.Text = "playerScore8";
             // 
             // s_score_first_player
             // 
@@ -573,7 +573,7 @@
             Controls.Add(s_score_third_player);
             Controls.Add(s_score_second_player);
             Controls.Add(s_score_first_player);
-            Controls.Add(q_score_eightth_player);
+            Controls.Add(q_score_eighth_player);
             Controls.Add(q_score_seventh_player);
             Controls.Add(q_score_sixth_player);
             Controls.Add(q_score_fifth_player);
@@ -670,7 +670,7 @@
         private Label q_score_fifth_player;
         private Label q_score_sixth_player;
         private Label q_score_seventh_player;
-        private Label q_score_eightth_player;
+        private Label q_score_eighth_player;
         private Label s_score_first_player;
         private Label s_score_second_player;
         private Label s_score_third_player;
