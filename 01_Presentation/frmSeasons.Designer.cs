@@ -273,7 +273,7 @@
             // q_second_player
             // 
             q_second_player.AutoSize = true;
-            q_second_player.Location = new Point(853, 151);
+            q_second_player.Location = new Point(490, 191);
             q_second_player.Name = "q_second_player";
             q_second_player.Size = new Size(58, 20);
             q_second_player.TabIndex = 18;
@@ -282,7 +282,7 @@
             // q_third_player
             // 
             q_third_player.AutoSize = true;
-            q_third_player.Location = new Point(488, 191);
+            q_third_player.Location = new Point(853, 151);
             q_third_player.Name = "q_third_player";
             q_third_player.Size = new Size(58, 20);
             q_third_player.TabIndex = 19;
@@ -309,7 +309,7 @@
             // q_sixth_player
             // 
             q_sixth_player.AutoSize = true;
-            q_sixth_player.Location = new Point(853, 253);
+            q_sixth_player.Location = new Point(490, 291);
             q_sixth_player.Name = "q_sixth_player";
             q_sixth_player.Size = new Size(58, 20);
             q_sixth_player.TabIndex = 22;
@@ -318,7 +318,7 @@
             // q_seventh_player
             // 
             q_seventh_player.AutoSize = true;
-            q_seventh_player.Location = new Point(488, 291);
+            q_seventh_player.Location = new Point(853, 253);
             q_seventh_player.Name = "q_seventh_player";
             q_seventh_player.Size = new Size(58, 20);
             q_seventh_player.TabIndex = 23;
@@ -355,7 +355,7 @@
             // s_second_player
             // 
             s_second_player.AutoSize = true;
-            s_second_player.Location = new Point(853, 401);
+            s_second_player.Location = new Point(490, 444);
             s_second_player.Name = "s_second_player";
             s_second_player.Size = new Size(58, 20);
             s_second_player.TabIndex = 27;
@@ -364,7 +364,7 @@
             // s_third_player
             // 
             s_third_player.AutoSize = true;
-            s_third_player.Location = new Point(490, 444);
+            s_third_player.Location = new Point(853, 401);
             s_third_player.Name = "s_third_player";
             s_third_player.Size = new Size(58, 20);
             s_third_player.TabIndex = 28;
@@ -401,7 +401,7 @@
             // f_second_player
             // 
             f_second_player.AutoSize = true;
-            f_second_player.Location = new Point(853, 551);
+            f_second_player.Location = new Point(490, 589);
             f_second_player.Name = "f_second_player";
             f_second_player.Size = new Size(58, 20);
             f_second_player.TabIndex = 32;
@@ -438,7 +438,7 @@
             // q_score_second_player
             // 
             q_score_second_player.AutoSize = true;
-            q_score_second_player.Location = new Point(1036, 151);
+            q_score_second_player.Location = new Point(676, 191);
             q_score_second_player.Name = "q_score_second_player";
             q_score_second_player.Size = new Size(95, 20);
             q_score_second_player.TabIndex = 36;
@@ -447,7 +447,7 @@
             // q_score_third_player
             // 
             q_score_third_player.AutoSize = true;
-            q_score_third_player.Location = new Point(676, 191);
+            q_score_third_player.Location = new Point(1036, 151);
             q_score_third_player.Name = "q_score_third_player";
             q_score_third_player.Size = new Size(95, 20);
             q_score_third_player.TabIndex = 37;
@@ -474,7 +474,7 @@
             // q_score_sixth_player
             // 
             q_score_sixth_player.AutoSize = true;
-            q_score_sixth_player.Location = new Point(1036, 253);
+            q_score_sixth_player.Location = new Point(676, 291);
             q_score_sixth_player.Name = "q_score_sixth_player";
             q_score_sixth_player.Size = new Size(95, 20);
             q_score_sixth_player.TabIndex = 40;
@@ -483,7 +483,7 @@
             // q_score_seventh_player
             // 
             q_score_seventh_player.AutoSize = true;
-            q_score_seventh_player.Location = new Point(676, 291);
+            q_score_seventh_player.Location = new Point(1036, 253);
             q_score_seventh_player.Name = "q_score_seventh_player";
             q_score_seventh_player.Size = new Size(95, 20);
             q_score_seventh_player.TabIndex = 41;
@@ -510,7 +510,7 @@
             // s_score_second_player
             // 
             s_score_second_player.AutoSize = true;
-            s_score_second_player.Location = new Point(1044, 401);
+            s_score_second_player.Location = new Point(684, 444);
             s_score_second_player.Name = "s_score_second_player";
             s_score_second_player.Size = new Size(95, 20);
             s_score_second_player.TabIndex = 44;
@@ -519,7 +519,7 @@
             // s_score_third_player
             // 
             s_score_third_player.AutoSize = true;
-            s_score_third_player.Location = new Point(684, 444);
+            s_score_third_player.Location = new Point(1044, 401);
             s_score_third_player.Name = "s_score_third_player";
             s_score_third_player.Size = new Size(95, 20);
             s_score_third_player.TabIndex = 45;
@@ -546,7 +546,7 @@
             // f_score_second_player
             // 
             f_score_second_player.AutoSize = true;
-            f_score_second_player.Location = new Point(1044, 551);
+            f_score_second_player.Location = new Point(684, 589);
             f_score_second_player.Name = "f_score_second_player";
             f_score_second_player.Size = new Size(95, 20);
             f_score_second_player.TabIndex = 48;
