@@ -633,8 +633,6 @@
             Controls.Add(lbx_ListOfSeasons);
             Margin = new Padding(2);
             Name = "frmSeasons";
-            Text = "frmSeasons";
-            Load += frmSeason_Load;
             ((System.ComponentModel.ISupportInitialize)nud_SeasonYear).EndInit();
             ((System.ComponentModel.ISupportInitialize)nud_NumberOfTournament).EndInit();
             ResumeLayout(false);

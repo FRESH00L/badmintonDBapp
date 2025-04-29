@@ -20,10 +20,11 @@ namespace BazyDanychBadminton._01_Presentation
         {
             InitializeComponent();
         }
-        private void frmSeason_Load(object sender, EventArgs e)
+        private List<(Player, List<int>)> frmSeason_Load(object sender, EventArgs e)
         {
             season = new Season();
             List<int> list_seasons = season.ReadAllSeasons();
+
             foreach (int i in list_seasons)
             {
                 lbx_ListOfSeasons.Items.Add(i);
@@ -147,6 +148,7 @@ namespace BazyDanychBadminton._01_Presentation
             {
                 Console.WriteLine("Error: Index out of range.");
             }
+            return final_results;
         }
         private void btn_Add_Click(object sender, EventArgs e)
         {
