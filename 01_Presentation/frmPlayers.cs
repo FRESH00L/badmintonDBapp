@@ -84,7 +84,6 @@ namespace BazyDanychBadminton._01_Presentation
             player.PlaName = tbx_PlayerName.Text;
             player.PlaBirthDate = dbx_PlayerBirthDate.Value;
 
-
             Country cou = new Country();
             cou.CountryName = cmb_PlayerCountry.Text;
             cou.ReadCountryByName();
@@ -106,13 +105,13 @@ namespace BazyDanychBadminton._01_Presentation
                     MessageBox.Show("An error happened while inserting a player.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         private void btn_Update_Click(object sender, EventArgs e)
         {
             player = new Player(int.Parse(lbl_PlayerId.Text));
@@ -164,9 +163,7 @@ namespace BazyDanychBadminton._01_Presentation
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
         }
-
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             player = new Player(int.Parse(lbl_PlayerId.Text));
@@ -195,18 +192,19 @@ namespace BazyDanychBadminton._01_Presentation
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
         }
-
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             tbx_PlayerName.Text = "";
             dbx_PlayerBirthDate.Value = DateTime.Now;
             cmb_PlayerCountry.SelectedIndex = -1;
+            lbx_Tournaments.Items.Clear();
+            lbx_Editions.Items.Clear();
+            tbx_isWinner.Text = "";
+            cmb_seasonSelector.SelectedIndex = -1;
             btn_Delete.Enabled = false;
             btn_Update.Enabled = false;
         }
-
         private void frmPlayers_Load(object sender, EventArgs e)
         {
             player = new Player();
@@ -223,12 +221,10 @@ namespace BazyDanychBadminton._01_Presentation
                 cmb_PlayerCountry.Items.Add(cou.CountryName);
             }
         }
-
         private void player_result(object sender, EventArgs e)
         {
             Player p = new Player();
         }
-
         private void season_results_button(object sender, EventArgs e)
         {
             if (this.player == null || this.player.IdPlayer <= 0)
@@ -255,14 +251,7 @@ namespace BazyDanychBadminton._01_Presentation
             selectedEdition.EditionSeason = season;
             playersGrid pg = new playersGrid(selectedPlayer, selectedEdition);
             pg.ShowDialog();
-
         }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void lbx_Tournaments_SelectedIndexChanged(object sender, EventArgs e)
         {
             Tournament tournament = new Tournament();
@@ -289,7 +278,6 @@ namespace BazyDanychBadminton._01_Presentation
                 lbx_Editions.Items.Add(ed.EditionSeason.ToString());
             }
         }
-
         private void lbx_Editions_SelectedIndexChanged(object sender, EventArgs e)
         {
             Edition edition = new Edition();
@@ -324,11 +312,6 @@ namespace BazyDanychBadminton._01_Presentation
                     return;
                 }
             }
-        }
-
-        private void year_elector_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            
         }
     }
 }

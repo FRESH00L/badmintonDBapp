@@ -59,7 +59,6 @@ namespace BazyDanychBadminton._02_Domain
             this._player1Points = 0;
             this._player2Points = 0;
         }
-
         public Set(int idSet)
         {
             this.IdSet = idSet;
@@ -68,7 +67,6 @@ namespace BazyDanychBadminton._02_Domain
             this._player1Points = 0;
             this._player2Points = 0;
         }
-
         public Set(Match match, Player player1, Player player2, Random random)
         {
             this._match = match;

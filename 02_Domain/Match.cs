@@ -96,7 +96,6 @@ namespace BazyDanychBadminton._02_Domain
         {
             return this._matchDAO.ReadAll();
         }
-
         public void ReadMatchById()
         {
             this._matchDAO.ReadById(this);
@@ -109,21 +108,22 @@ namespace BazyDanychBadminton._02_Domain
         {
             return this._matchDAO.ReadPlayer(m);
         }
+        public List<Match> ReadMatchesByPlayerAndSeason(Player p, Edition e)
+        {
+            return this._matchDAO.ReadByPlayerAndSeason(p, e);
+        }
         public (int, int, int?) ReadMatchPoints(Match m, Player p)
         {
             return this._matchDAO.ReadPoints(m, p);
         }
-
         public int InsertMatch()
         {
             return this._matchDAO.Insert(this);
         }
-
         public int UpdateMatch()
         {
             return this._matchDAO.Update(this);
         }
-
         public int DeleteMatch()
         {
             DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
@@ -133,11 +133,6 @@ namespace BazyDanychBadminton._02_Domain
             }
             return 0;
         }
-        public List<Match> ReadMatchesByPlayerAndSeason(Player p, Edition e)
-        {
-            return this._matchDAO.ReadByPlayerAndSeason(p, e);
-        }
-
         public void SimulateMatch()
         {
             Random random = new Random();

@@ -30,7 +30,11 @@ namespace BazyDanychBadminton._02_Domain
             get { return _orderInSeason; } 
             set { _orderInSeason = value; }
         }
-        
+        public EditionDAO EditionDAO
+        {
+            get { return _editionDAO; }
+            set { _editionDAO = value; }
+        }
         public Edition() 
         {
             _editionDAO = new EditionDAO();
@@ -54,12 +58,10 @@ namespace BazyDanychBadminton._02_Domain
         {
             this.listOfMatches.Add(match);
         }
-
         public List<Edition> ReadAllEditions()
         {
             return this._editionDAO.ReadAllEditions();
         }
-
         public Edition ReadEditionByOrder()
         {
             Edition e = this._editionDAO.ReadByOrder(this);
@@ -74,7 +76,6 @@ namespace BazyDanychBadminton._02_Domain
         {
             return this._editionDAO.ReadBySeasonAndTournament(this);
         }
-
         public void InsertEdition()
         {
             this._editionDAO.InsertEdition(this);
@@ -88,6 +89,5 @@ namespace BazyDanychBadminton._02_Domain
             }
             return 0;
         }
-
     }
 }

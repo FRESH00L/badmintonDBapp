@@ -24,7 +24,6 @@ namespace BazyDanychBadminton._01_Presentation
             this._selectedEdition = edition;
             this.Text = $"Results of {_selectedPlayer.PlaName} - Season {_selectedEdition.EditionSeason.Season_year}";
         }
-
         private void playersGrid_Load(object sender, EventArgs e)
         {
             try
@@ -33,7 +32,7 @@ namespace BazyDanychBadminton._01_Presentation
 
                 if (table == null || table.Count == 0)
                 {
-                    MessageBox.Show("No se encontraron partidos para el jugador seleccionado en esta temporada.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("There are no matches for the selected player in this season.", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
 
@@ -43,7 +42,7 @@ namespace BazyDanychBadminton._01_Presentation
                 dataTable.Columns.Add("Round");
                 dataTable.Columns.Add("Rival");
 
-                // Llenar el DataGridView con los datos correctamente  
+                // Fill DataGridView  
                 foreach (string[] row in table)
                 {
                     dataTable.Rows.Add(row);
@@ -53,13 +52,8 @@ namespace BazyDanychBadminton._01_Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Error al cargar los datos de los partidos: {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show($"There was an error loading the data. {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-        }
-
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
         }
     }
 }

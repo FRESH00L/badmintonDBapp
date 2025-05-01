@@ -115,7 +115,6 @@
             cmb_TournamentCountry.Name = "cmb_TournamentCountry";
             cmb_TournamentCountry.Size = new Size(292, 28);
             cmb_TournamentCountry.TabIndex = 7;
-            cmb_TournamentCountry.SelectedIndexChanged += cmb_TournamentCountry_SelectedIndexChanged;
             // 
             // btn_Insert
             // 
@@ -195,7 +194,6 @@
             lbl_Champion.Size = new Size(77, 20);
             lbl_Champion.TabIndex = 15;
             lbl_Champion.Text = "Champion";
-            lbl_Champion.Click += label2_Click;
             // 
             // btn_show
             // 
@@ -241,8 +239,8 @@
             Controls.Add(lbx_Tournaments);
             Controls.Add(lbl_ListOfTournaments);
             Name = "frmTournaments";
-            Text = "Show edition tournaments";
-            Load += frmTournaments_Load_1;
+            Text = "frmTournaments";
+            Load += frmTournaments_Load;
             ResumeLayout(false);
             PerformLayout();
         }

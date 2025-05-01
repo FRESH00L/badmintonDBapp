@@ -13,7 +13,6 @@ namespace BazyDanychBadminton._02_Domain
         private int n_tournaments = 0;
         int MAX_TOURNAMENTS = 7;
         int MIN_TOURNAMENTS = 4;
-        
         private SeasonDAO seasonDAO;
 
         public int Season_year
@@ -21,31 +20,26 @@ namespace BazyDanychBadminton._02_Domain
             get { return season_year; }
             set { season_year = value; }
         }
-
         public List<Edition> Sea_editions
         {
             get { return season_editions; }
             set { season_editions = value; }
         }
-
         public int N_tournaments
         {
             get { return n_tournaments; }
             set { n_tournaments = value; }
         }
-
         public int max_tournaments
         {
             get { return MAX_TOURNAMENTS; }
             set { MAX_TOURNAMENTS = value; }
         }
-
         public int min_tournaments
         {
             get { return MIN_TOURNAMENTS; }
             set { MIN_TOURNAMENTS = value; }
         }
-        
         public Season()
         {
             this.season_year = 2020;
@@ -54,7 +48,6 @@ namespace BazyDanychBadminton._02_Domain
             this.season_editions = new List<Edition>();
             this.seasonDAO = new SeasonDAO();
         }
-
         public Season(int season_year)
         {
             this.season_year = season_year;
@@ -63,29 +56,55 @@ namespace BazyDanychBadminton._02_Domain
             this.season_editions = new List<Edition>();
             this.seasonDAO = new SeasonDAO();
         }
+        public List<int> ReadAllSeasons()
+        {
+            return this.seasonDAO.ReadAllSeasons();
+        }
+        public int ReadSeasonsByYear()
+        {
+            return this.seasonDAO.ReadByYear(this);
+        }
+        public List<int> ReadSeasonsByPlayer(Player player)
+        {
+            return this.seasonDAO.ReadByPlayer(player);
+        }
+        public int InsertSeason(Season season)
+        {
+            return this.seasonDAO.InsertSeason(this);
+        }
+        public int DeleteSeason()
+        {
+            DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
+            if (dialogResult == DialogResult.Yes)
+            {
+                return this.seasonDAO.DeleteSeason(this);
+            }
+            return 0;
+        }
+        public override string ToString()
+        {
+            return season_year.ToString();
+        }
         public int GenerateSeason(List<Tournament> listT)
         {
-            if (ReadSeasonsByYear()>0)
+            if (ReadSeasonsByYear() > 0)
             {
-                MessageBox.Show("There's already a season in this year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("There is already a season in this year", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return -1;
             }
             List<Player> players = new Player().ReadAllPlayers();
             if (players.Count < 8)
             {
-                MessageBox.Show("There's not enough players", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("There are not enough players", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return -1;
             }
-
-            if(listT.Count <= 7 && listT.Count >= 4)
+            if (listT.Count <= 7 && listT.Count >= 4)
             {
                 Random random = new Random();
                 int order = 1;
                 foreach (Tournament t in listT)
                 {
-
                     t.ReadTournamentByName();
-
                     List<Player> tournamentPlayers = players.OrderBy(x => random.Next()).Take(8).ToList();
                     List<Match> matches = new List<Match>();
                     List<Player> winners = new List<Player>();
@@ -138,66 +157,9 @@ namespace BazyDanychBadminton._02_Domain
                     }
                     this.season_editions.Add(edition);
                 }
-
-            }            
+            }
             InsertSeason(this);
             return 1;
-        }
-
-        public int CalculateTotalPointsForPlayer(Player player)
-        {
-            int totalPoints = 0;
-
-            foreach (Edition edition in this.Sea_editions)
-            {
-                foreach (Match match in edition.ListOfMatches)
-                {
-                    foreach (Set set in match.Sets)
-                    {
-                        if (set.Player1 == player)
-                        {
-                            totalPoints += set.Player1Points;
-                        }
-                        else if (set.Player2 == player)
-                        {
-                            totalPoints += set.Player2Points;
-                        }
-                    }
-                }
-            }
-            return totalPoints;
-        }
-
-
-        public List<int> ReadAllSeasons()
-        {
-            return this.seasonDAO.ReadAllSeasons();
-        }
-        public int ReadSeasonsByYear()
-        {
-            return this.seasonDAO.ReadByYear(this);
-        }
-        public int InsertSeason(Season season)
-        {
-            return this.seasonDAO.InsertSeason(this);
-        }
-        public int DeleteSeason()
-        {
-            DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
-            if (dialogResult == DialogResult.Yes)
-            {
-                return this.seasonDAO.DeleteSeason(this);
-            }
-            return 0;
-        }
-        public override string ToString()
-        {
-            return season_year.ToString();
-        }
-
-        public List<int> ReadSeasonsByPlayer(Player player)
-        {
-            return this.seasonDAO.ReadByPlayer(player);
         }
     }
 }

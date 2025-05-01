@@ -65,6 +65,10 @@ namespace BazyDanychBadminton._02_Domain
         {
             this.TournamentDAO.ReadById(this);
         }
+        public List<Tournament> ReadTournamentsByPlayer(Player p)
+        {
+            return this._tournamentDAO.ReadByPlayer(p);
+        }
         public int InsertTournament()
         {
             return this.TournamentDAO.Insert(this);
@@ -81,10 +85,6 @@ namespace BazyDanychBadminton._02_Domain
                 return this.TournamentDAO.Delete(this);
             }
             return 0;
-        }
-        public List<Tournament> ReadTournamentsByPlayer(Player p)
-        {
-            return this._tournamentDAO.ReadByPlayer(p);
         }
     }
 }

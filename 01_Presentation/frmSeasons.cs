@@ -75,6 +75,37 @@ namespace BazyDanychBadminton._01_Presentation
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             ClearSelectedList();
+            lbx_ListOfSeasons.SelectedIndex = -1;
+            q_first_player.Text = "";
+            q_second_player.Text = "";
+            q_third_player.Text = "";
+            q_fourth_player.Text = "";
+            q_fifth_player.Text = "";
+            q_sixth_player.Text = "";
+            q_seventh_player.Text = "";
+            q_eighth_player.Text = "";
+            s_first_player.Text = "";
+            s_second_player.Text = "";
+            s_third_player.Text = "";
+            s_fourth_player.Text = "";
+            f_first_player.Text = "";
+            f_second_player.Text = "";
+            winner_player.Text = "";
+            q_score_first_player.Text = "";
+            q_score_second_player.Text = "";
+            q_score_third_player.Text = "";
+            q_score_fourth_player.Text = "";
+            q_score_fifth_player.Text = "";
+            q_score_sixth_player.Text = "";
+            q_score_seventh_player.Text = "";
+            q_score_eighth_player.Text = "";
+            s_score_first_player.Text = "";
+            s_score_second_player.Text = "";
+            s_score_third_player.Text = "";
+            s_score_fourth_player.Text = "";
+            f_score_first_player.Text = "";
+            f_score_second_player.Text = "";
+            winner_score.Text = "";
         }
         private void ClearSelectedList()
         {
@@ -90,14 +121,14 @@ namespace BazyDanychBadminton._01_Presentation
             ClearSelectedList();
             if (lbx_ListOfAllTournaments.Items.Count == 0)
             {
-                MessageBox.Show("Theres no elements to choose");
+                MessageBox.Show("There are no elements to choose.");
                 return;
             }
             if (chbx_ChoseRandomly.Checked)
             {
                 if (lbx_ListOfAllTournaments.Items.Count < 4)
                 {
-                    MessageBox.Show("Not enough tournaments");
+                    MessageBox.Show("There are not enough tournaments.");
                     return;
                 }
                 int n = Convert.ToInt16(nud_NumberOfTournament.Value);
@@ -134,7 +165,7 @@ namespace BazyDanychBadminton._01_Presentation
                 }
                 else
                 {
-                    MessageBox.Show("Not enough tournaments in db");
+                    MessageBox.Show("There are not enough tournaments in database.");
                 }
             }
         }
@@ -152,7 +183,7 @@ namespace BazyDanychBadminton._01_Presentation
             }
             if (!(listOfTournaments.Count == nTou))
             {
-                MessageBox.Show("Number of tournaments must cover selected tournaments", "Error", MessageBoxButtons.OK);
+                MessageBox.Show("The number of tournaments must cover the selected tournaments.", "Error", MessageBoxButtons.OK);
                 return;
             }
             try
@@ -164,10 +195,10 @@ namespace BazyDanychBadminton._01_Presentation
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error while generating season:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                MessageBox.Show("Error while generating the season." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
-            MessageBox.Show("Correctly Generated Season");
+            MessageBox.Show("Correctly Generated Season.");
 
             lbx_ListOfAllTournaments.Items.Clear();
             tournament = new Tournament();
@@ -179,7 +210,7 @@ namespace BazyDanychBadminton._01_Presentation
             lbx_ListOfSeasons.Items.Add(season);
         }
         private void btn_DeleteSeason_Click(object sender, EventArgs e)
-        {
+        {  
             if (lbx_ListOfSeasons.SelectedItem != null)
             {
                 try
@@ -198,24 +229,25 @@ namespace BazyDanychBadminton._01_Presentation
                     }
                     else
                     {
-                        MessageBox.Show("Error while deleting season from database:", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                        MessageBox.Show("Error while deleting season from database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Hand);
                         return;
                     }
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show("Error while deleting season:" + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                    MessageBox.Show("Error while deleting season." + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 }
             }
         }
         private void lbx_ListOfSeasons_SelectedIndexChanged(object sender, EventArgs e)
         {
+            btn_DeleteSeason.Enabled = true;
             if (lbx_ListOfSeasons.SelectedItem != null)
             {
                 season.Season_year = int.Parse(lbx_ListOfSeasons.SelectedItem.ToString());
                 if (season.ReadSeasonsByYear() <= 0)
                 {
-                    MessageBox.Show("Error while reading seasons", "Error");
+                    MessageBox.Show("Error while reading seasons.", "Error");
                     return;
                 }
                 nud_SeasonYear.Value = season.Season_year;
@@ -227,7 +259,6 @@ namespace BazyDanychBadminton._01_Presentation
                 }
             }
         }
-
         private void lbx_ListSelectedTournament_SelectedIndexChanged(object sender, EventArgs e)
         {
             q_first_player.Text = "";
@@ -276,7 +307,7 @@ namespace BazyDanychBadminton._01_Presentation
                 List<Match> finalMatches = match.ReadMatchByEdition(edition, edition.EditionTournament, "F");
                 if (quarterFinalMatches.Count != 4 && semiFinalMatches.Count != 2 && finalMatches.Count != 1)
                 {
-                    MessageBox.Show("Error while reading seasons", "Error");
+                    MessageBox.Show("Error while reading seasons.", "Error");
                     return;
                 }
 
@@ -369,7 +400,7 @@ namespace BazyDanychBadminton._01_Presentation
                     f_first_player.Text = players[0].PlaName;
                     f_second_player.Text = players[1].PlaName;
                 }
-
+                // W
                 if (finalMatches[0].Winner != null)
                 {
                     var (set1, set2, set3) = match.ReadMatchPoints(finalMatches[0], players[0]);
@@ -377,7 +408,6 @@ namespace BazyDanychBadminton._01_Presentation
                     winner_player.Text = finalMatches[0].Winner.PlaName;
                 }
             }
-
         }
     }
 }

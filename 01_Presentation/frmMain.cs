@@ -16,25 +16,21 @@ namespace BazyDanychBadminton._01_Presentation
         {
             InitializeComponent();
         }
-
         private void btn_Countries_Click(object sender, EventArgs e)
         {
             frmCountries window = new frmCountries();
             window.ShowDialog();
         }
-
         private void btn_Players_Click(object sender, EventArgs e)
         {
             frmPlayers window = new frmPlayers();
             window.ShowDialog();
         }
-
         private void btn_Tournaments_Click(object sender, EventArgs e)
         {
             frmTournaments window = new frmTournaments();
             window.ShowDialog();
         }
-
         private void btn_Seasons_Click(object sender, EventArgs e)
         {
             frmSeasons window = new frmSeasons();

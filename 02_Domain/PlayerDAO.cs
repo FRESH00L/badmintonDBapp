@@ -60,22 +60,6 @@ namespace BazyDanychBadminton._02_Domain
                 p.PlaCountry = c;
             }
         }
-        public int Insert(Player p)
-        {
-            string sql = "INSERT INTO Players(plaName, plaBirthDate, plaCountry) VALUES ('" + p.PlaName + "', '" + p.PlaBirthDate.ToString("yyyy-MM-dd") + "', '" + p.PlaCountry.IdCountry + "');";
-            return DBBroker.getInstance().Change(sql);
-        }
-        public int Update(Player p)
-        {
-            string sql = "UPDATE Players SET plaName='" + p.PlaName + "', plaBirthDate= '" + p.PlaBirthDate.ToString("yyyy-MM-dd") + "', plaCountry= '" + p.PlaCountry.IdCountry + "' Where idPlayer='" + p.IdPlayer + "';";
-            return DBBroker.getInstance().Change(sql);
-        }
-        public int Delete(Player p)
-        {
-            string sql = "DELETE FROM Players Where idPlayer='" + p.IdPlayer + "';";
-            return DBBroker.getInstance().Change(sql);
-        }
-
         public List<string[]> ReadPlayerResultsByEdition(Player player, Edition edition)
         {
             string sql = $@"  
@@ -120,6 +104,21 @@ namespace BazyDanychBadminton._02_Domain
                 )
               ;";
             return DBBroker.getInstance().Read(sql);
+        }
+        public int Insert(Player p)
+        {
+            string sql = "INSERT INTO Players(plaName, plaBirthDate, plaCountry) VALUES ('" + p.PlaName + "', '" + p.PlaBirthDate.ToString("yyyy-MM-dd") + "', '" + p.PlaCountry.IdCountry + "');";
+            return DBBroker.getInstance().Change(sql);
+        }
+        public int Update(Player p)
+        {
+            string sql = "UPDATE Players SET plaName='" + p.PlaName + "', plaBirthDate= '" + p.PlaBirthDate.ToString("yyyy-MM-dd") + "', plaCountry= '" + p.PlaCountry.IdCountry + "' Where idPlayer='" + p.IdPlayer + "';";
+            return DBBroker.getInstance().Change(sql);
+        }
+        public int Delete(Player p)
+        {
+            string sql = "DELETE FROM Players Where idPlayer='" + p.IdPlayer + "';";
+            return DBBroker.getInstance().Change(sql);
         }
     }
 }
