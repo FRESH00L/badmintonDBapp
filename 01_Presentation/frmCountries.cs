@@ -120,7 +120,7 @@ namespace BazyDanychBadminton
                 }
                 else
                 {
-                    MessageBox.Show("An error happened while deleting a country.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("You can't delete a country which has players or tournaments involved.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
