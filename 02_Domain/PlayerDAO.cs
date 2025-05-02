@@ -1,4 +1,5 @@
 ﻿using BazyDanychBadminton._03_Persistance;
+using MySqlX.XDevAPI.Relational;
 using Org.BouncyCastle.Asn1.Cmp;
 using System;
 using System.Collections.Generic;
@@ -105,6 +106,23 @@ namespace BazyDanychBadminton._02_Domain
               ;";
             return DBBroker.getInstance().Read(sql);
         }
+        public bool CanDelete(Player p)
+        {
+            string sql = $@"
+            SELECT
+            (SELECT COUNT(*) FROM matches WHERE winner = {p.IdPlayer}) AS matchCount,
+            (SELECT COUNT(*) FROM plays WHERE player = {p.IdPlayer}) AS playsCount;";
+
+            List<string[]> result = DBBroker.getInstance().Read(sql);
+            if (result.Count > 0)
+            {
+                string[] row = result[0];
+                int matchCount = Convert.ToInt32(row[0]);
+                int playsCount = Convert.ToInt32(row[1]);
+                return matchCount == 0 && playsCount == 0;
+            }
+            return false;
+        }
         public int Insert(Player p)
         {
             string sql = "INSERT INTO Players(plaName, plaBirthDate, plaCountry) VALUES ('" + p.PlaName + "', '" + p.PlaBirthDate.ToString("yyyy-MM-dd") + "', '" + p.PlaCountry.IdCountry + "');";
@@ -117,6 +135,10 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int Delete(Player p)
         {
+            if (!CanDelete(p))
+            {
+                return -1; // Cannot delete player, they are involved in matches or plays
+            }
             string sql = "DELETE FROM Players Where idPlayer='" + p.IdPlayer + "';";
             return DBBroker.getInstance().Change(sql);
         }

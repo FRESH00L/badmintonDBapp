@@ -186,10 +186,11 @@ namespace BazyDanychBadminton._01_Presentation
                     cmb_PlayerCountry.SelectedIndex = -1;
                     btn_Delete.Enabled = false;
                     btn_Update.Enabled = false;
+                    MessageBox.Show("Player deleted succesfully.");
                 }
                 else
                 {
-                    MessageBox.Show("An error happened while deleting a player.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("You can't delete a player who is involved in matches or plays", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
