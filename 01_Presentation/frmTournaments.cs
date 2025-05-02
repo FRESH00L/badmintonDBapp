@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -114,6 +115,12 @@ namespace BazyDanychBadminton._01_Presentation
 
             try
             {
+                tournament.ReadTournamentByName();
+                if (tournament.IdTournament > 0)
+                {
+                    MessageBox.Show("This tournament already exists.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
                 if (tournament.InsertTournament() == 1)
                 {
                     lbx_Tournaments.Items.Add(tournament.TouName);

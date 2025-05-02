@@ -43,11 +43,17 @@ namespace BazyDanychBadminton
         }
         private void btn_Insert_Click(object sender, EventArgs e)
         {
-            country = new Country(tbx_CountryId.Text);
+            country = new Country();
             country.CountryName = tbx_CountryName.Text;
             try
             {
-                if(country.GenerateCountryCode() == -1)
+                country.ReadCountryByName();
+                if (country.IdCountry != "")
+                {
+                    MessageBox.Show("This country already exists.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (country.GenerateCountryCode() == -1)
                 {
                     MessageBox.Show("The lenght of country name is not acceptable.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;

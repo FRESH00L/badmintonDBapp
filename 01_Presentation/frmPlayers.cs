@@ -91,6 +91,12 @@ namespace BazyDanychBadminton._01_Presentation
 
             try
             {
+                player.ReadPlayerByName();
+                if (player.IdPlayer > 0)
+                {
+                    MessageBox.Show("This player already exists.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
                 if (player.InsertPlayer() == 1)
                 {
                     lbx_ListOfPlayers.Items.Add(player.PlaName);
