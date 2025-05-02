@@ -117,7 +117,6 @@
             q_first_player_name.ReadOnly = true;
             q_first_player_name.Size = new Size(205, 23);
             q_first_player_name.TabIndex = 5;
-            q_first_player_name.TextChanged += q_first_player_name_TextChanged;
             // 
             // q_second_player_name
             // 
@@ -154,7 +153,6 @@
             s_first_player_name.ReadOnly = true;
             s_first_player_name.Size = new Size(205, 23);
             s_first_player_name.TabIndex = 9;
-            s_first_player_name.TextChanged += s_first_player_name_TextChanged;
             // 
             // s_second_player_name
             // 
@@ -263,7 +261,6 @@
             q_first_rival_name.ReadOnly = true;
             q_first_rival_name.Size = new Size(205, 23);
             q_first_rival_name.TabIndex = 21;
-            q_first_rival_name.TextChanged += q_first_rival_name_TextChanged;
             // 
             // q_second_rival_name
             // 

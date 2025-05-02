@@ -58,22 +58,6 @@ namespace BazyDanychBadminton._02_Domain
                 t.TouCountry = c;
             }
         }
-        public int Insert(Tournament t)
-        {
-            string sql = "INSERT INTO Tournaments(touName, touCity, touCountry) VALUES ('" + t.TouName + "', '" + t.TouCity + "', '" + t.TouCountry.IdCountry + "');";
-            return DBBroker.getInstance().Change(sql);
-        }
-        public int Update(Tournament t)
-        {
-            string sql = "UPDATE Tournaments SET touName= '" + t.TouName + "', touCity= '" + t.TouCity + "', touCountry= '" + t.TouCountry.IdCountry + "' WHERE idTournament='" + t.IdTournament + "';";
-            return DBBroker.getInstance().Change(sql);
-        }
-        public int Delete(Tournament t)
-        {
-            string sql = "DELETE FROM Tournaments WHERE idTournament='" + t.IdTournament + "';";
-            return DBBroker.getInstance().Change(sql);
-        }
-
         public List<Tournament> ReadByPlayer(Player p)
         {
             List<Tournament> result = new List<Tournament>();
@@ -93,9 +77,41 @@ namespace BazyDanychBadminton._02_Domain
                     result.Add(m.Tournament);
                 }
             }
-
             return result;
+        }
+        public bool CanDelete(Tournament t)
+        {
+            string sql = $@"
+            SELECT
+            (SELECT COUNT(*) FROM editions WHERE tournament = {t.IdTournament}) AS tournamentsCount;";
+
+            List<string[]> result = DBBroker.getInstance().Read(sql);
+            if (result.Count > 0)
+            {
+                string[] row = result[0];
+                int tournamentsCount = Convert.ToInt32(row[0]);
+                return tournamentsCount == 0;
+            }
+            return false;
+        }
+        public int Insert(Tournament t)
+        {
+            string sql = "INSERT INTO Tournaments(touName, touCity, touCountry) VALUES ('" + t.TouName + "', '" + t.TouCity + "', '" + t.TouCountry.IdCountry + "');";
+            return DBBroker.getInstance().Change(sql);
+        }
+        public int Update(Tournament t)
+        {
+            string sql = "UPDATE Tournaments SET touName= '" + t.TouName + "', touCity= '" + t.TouCity + "', touCountry= '" + t.TouCountry.IdCountry + "' WHERE idTournament='" + t.IdTournament + "';";
+            return DBBroker.getInstance().Change(sql);
+        }
+        public int Delete(Tournament t)
+        {
+            if (!this.CanDelete(t))
+            {
+                return -1; // Tournament cannot be deleted if it has editions related to it
+            }
+            string sql = "DELETE FROM Tournaments WHERE idTournament='" + t.IdTournament + "';";
+            return DBBroker.getInstance().Change(sql);
         }
     }
 }
-    

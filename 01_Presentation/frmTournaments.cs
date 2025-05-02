@@ -5,6 +5,7 @@ using System.Data;
 using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -66,7 +67,6 @@ namespace BazyDanychBadminton._01_Presentation
 
                     List<Match> finalMatches = m.ReadMatchByEdition(edition, tournament, "F");
 
-                    // Zakładamy, że finał jest tylko jeden – wtedy bierzemy pierwszy element
                     if (finalMatches.Count > 0 && finalMatches[0].Winner != null)
                     {
                         tbx_Winner.Text = finalMatches[0].Winner.PlaName;
@@ -85,8 +85,7 @@ namespace BazyDanychBadminton._01_Presentation
             }
 
         }
-
-        private void frmTournaments_Load_1(object sender, EventArgs e)
+        private void frmTournaments_Load(object sender, EventArgs e)
         {
             tournament = new Tournament();
             List<Tournament> list_tournaments = tournament.ReadAllTournaments();
@@ -116,6 +115,12 @@ namespace BazyDanychBadminton._01_Presentation
 
             try
             {
+                tournament.ReadTournamentByName();
+                if (tournament.IdTournament > 0)
+                {
+                    MessageBox.Show("This tournament already exists.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
                 if (tournament.InsertTournament() == 1)
                 {
                     lbx_Tournaments.Items.Add(tournament.TouName);
@@ -135,7 +140,6 @@ namespace BazyDanychBadminton._01_Presentation
                 MessageBox.Show(ex.Message, ex.Source, MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
-
         private void btn_Update_Click(object sender, EventArgs e)
         {
             tournament = new Tournament(int.Parse(lbl_TournamentId.Text));
@@ -189,7 +193,7 @@ namespace BazyDanychBadminton._01_Presentation
                 }
                 else
                 {
-                    MessageBox.Show("An error happened while deleting the tournament.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("You can't delete a tournament which has editions involved.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -205,15 +209,11 @@ namespace BazyDanychBadminton._01_Presentation
             tbx_TournamentName.Text = "";
             tbx_TournamentCity.Text = "";
             cmb_TournamentCountry.SelectedIndex = -1;
+            lbx_TouEdi.Items.Clear();
+            tbx_Winner.Text = "";
             btn_Delete.Enabled = false;
             btn_Update.Enabled = false;
         }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void winner_name_TextChanged(object sender, EventArgs e)
         {
             Edition ed = new Edition();
@@ -223,11 +223,6 @@ namespace BazyDanychBadminton._01_Presentation
         {
             frmMatches fm = new frmMatches(edition, tournament);
             fm.Show();
-        }
-
-        private void cmb_TournamentCountry_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

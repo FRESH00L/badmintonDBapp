@@ -233,7 +233,6 @@
             cmb_seasonSelector.Name = "cmb_seasonSelector";
             cmb_seasonSelector.Size = new Size(238, 28);
             cmb_seasonSelector.TabIndex = 20;
-            cmb_seasonSelector.SelectedIndexChanged += year_elector_SelectedIndexChanged;
             // 
             // button1
             // 

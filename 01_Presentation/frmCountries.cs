@@ -10,7 +10,6 @@ namespace BazyDanychBadminton
         {
             InitializeComponent();
         }
-
         private void lbx_Countries_SelectedIndexChanged(object sender, EventArgs e)
         {
             btn_Update.Enabled = true;
@@ -33,8 +32,7 @@ namespace BazyDanychBadminton
             tbx_CountryId.Text = country.IdCountry;
             tbx_CountryName.Text = country.CountryName;
         }
-
-        private void frmCountries_Load_1(object sender, EventArgs e)
+        private void frmCountries_Load(object sender, EventArgs e)
         {
             country = new Country();
             List<Country> list_countries = country.ReadAllCountries();
@@ -43,14 +41,19 @@ namespace BazyDanychBadminton
                 lbx_Countries.Items.Add(country.CountryName);
             }
         }
-
         private void btn_Insert_Click(object sender, EventArgs e)
         {
-            country = new Country(tbx_CountryId.Text);
+            country = new Country();
             country.CountryName = tbx_CountryName.Text;
             try
             {
-                if(country.GenerateCountryCode() == -1)
+                country.ReadCountryByName();
+                if (country.IdCountry != "")
+                {
+                    MessageBox.Show("This country already exists.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
+                if (country.GenerateCountryCode() == -1)
                 {
                     MessageBox.Show("The lenght of country name is not acceptable.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
@@ -74,8 +77,6 @@ namespace BazyDanychBadminton
             }
 
         }
-        
-
         private void btn_Update_Click(object sender, EventArgs e)
         {
             country = new Country(tbx_CountryId.Text);
@@ -103,7 +104,6 @@ namespace BazyDanychBadminton
                 return;
             }
         }
-
         private void btn_Delete_Click(object sender, EventArgs e)
         {
             country = new Country(tbx_CountryId.Text);
@@ -120,7 +120,7 @@ namespace BazyDanychBadminton
                 }
                 else
                 {
-                    MessageBox.Show("An error happened while deleting a country.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("You can't delete a country which has players or tournaments involved.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }
@@ -131,7 +131,6 @@ namespace BazyDanychBadminton
             }
 
         }
-
         private void btn_Clear_Click(object sender, EventArgs e)
         {
             tbx_CountryId.Text = "";

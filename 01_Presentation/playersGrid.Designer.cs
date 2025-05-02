@@ -41,7 +41,6 @@
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(619, 262);
             dataGridView1.TabIndex = 24;
-            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             
             // 
             // playersGrid

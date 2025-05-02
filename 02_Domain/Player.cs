@@ -12,30 +12,28 @@ namespace BazyDanychBadminton._02_Domain
         private string _playerName;
         private DateTime _playerBirthDate;
         private Country _playerCountry;
-
         private PlayerDAO _playerDAO;
 
-        public int IdPlayer 
-        { 
-            get { return _idPlayer; } 
-            set { _idPlayer = value; } 
+        public int IdPlayer
+        {
+            get { return _idPlayer; }
+            set { _idPlayer = value; }
         }
-        public string PlaName 
-        { 
-            get { return _playerName; } 
-            set { _playerName = value; } 
+        public string PlaName
+        {
+            get { return _playerName; }
+            set { _playerName = value; }
         }
-        public DateTime PlaBirthDate 
-        {  
-            get { return _playerBirthDate; } 
-            set { _playerBirthDate = value; } 
+        public DateTime PlaBirthDate
+        {
+            get { return _playerBirthDate; }
+            set { _playerBirthDate = value; }
         }
-        public Country PlaCountry 
-        { 
-            get { return _playerCountry; } 
-            set { _playerCountry = value; } 
+        public Country PlaCountry
+        {
+            get { return _playerCountry; }
+            set { _playerCountry = value; }
         }
-
         public Player()
         {
             this._playerName = "";
@@ -55,7 +53,6 @@ namespace BazyDanychBadminton._02_Domain
         {
             return this._playerDAO.ReadAll();
         }
-
         public void ReadPlayerById()
         {
             this._playerDAO.ReadById(this);
@@ -64,17 +61,18 @@ namespace BazyDanychBadminton._02_Domain
         {
             this._playerDAO.ReadByName(this);
         }
-
+        public List<string[]> ReadPlayerResultsByEdition(Edition selectedEdition)
+        {
+            return this._playerDAO.ReadPlayerResultsByEdition(this, selectedEdition);
+        }
         public int InsertPlayer()
         {
             return this._playerDAO.Insert(this);
         }
-
         public int UpdatePlayer()
         {
             return this._playerDAO.Update(this);
         }
-
         public int DeletePlayer()
         {
             DialogResult dialogResult = MessageBox.Show("Do you really want to delete it?", "WARNING", MessageBoxButtons.YesNo, MessageBoxIcon.Hand);
@@ -83,12 +81,6 @@ namespace BazyDanychBadminton._02_Domain
                 return this._playerDAO.Delete(this);
             }
             return 0;
-            
-        }
-
-        public List<string[]> ReadPlayerResultsByEdition(Edition selectedEdition)
-        {
-            return this._playerDAO.ReadPlayerResultsByEdition(this, selectedEdition);
         }
     }
 }

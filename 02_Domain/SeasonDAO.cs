@@ -24,7 +24,6 @@ namespace BazyDanychBadminton._02_Domain
             }
             return result;
         }
-
         public int ReadByYear(Season s)
         {
             string sql = "SELECT * FROM Editions WHERE season='" + s.Season_year + " ORDER BY OrderInSeason';";
@@ -56,7 +55,25 @@ namespace BazyDanychBadminton._02_Domain
             }
             return 0;
         }
-
+        public List<int> ReadByPlayer(Player player)
+        {
+            string sql = "SELECT * FROM Plays WHERE player='" + player.IdPlayer + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+            List<int> seasons = new List<int>();
+            if (table.Count > 0)
+            {
+                foreach (string[] row in table)
+                {
+                    Match m = new Match(int.Parse(row[1]));
+                    m.ReadMatchById();
+                    if (!seasons.Contains(m.Season.Season_year))
+                    {
+                        seasons.Add(m.Season.Season_year);
+                    }
+                }
+            }
+            return seasons;
+        }
         public int InsertSeason(Season s)
         {
             foreach (Edition edition in s.Sea_editions)
@@ -65,7 +82,7 @@ namespace BazyDanychBadminton._02_Domain
                 string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + s.Season_year + "', '" + edition.EditionTournament.IdTournament + "', '" + edition.OrderInSeason + "');";
                 DBBroker.getInstance().Change(sql);
 
-                foreach(Match m in matches)
+                foreach (Match m in matches)
                 {
                     string sql2 = "INSERT INTO Matches(idMatch, season, tournament, winner, round) VALUES ('" + m.IdMatch + "', '" + edition.EditionSeason.Season_year + "', '" + edition.EditionTournament.IdTournament + "', '" + m.Winner.IdPlayer + "', '" + m.Round + "');";
                     DBBroker.getInstance().Change(sql2);
@@ -114,26 +131,6 @@ namespace BazyDanychBadminton._02_Domain
                 DBBroker.getInstance().Change(sql);
             }
             return 1;
-        }
-
-        public List<int> ReadByPlayer(Player player)
-        {
-            string sql = "SELECT * FROM Plays WHERE player='" + player.IdPlayer + "';";
-            List<string[]> table = DBBroker.getInstance().Read(sql);
-            List<int> seasons = new List<int>();
-            if (table.Count > 0)
-            {
-                foreach (string[] row in table)
-                {
-                    Match m = new Match(int.Parse(row[1]));
-                    m.ReadMatchById();
-                    if (!seasons.Contains(m.Season.Season_year))
-                    {
-                        seasons.Add(m.Season.Season_year);
-                    }
-                }
-            }
-            return seasons;
         }
     }
 }

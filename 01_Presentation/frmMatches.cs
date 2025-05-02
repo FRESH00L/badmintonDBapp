@@ -21,28 +21,16 @@ namespace BazyDanychBadminton._01_Presentation
             this.edition = edition;
             this.tournament = tournament;
         }
-
-        private void q_first_player_name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void frmMatches_Load(object sender, EventArgs e)
         {
             List<Match> matches = new List<Match>();
             Match match = new Match();
 
-            // Pobierz mecze ćwierćfinałowe (Q)
             matches.AddRange(match.ReadMatchByEdition(edition, tournament, "Q"));
-
-            // Półfinały (S)
             matches.AddRange(match.ReadMatchByEdition(edition, tournament, "S"));
-
-            // Finał (F)
             matches.AddRange(match.ReadMatchByEdition(edition, tournament, "F"));
 
-
-            List<Player> players = match.ReadMatchPlayer(matches[0]); // pobierz 2 graczy
+            List<Player> players = match.ReadMatchPlayer(matches[0]); 
             List<int> points = new List<int>();
 
             if (players.Count == 2)
@@ -55,7 +43,7 @@ namespace BazyDanychBadminton._01_Presentation
                 q_first_player_name.Text = players[0].PlaName;
                 q_first_rival_name.Text = players[1].PlaName;
             }
-            players = match.ReadMatchPlayer(matches[1]); // pobierz 2 graczy
+            players = match.ReadMatchPlayer(matches[1]);
 
             if (players.Count == 2)
             {
@@ -67,7 +55,7 @@ namespace BazyDanychBadminton._01_Presentation
                 q_second_player_name.Text = players[0].PlaName;
                 q_second_rival_name.Text = players[1].PlaName;
             }
-            players = match.ReadMatchPlayer(matches[2]); // pobierz 2 graczy
+            players = match.ReadMatchPlayer(matches[2]);
 
             if (players.Count == 2)
             {
@@ -79,7 +67,7 @@ namespace BazyDanychBadminton._01_Presentation
                 q_third_player_name.Text = players[0].PlaName;
                 q_third_rival_name.Text = players[1].PlaName;
             }
-            players = match.ReadMatchPlayer(matches[3]); // pobierz 2 graczy
+            players = match.ReadMatchPlayer(matches[3]);
 
             if (players.Count == 2)
             {
@@ -91,7 +79,7 @@ namespace BazyDanychBadminton._01_Presentation
                 q_fourth_player_name.Text = players[0].PlaName;
                 q_fourth_rival_name.Text = players[1].PlaName;
             }
-            players = match.ReadMatchPlayer(matches[4]); // pobierz 2 graczy
+            players = match.ReadMatchPlayer(matches[4]);
 
             if (players.Count == 2)
             {
@@ -103,7 +91,7 @@ namespace BazyDanychBadminton._01_Presentation
                 s_first_player_name.Text = players[0].PlaName;
                 s_first_rival_name.Text = players[1].PlaName;
             }
-            players = match.ReadMatchPlayer(matches[5]); // pobierz 2 graczy
+            players = match.ReadMatchPlayer(matches[5]);
 
             if (players.Count == 2)
             {
@@ -115,7 +103,7 @@ namespace BazyDanychBadminton._01_Presentation
                 s_second_player_name.Text = players[0].PlaName;
                 s_second_rival_name.Text = players[1].PlaName;
             }
-            players = match.ReadMatchPlayer(matches[6]); // pobierz 2 graczy
+            players = match.ReadMatchPlayer(matches[6]);
 
             if (players.Count == 2)
             {
@@ -130,21 +118,10 @@ namespace BazyDanychBadminton._01_Presentation
 
             List<Match> finalMatches = match.ReadMatchByEdition(edition, tournament, "F");
 
-            // Zakładamy, że finał jest tylko jeden – wtedy bierzemy pierwszy element
             if (finalMatches.Count > 0 && finalMatches[0].Winner != null)
             {
                 champion_name.Text = finalMatches[0].Winner.PlaName;
             }
-        }
-
-        private void q_first_rival_name_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void s_first_player_name_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }

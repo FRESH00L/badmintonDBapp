@@ -38,34 +38,21 @@ namespace BazyDanychBadminton._02_Domain
         }
         public List<Edition> ReadByTournament(Tournament t)
         {
-			List<Edition> result = new List<Edition>();
-			string sql = "SELECT * FROM Editions WHERE tournament='" + t.IdTournament + "';";
-			List<string[]> table = DBBroker.getInstance().Read(sql);
+            List<Edition> result = new List<Edition>();
+            string sql = "SELECT * FROM Editions WHERE tournament='" + t.IdTournament + "';";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
 
-			foreach (string[] row in table)
-			{
-				Edition e = new Edition();
-				e.EditionSeason = new Season(int.Parse(row[0]));
+            foreach (string[] row in table)
+            {
+                Edition e = new Edition();
+                e.EditionSeason = new Season(int.Parse(row[0]));
                 e.EditionTournament = new Tournament(int.Parse(row[1]));
-				e.OrderInSeason = int.Parse(row[2]);
-				result.Add(e);
-			}
+                e.OrderInSeason = int.Parse(row[2]);
+                result.Add(e);
+            }
 
-			return result;
-		}
-
-		public int InsertEdition(Edition e)
-        {
-            string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + e.EditionSeason.Season_year + "', '" + e.EditionTournament.IdTournament + "', '" + e.OrderInSeason + "');";
-            return DBBroker.getInstance().Change(sql);
+            return result;
         }
-
-        public int DeleteEdition(Edition e)
-        {
-            string sql = "DELETE FROM Editions WHERE orderInSeason='" + e.OrderInSeason + "';";
-            return DBBroker.getInstance().Change(sql);
-        }
-
         public Edition ReadBySeasonAndTournament(Edition e)
         {
             string sql = "SELECT * FROM Editions WHERE season='" + e.EditionSeason.Season_year + "' AND tournament='" + e.EditionTournament.IdTournament + "';";
@@ -78,6 +65,16 @@ namespace BazyDanychBadminton._02_Domain
                 e.OrderInSeason = int.Parse(row[2]);
             }
             return e;
+        }
+        public int InsertEdition(Edition e)
+        {
+            string sql = "INSERT INTO Editions(season, tournament, orderInSeason) VALUES ('" + e.EditionSeason.Season_year + "', '" + e.EditionTournament.IdTournament + "', '" + e.OrderInSeason + "');";
+            return DBBroker.getInstance().Change(sql);
+        }
+        public int DeleteEdition(Edition e)
+        {
+            string sql = "DELETE FROM Editions WHERE orderInSeason='" + e.OrderInSeason + "';";
+            return DBBroker.getInstance().Change(sql);
         }
     }
 }

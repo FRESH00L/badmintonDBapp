@@ -160,8 +160,8 @@
             Controls.Add(lbx_Countries);
             Margin = new Padding(2);
             Name = "frmCountries";
-            Text = "FrmCountries";
-            Load += frmCountries_Load_1;
+            Text = "frmCountries";
+            Load += frmCountries_Load;
             ResumeLayout(false);
             PerformLayout();
         }
