@@ -193,7 +193,7 @@ namespace BazyDanychBadminton._01_Presentation
                 }
                 else
                 {
-                    MessageBox.Show("An error happened while deleting the tournament.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("You can't delete a tournament which has editions involved.", "Error: DELETE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }

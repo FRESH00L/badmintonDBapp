@@ -79,6 +79,21 @@ namespace BazyDanychBadminton._02_Domain
             }
             return result;
         }
+        public bool CanDelete(Tournament t)
+        {
+            string sql = $@"
+            SELECT
+            (SELECT COUNT(*) FROM editions WHERE tournament = {t.IdTournament}) AS tournamentsCount;";
+
+            List<string[]> result = DBBroker.getInstance().Read(sql);
+            if (result.Count > 0)
+            {
+                string[] row = result[0];
+                int tournamentsCount = Convert.ToInt32(row[0]);
+                return tournamentsCount == 0;
+            }
+            return false;
+        }
         public int Insert(Tournament t)
         {
             string sql = "INSERT INTO Tournaments(touName, touCity, touCountry) VALUES ('" + t.TouName + "', '" + t.TouCity + "', '" + t.TouCountry.IdCountry + "');";
@@ -91,6 +106,10 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int Delete(Tournament t)
         {
+            if (!this.CanDelete(t))
+            {
+                return -1; // Tournament cannot be deleted if it has editions related to it
+            }
             string sql = "DELETE FROM Tournaments WHERE idTournament='" + t.IdTournament + "';";
             return DBBroker.getInstance().Change(sql);
         }
