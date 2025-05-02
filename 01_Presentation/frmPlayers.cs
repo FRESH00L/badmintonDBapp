@@ -271,7 +271,7 @@ namespace BazyDanychBadminton._01_Presentation
             try
             {
                 tournament.ReadTournamentByName();
-                editions = edition.ReadEditionByTournament(tournament);
+                editions = edition.ReadEditionByTournamentAndPlayer(tournament, player);
             }
             catch (Exception ex)
             {

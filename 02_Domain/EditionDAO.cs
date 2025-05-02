@@ -53,6 +53,26 @@ namespace BazyDanychBadminton._02_Domain
 
             return result;
         }
+        public List<Edition> ReadByTournamentAndPlayer(Tournament t, Player p)
+        {
+            List<Edition> result = new List<Edition>();
+            string sql = "SELECT DISTINCT m.season " + 
+             "FROM Plays p " +             
+             "JOIN Matches m ON p.idMatch = m.idMatch " + 
+             "WHERE p.player = '" + p.IdPlayer + "' " +  
+             "AND m.tournament = '" + t.IdTournament + "'";
+            List<string[]> table = DBBroker.getInstance().Read(sql);
+
+            foreach (string[] row in table)
+            {
+                Edition e = new Edition();
+                e.EditionSeason = new Season(int.Parse(row[0]));
+                e.EditionTournament = t;
+                e.ReadEditionBySeasonAndTournament();
+                result.Add(e);
+            }
+            return result;
+        }
         public Edition ReadBySeasonAndTournament(Edition e)
         {
             string sql = "SELECT * FROM Editions WHERE season='" + e.EditionSeason.Season_year + "' AND tournament='" + e.EditionTournament.IdTournament + "';";
