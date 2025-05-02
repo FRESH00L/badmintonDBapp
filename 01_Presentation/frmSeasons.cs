@@ -291,36 +291,8 @@ namespace BazyDanychBadminton._01_Presentation
         }
         private void lbx_ListSelectedTournament_SelectedIndexChanged(object sender, EventArgs e)
         {
-            q_first_player.Text = "";
-            q_second_player.Text = "";
-            q_third_player.Text = "";
-            q_fourth_player.Text = "";
-            q_fifth_player.Text = "";
-            q_sixth_player.Text = "";
-            q_seventh_player.Text = "";
-            q_eighth_player.Text = "";
-            s_first_player.Text = "";
-            s_second_player.Text = "";
-            s_third_player.Text = "";
-            s_fourth_player.Text = "";
-            f_first_player.Text = "";
-            f_second_player.Text = "";
-            winner_player.Text = "";
-            q_score_first_player.Text = "";
-            q_score_second_player.Text = "";
-            q_score_third_player.Text = "";
-            q_score_fourth_player.Text = "";
-            q_score_fifth_player.Text = "";
-            q_score_sixth_player.Text = "";
-            q_score_seventh_player.Text = "";
-            q_score_eighth_player.Text = "";
-            s_score_first_player.Text = "";
-            s_score_second_player.Text = "";
-            s_score_third_player.Text = "";
-            s_score_fourth_player.Text = "";
-            f_score_first_player.Text = "";
-            f_score_second_player.Text = "";
-            winner_score.Text = "";
+            clearLabels();
+
             if (lbx_ListSelectedTournament.SelectedItem != null && lbx_ListOfSeasons.SelectedItem != null)
             {
                 Tournament tournament = new Tournament();
@@ -438,6 +410,40 @@ namespace BazyDanychBadminton._01_Presentation
                     winner_player.Text = finalMatches[0].Winner.PlaName;
                 }
             }
+        }
+
+        public void clearLabels()
+        {
+            q_first_player.Text = "";
+            q_second_player.Text = "";
+            q_third_player.Text = "";
+            q_fourth_player.Text = "";
+            q_fifth_player.Text = "";
+            q_sixth_player.Text = "";
+            q_seventh_player.Text = "";
+            q_eighth_player.Text = "";
+            s_first_player.Text = "";
+            s_second_player.Text = "";
+            s_third_player.Text = "";
+            s_fourth_player.Text = "";
+            f_first_player.Text = "";
+            f_second_player.Text = "";
+            winner_player.Text = "";
+            q_score_first_player.Text = "";
+            q_score_second_player.Text = "";
+            q_score_third_player.Text = "";
+            q_score_fourth_player.Text = "";
+            q_score_fifth_player.Text = "";
+            q_score_sixth_player.Text = "";
+            q_score_seventh_player.Text = "";
+            q_score_eighth_player.Text = "";
+            s_score_first_player.Text = "";
+            s_score_second_player.Text = "";
+            s_score_third_player.Text = "";
+            s_score_fourth_player.Text = "";
+            f_score_first_player.Text = "";
+            f_score_second_player.Text = "";
+            winner_score.Text = "";
         }
     }
 }
