@@ -26,6 +26,7 @@ namespace BazyDanychBadminton._01_Presentation
         {
             btn_Update.Enabled = true;
             btn_Delete.Enabled = true;
+            tbx_Winner.Text = "";
 
             tournament = new Tournament();
             edition = new Edition();
@@ -213,10 +214,6 @@ namespace BazyDanychBadminton._01_Presentation
             tbx_Winner.Text = "";
             btn_Delete.Enabled = false;
             btn_Update.Enabled = false;
-        }
-        private void winner_name_TextChanged(object sender, EventArgs e)
-        {
-            Edition ed = new Edition();
         }
 
         private void show_edition_matches(object sender, EventArgs e)

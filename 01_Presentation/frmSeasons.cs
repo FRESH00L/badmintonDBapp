@@ -106,6 +106,10 @@ namespace BazyDanychBadminton._01_Presentation
             f_score_first_player.Text = "";
             f_score_second_player.Text = "";
             winner_score.Text = "";
+
+            btn_Add.Enabled = true;
+            chbx_ChoseRandomly.Enabled = true;
+            chbx_ChoseRandomly.Checked = false;
         }
         private void ClearSelectedList()
         {
@@ -272,6 +276,9 @@ namespace BazyDanychBadminton._01_Presentation
             f_score_second_player.Text = "";
             winner_score.Text = "";
             btn_DeleteSeason.Enabled = true;
+            btn_Add.Enabled = false;
+            chbx_ChoseRandomly.Enabled = false;
+
             if (lbx_ListOfSeasons.SelectedItem != null)
             {
                 season.Season_year = int.Parse(lbx_ListOfSeasons.SelectedItem.ToString());

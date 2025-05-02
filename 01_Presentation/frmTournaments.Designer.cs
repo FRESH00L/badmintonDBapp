@@ -213,7 +213,6 @@
             tbx_Winner.ReadOnly = true;
             tbx_Winner.Size = new Size(221, 27);
             tbx_Winner.TabIndex = 17;
-            tbx_Winner.TextChanged += winner_name_TextChanged;
             // 
             // frmTournaments
             // 

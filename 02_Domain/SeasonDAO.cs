@@ -86,8 +86,13 @@ namespace BazyDanychBadminton._02_Domain
                 {
                     string sql2 = "INSERT INTO Matches(idMatch, season, tournament, winner, round) VALUES ('" + m.IdMatch + "', '" + edition.EditionSeason.Season_year + "', '" + edition.EditionTournament.IdTournament + "', '" + m.Winner.IdPlayer + "', '" + m.Round + "');";
                     DBBroker.getInstance().Change(sql2);
-                    string sqlLastId = "SELECT LAST_INSERT_ID();";
-                    List<string[]> table = DBBroker.getInstance().Read(sqlLastId);
+                    string sqlId = "SELECT idMatch FROM Matches " +
+                                   "WHERE season = '" + edition.EditionSeason.Season_year + "' " +
+                                   "AND tournament = '" + edition.EditionTournament.IdTournament + "' " +
+                                   "AND winner = '" + m.Winner.IdPlayer + "' " +
+                                   "AND round = '" + m.Round + "' " +
+                                   "ORDER BY idMatch DESC LIMIT 1;";
+                    List<string[]> table = DBBroker.getInstance().Read(sqlId);
                     if (table.Count > 0)
                     {
                         m.IdMatch = int.Parse(table[0][0]);
