@@ -85,6 +85,12 @@ namespace BazyDanychBadminton
             newCountry.CountryName = tbx_CountryName.Text;
             try
             {
+                country.ReadCountryByName();
+                if (country.IdCountry != "")
+                {
+                    MessageBox.Show("This country already exists.", "Error: INSERT", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    return;
+                }
                 if (newCountry.UpdateCountry() == 1)
                 {
                     lbx_Countries.Items.Remove(country.CountryName);
