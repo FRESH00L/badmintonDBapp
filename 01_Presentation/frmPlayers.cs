@@ -202,6 +202,7 @@ namespace BazyDanychBadminton._01_Presentation
         }
         private void btn_Clear_Click(object sender, EventArgs e)
         {
+            lbx_ListOfPlayers.SelectedIndex = -1;
             tbx_PlayerName.Text = "";
             dbx_PlayerBirthDate.Value = DateTime.Now;
             cmb_PlayerCountry.SelectedIndex = -1;

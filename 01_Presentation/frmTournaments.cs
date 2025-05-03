@@ -209,11 +209,13 @@ namespace BazyDanychBadminton._01_Presentation
             lbl_TournamentId.Text = "";
             tbx_TournamentName.Text = "";
             tbx_TournamentCity.Text = "";
+            lbx_Tournaments.SelectedIndex = -1;
             cmb_TournamentCountry.SelectedIndex = -1;
             lbx_TouEdi.Items.Clear();
             tbx_Winner.Text = "";
             btn_Delete.Enabled = false;
             btn_Update.Enabled = false;
+            btn_show.Enabled = false;
         }
 
         private void show_edition_matches(object sender, EventArgs e)
