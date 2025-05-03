@@ -24,15 +24,14 @@ namespace BazyDanychBadminton._01_Presentation
 
         private void lbx_Tournaments_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btn_Update.Enabled = true;
-            btn_Delete.Enabled = true;
-            tbx_Winner.Text = "";
-
             tournament = new Tournament();
             edition = new Edition();
             List<Edition> editions = new List<Edition>();
             if (lbx_Tournaments.SelectedItem != null)
             {
+                btn_Update.Enabled = true;
+                btn_Delete.Enabled = true;
+                tbx_Winner.Text = "";
                 tournament.TouName = lbx_Tournaments.SelectedItem.ToString();
             }
             try

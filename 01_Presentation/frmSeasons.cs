@@ -49,6 +49,7 @@ namespace BazyDanychBadminton._01_Presentation
             lbx_ListOfSeasons.SelectedIndex = -1;
             clearLabels();
             btn_Add.Enabled = true;
+            btn_DeleteSeason.Enabled = false;
             chbx_ChoseRandomly.Enabled = true;
             chbx_ChoseRandomly.Checked = false;
         }
@@ -186,13 +187,12 @@ namespace BazyDanychBadminton._01_Presentation
         }
         private void lbx_ListOfSeasons_SelectedIndexChanged(object sender, EventArgs e)
         {
-            clearLabels();
-            btn_DeleteSeason.Enabled = true;
-            btn_Add.Enabled = false;
-            chbx_ChoseRandomly.Enabled = false;
-
             if (lbx_ListOfSeasons.SelectedItem != null)
             {
+                clearLabels();
+                btn_DeleteSeason.Enabled = true;
+                btn_Add.Enabled = false;
+                chbx_ChoseRandomly.Enabled = false;
                 season.Season_year = int.Parse(lbx_ListOfSeasons.SelectedItem.ToString());
                 if (season.ReadSeasonsByYear() <= 0)
                 {

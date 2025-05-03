@@ -21,16 +21,15 @@ namespace BazyDanychBadminton._01_Presentation
             InitializeComponent();
         }
         private void lbx_ListOfPlayers_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            btn_Delete.Enabled = true;
-            btn_Update.Enabled = true;
-            tbx_isWinner.Text = "";
-
+        {     
             player = new Player();
             Tournament tournament = new Tournament();
             List<Tournament> tournaments = new List<Tournament>();
             if (lbx_ListOfPlayers.SelectedItem != null)
             {
+                btn_Delete.Enabled = true;
+                btn_Update.Enabled = true;
+                tbx_isWinner.Text = "";
                 player.PlaName = lbx_ListOfPlayers.SelectedItem.ToString();
             }
             try

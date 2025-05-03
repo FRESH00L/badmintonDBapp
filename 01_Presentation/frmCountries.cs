@@ -12,12 +12,11 @@ namespace BazyDanychBadminton
         }
         private void lbx_Countries_SelectedIndexChanged(object sender, EventArgs e)
         {
-            btn_Update.Enabled = true;
-            btn_Delete.Enabled = true;
-
             country = new Country();
             if (lbx_Countries.SelectedItem != null)
             {
+                btn_Update.Enabled = true;
+                btn_Delete.Enabled = true;
                 country.CountryName = lbx_Countries.SelectedItem.ToString();
             }
             try
@@ -136,7 +135,8 @@ namespace BazyDanychBadminton
             tbx_CountryId.Text = "";
             tbx_CountryName.Text = "";
             btn_Delete.Enabled = false;
-            btn_Update.Enabled = false;     
+            btn_Update.Enabled = false;
+            lbx_Countries.SelectedIndex = -1;
         }
     }
 }
