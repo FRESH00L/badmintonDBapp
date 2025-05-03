@@ -52,7 +52,6 @@ namespace BazyDanychBadminton._02_Domain
             (SELECT COUNT(*) FROM players WHERE plaCountry = '{c.IdCountry}') AS playersCount,
             (SELECT COUNT(*) FROM tournaments WHERE touCountry = '{c.IdCountry}') AS tournamentsCount;";
 
-
             List<string[]> result = DBBroker.getInstance().Read(sql);
             if (result.Count > 0)
             {
@@ -63,6 +62,20 @@ namespace BazyDanychBadminton._02_Domain
             }
             return false;
         }
+        public bool CanUpdate(Country c)
+        {
+            string sql = $@"
+            SELECT COUNT(*) AS countriesCount FROM countries WHERE couName = '{c.CountryName}';";
+
+            List<string[]> result = DBBroker.getInstance().Read(sql);
+            if (result.Count > 0)
+            {
+                string[] row = result[0];
+                int countriesCount = Convert.ToInt32(row[0]);
+                return countriesCount == 0;
+            }
+            return false;
+        }
         public int Insert(Country c)
         {
             string sql = "INSERT INTO Countries VALUES ('" + c.IdCountry + "', '" + c.CountryName + "');";
@@ -70,6 +83,10 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int Update(Country c)
         {
+            if (!CanUpdate(c))
+            {
+                return -1; // Cannot update country, there's one with the same name
+            }
             string sql = "UPDATE Countries SET couName= '" + c.CountryName + "'WHERE idCountry='" + c.IdCountry + "';";
             return DBBroker.getInstance().Change(sql);
 
