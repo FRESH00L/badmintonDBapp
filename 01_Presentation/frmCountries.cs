@@ -94,7 +94,7 @@ namespace BazyDanychBadminton
                 }
                 else
                 {
-                    MessageBox.Show("You can't update a country with the same name as an existing one.", "Error: UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Country cannot be updated if there's one with that name.", "Error: UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }

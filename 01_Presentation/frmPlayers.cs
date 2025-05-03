@@ -160,7 +160,7 @@ namespace BazyDanychBadminton._01_Presentation
                 }
                 else
                 {
-                    MessageBox.Show("An error happened while updating a country.", "Error: UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                    MessageBox.Show("Player cannot be updated if there's one with that name.", "Error: UPDATE", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                     return;
                 }
             }

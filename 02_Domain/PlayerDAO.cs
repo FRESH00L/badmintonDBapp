@@ -123,6 +123,19 @@ namespace BazyDanychBadminton._02_Domain
             }
             return false;
         }
+        public bool CanUpdate(Player p)
+        {
+            string sql = $@"
+            SELECT COUNT(*) AS playersCount FROM players WHERE plaName = '{p.PlaName}';";
+            List<string[]> result = DBBroker.getInstance().Read(sql);
+            if (result.Count > 0)
+            {
+                string[] row = result[0];
+                int playersCount = Convert.ToInt32(row[0]);
+                return playersCount == 0;
+            }
+            return false;
+        }
         public int Insert(Player p)
         {
             string sql = "INSERT INTO Players(plaName, plaBirthDate, plaCountry) VALUES ('" + p.PlaName + "', '" + p.PlaBirthDate.ToString("yyyy-MM-dd") + "', '" + p.PlaCountry.IdCountry + "');";
@@ -130,6 +143,10 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int Update(Player p)
         {
+            if (!CanUpdate(p))
+            {
+                return -1; // Cannot update player, there's one with that name in the database
+            }
             string sql = "UPDATE Players SET plaName='" + p.PlaName + "', plaBirthDate= '" + p.PlaBirthDate.ToString("yyyy-MM-dd") + "', plaCountry= '" + p.PlaCountry.IdCountry + "' Where idPlayer='" + p.IdPlayer + "';";
             return DBBroker.getInstance().Change(sql);
         }

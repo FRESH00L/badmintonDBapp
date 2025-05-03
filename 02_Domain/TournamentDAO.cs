@@ -94,6 +94,19 @@ namespace BazyDanychBadminton._02_Domain
             }
             return false;
         }
+        public bool CanUpdate(Tournament t)
+        {
+            string sql = $@"
+            SELECT COUNT(*) AS tournamentsCount FROM tournaments WHERE touName = '{t.TouName}';";
+            List<string[]> result = DBBroker.getInstance().Read(sql);
+            if (result.Count > 0)
+            {
+                string[] row = result[0];
+                int tournamentsCount = Convert.ToInt32(row[0]);
+                return tournamentsCount == 0;
+            }
+            return false;
+        }
         public int Insert(Tournament t)
         {
             string sql = "INSERT INTO Tournaments(touName, touCity, touCountry) VALUES ('" + t.TouName + "', '" + t.TouCity + "', '" + t.TouCountry.IdCountry + "');";
@@ -101,6 +114,10 @@ namespace BazyDanychBadminton._02_Domain
         }
         public int Update(Tournament t)
         {
+            if (!this.CanUpdate(t))
+            {
+                return -1; // Tournament cannot be updated if there's one with that name in the database
+            }
             string sql = "UPDATE Tournaments SET touName= '" + t.TouName + "', touCity= '" + t.TouCity + "', touCountry= '" + t.TouCountry.IdCountry + "' WHERE idTournament='" + t.IdTournament + "';";
             return DBBroker.getInstance().Change(sql);
         }
